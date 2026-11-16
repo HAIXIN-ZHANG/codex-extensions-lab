@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technical Design"
-  short_description: "Design architecture and contracts before implementation"
-  default_prompt: "Use $technical-design to review these requirements and produce a proportionate tech spec with risks, validation and delivery slices."

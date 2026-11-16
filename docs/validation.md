@@ -1,5 +1,7 @@
 # v0.1 validation · 2026-11-16
 
+Naming update: v0.1.2 uses the [SkillDock namespace](naming.md). The helper suite now has twelve tests, including opt-in name migration with old edits preserved in backups. Private storage keys and the study archive format remain compatible. Historical source names below describe their original reviewed revisions.
+
 This records the initial v0.1 run. The [v0.1.1 review](reviews/2026-11-16-v01-review.md) adds three reproduced corrections and eleven passing helper tests, full Ruby YAML parsing, and sixteen prepared behavioral cases. The behavioral cases have not been run/scored as a model benchmark. Hosted CI status is separate from local results.
 
 ## Exercised

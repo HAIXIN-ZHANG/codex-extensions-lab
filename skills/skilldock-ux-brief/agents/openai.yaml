@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · UX Brief"
+  short_description: "Turn discovery into UX flows and an actionable design brief"
+  default_prompt: "Use $skilldock-ux-brief to turn this product direction into user flows, UI states, scope and acceptance scenarios."

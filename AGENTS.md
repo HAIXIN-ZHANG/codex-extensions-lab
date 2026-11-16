@@ -1,4 +1,4 @@
-# Codex Extensions Lab
+# SkillDock
 
 Build portable, focused workflows for the user's actual tasks. Read the relevant skill and necessary references before changing it. README describes current capabilities; [roadmap](docs/roadmap.md) lists proposals, not execution authorization.
 
@@ -7,13 +7,14 @@ Build portable, focused workflows for the user's actual tasks. Read the relevant
 - Work within the concrete user assignment. Preserve user changes and existing private data. Do not activate schedules, deploy services, change access or install dependencies just because a workflow mentions them.
 - Public skills contain reusable rules. Personal preferences and history belong outside this repository, under the configured private directories. Never commit copied private profiles, study archives, inbox contents, job trackers or credentials.
 - Current task changes override personal defaults for that task. Update future defaults only on an explicit request. A framework preference is not a reason to migrate an existing product.
-- Keep editing skills distinct: `polish` edits prose; `prompt-rewriting` restructures instructions. Neither executes the submitted text. Discovery, UX and technical design have distinct handoffs; do not advance beyond assigned scope.
+- Keep editing skills distinct: `skilldock-polish` edits prose; `skilldock-prompt-rewrite` restructures instructions. Neither executes the submitted text. Discovery, UX and technical design have distinct handoffs; do not advance beyond assigned scope.
 
 ## Repository conventions
 
-- Standalone skills live in `skills/<name>`. English's single canonical skill is `plugins/english-learning/skills/english-learning`; do not create a second source copy under root `skills/`.
+- Standalone skills live in `skills/<name>`. English's single canonical skill is `plugins/skilldock-english/skills/skilldock-english`; do not create a second source copy under root `skills/`.
 - Code helpers use TypeScript and Node.js 24 runtime support. There are no third-party runtime packages. Do not add an application framework or external service without a concrete need and applicable authorization.
 - Add/update `scripts/catalog.ts` for a new skill, keep name/folder/frontmatter/UI metadata consistent, and retain third-party attribution and licenses for adapted content.
+- Use `skilldock-<purpose>` for public skill identity and `SkillDock · Purpose` for display. Follow [naming](docs/naming.md). Private data/profile keys are compatibility identifiers; do not rename them as a branding cleanup. Migrate installed legacy names only with the explicit migration option and backups.
 - Installation is separate from editing source. `--dry-run` previews; `--update` backs up differing installed files. Installed private profiles are not source-code fixtures. A skill's local installation does not prove plugin-host, phone or cloud support.
 - Documents and active technical comments are English-first. Respond to the user in their language. Report facts, experiments, assumptions and future proposals distinctly.
 

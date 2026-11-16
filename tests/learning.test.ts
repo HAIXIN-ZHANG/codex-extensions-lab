@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { load, save, progress, bundle, importBundle, hash, validateWav } from '../plugins/english-learning/skills/english-learning/scripts/store.ts';
-import { run } from '../plugins/english-learning/skills/english-learning/scripts/learning.ts';
-import { speak } from '../plugins/english-learning/skills/english-learning/scripts/audio.ts';
+import { load, save, progress, bundle, importBundle, hash, validateWav } from '../plugins/skilldock-english/skills/skilldock-english/scripts/store.ts';
+import { run } from '../plugins/skilldock-english/skills/skilldock-english/scripts/learning.ts';
+import { speak } from '../plugins/skilldock-english/skills/skilldock-english/scripts/audio.ts';
 
 const root = () => mkdtemp(join(tmpdir(), 'english-learning-test-'));
 const lesson = (expectedRevision = 0) => ({ expectedRevision, id: 'test-lesson', kind: 'scenario', title: 'Fishing / 钓鱼', markdown: 'reel：鱼轮\n<script>alert(1)</script>', speechText: 'Could you recommend a fishing rod?', vocabulary: ['reel'], sources: [] });

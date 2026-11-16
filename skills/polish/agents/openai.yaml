@@ -1,4 +1,0 @@
-interface:
-  display_name: "Polish"
-  short_description: "Polish prose in its language, with natural Australian English"
-  default_prompt: "Use $polish to improve this text while preserving its meaning, language and tone."

@@ -1,5 +1,7 @@
 # Setup and portability
 
+The collection is named SkillDock. Use the [current names and migration table](naming.md); old unprefixed invocation names are retired only when you explicitly migrate their installed folders.
+
 Clone this repository to work on the extensions:
 
 ```sh
@@ -9,15 +11,17 @@ cd codex-extensions-lab
 
 With Node.js 24+, preview installation with `node scripts/install-skills.ts --dry-run`, then install all eight with `node scripts/install-skills.ts`. Add one or more names for a subset. It defaults to `CODEX_HOME/skills` (default `~/.codex/skills`); use `--dest /absolute/path/to/skills` if your client uses a different discovery path. It refuses differing existing folders unless you pass `--update`; updates back up old folders under `<destination>.backups` outside the discovery directory before replacement. Inspect backups before removing them. Updates never touch private profiles or history. Run the same command after pulling source changes to update installed copies.
 
-Alternatively, ask the host's skill installer to install a skill from this repository and its path. The English path is `plugins/english-learning/skills/english-learning`; other paths are `skills/<name>`. Without Node, copy only the desired whole skill folder to a supported discovery path, preserving any existing version. Start a new chat or restart the client if necessary and invoke it by name. Installation does not make the current chat know the updated skill instructions until it reloads them.
+Alternatively, ask the host's skill installer to install a skill from this repository and its path. The English path is `plugins/skilldock-english/skills/skilldock-english`; other paths are `skills/<name>`. Without Node, copy only the desired whole skill folder to a supported discovery path, preserving any existing version. Start a new chat or restart the client if necessary and invoke it by name. Installation does not make the current chat know the updated skill instructions until it reloads them.
 
 For an update preview, use `node scripts/install-skills.ts --update --dry-run`. Concurrent mutating installers are rejected with a sibling `<destination>.install-lock`; if a process dies leaving this directory, first verify that no installer is active before manual recovery. Staging and backups are outside the skill discovery directory. This protects cooperating local installs, not synchronized multi-device updates.
+
+For the v0.1.2 naming migration, add `--migrate-legacy`: preview with `node scripts/install-skills.ts --update --migrate-legacy --dry-run`, then run without `--dry-run`. Existing legacy folders move to backups after new skills install; their private configuration/data paths remain unchanged. This flag is opt-in so normal installations do not retire similarly named local skills unexpectedly.
 
 These skills may read optional personal preferences from `~/.codex/extension-profiles/job-opportunity-search.md` or `~/.codex/extension-profiles/property-opportunity-search.md`. Those files are not supplied by this public repository. Create and maintain them locally if useful; current instructions from the user take precedence. They may contain sensitive personal data: keep them out of public repositories. To use preferences on a different computer, transfer them securely or provide them again. The repository does not transfer account permissions, external-service connections, credentials, or local dependencies.
 
 The product discovery, experience brief and technical design skills share an optional `extension-profiles/product-workflow.md` under `CODEX_HOME` (default `~/.codex`). Start from [the public profile template](examples/product-workflow-profile.md), keep the filled version private, and scope preferences explicitly. See [the workflow guide](product-workflow.md) for precedence, per-task updates and handoffs. Installing/updating public skills does not overwrite private preferences; transfer that file separately when changing computers or Codex home directories.
 
-See [the English plugin guide](../plugins/english-learning/README.md) for its plugin packaging, helper prerequisites and actual cross-device limits. The independent skill installer is the locally exercised path; plugin-host loading must be verified in the target client.
+See [the English plugin guide](../plugins/skilldock-english/README.md) for its plugin packaging, helper prerequisites and actual cross-device limits. The independent skill installer is the locally exercised path; plugin-host loading must be verified in the target client.
 
 ## Accounts and devices
 

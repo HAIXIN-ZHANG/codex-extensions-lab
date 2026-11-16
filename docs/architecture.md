@@ -28,7 +28,7 @@ The host supplies the language model, web access and account permissions. Skills
 | Location | Purpose | Public? |
 | --- | --- | --- |
 | `skills/<name>` | Seven standalone workflows | Yes |
-| `plugins/english-learning/skills/english-learning` | Single canonical English skill and helpers | Yes |
+| `plugins/skilldock-english/skills/skilldock-english` | Single canonical English skill and helpers | Yes |
 | `.agents/plugins/marketplace.json` | Local plugin discovery catalog | Yes |
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
 | `scripts/install-skills.ts` | Preview/install/update with backups | Yes |

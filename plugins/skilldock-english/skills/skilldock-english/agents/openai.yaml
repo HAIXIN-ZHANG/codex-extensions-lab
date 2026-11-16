@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Australian English"
+  short_description: "Study grammar and Australian life English with saved lessons"
+  default_prompt: "Use $skilldock-english to continue my grammar studies or prepare practical Australian English for a scenario I choose."

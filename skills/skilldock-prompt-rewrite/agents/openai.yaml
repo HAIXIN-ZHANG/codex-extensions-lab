@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Prompt Rewrite"
+  short_description: "Clarify and deduplicate prompts while preserving intent"
+  default_prompt: "Use $skilldock-prompt-rewrite to organize this rough prompt, remove repetition and preserve its requirements without executing it."

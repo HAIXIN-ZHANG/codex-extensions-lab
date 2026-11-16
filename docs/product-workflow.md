@@ -14,9 +14,9 @@ The default handoff is a lightweight report, experience brief and technical spec
 
 | Stage | Main decision | Skill / complementary capability | Typical deliverable |
 | --- | --- | --- | --- |
-| Product discovery | Who needs this, why, and is it worth validating/building? | `product-spike` | Evidence-backed opportunity and validation report |
-| Product experience | How should users complete the task? | `product-design-brief`; optional Product Design plugin for visual work | UX/UI brief, flows, states, acceptance scenarios, optional design references |
-| Engineering | How should it work and how can it be delivered reliably? | `technical-design` | Tech spec, contracts, feasibility findings, delivery slices |
+| Product discovery | Who needs this, why, and is it worth validating/building? | `skilldock-product-discovery` | Evidence-backed opportunity and validation report |
+| Product experience | How should users complete the task? | `skilldock-ux-brief`; optional Product Design plugin for visual work | UX/UI brief, flows, states, acceptance scenarios, optional design references |
+| Engineering | How should it work and how can it be delivered reliably? | `skilldock-tech-design` | Tech spec, contracts, feasibility findings, delivery slices |
 
 ## Scope and handoff
 
@@ -30,8 +30,8 @@ Pass the latest relevant artifact and revision, scope, evidence/assumption statu
 
 ## Example invocations
 
-- `Use $product-spike to investigate this idea's target users, existing alternatives and commercial assumptions. Start with desk research.`
-- `Use $product-design-brief with this discovery report to define the main flows, MVP boundary and UI states.`
-- `Use $technical-design with this brief and our existing codebase to propose architecture, contracts and an implementation plan. Do not code yet.`
+- `Use $skilldock-product-discovery to investigate this idea's target users, existing alternatives and commercial assumptions. Start with desk research.`
+- `Use $skilldock-ux-brief with this discovery report to define the main flows, MVP boundary and UI states.`
+- `Use $skilldock-tech-design with this brief and our existing codebase to propose architecture, contracts and an implementation plan. Do not code yet.`
 
 Missing earlier-stage documents do not block a self-contained request. Questions should be limited to consequential gaps; assumptions must remain visible. Reports use the user's language and appropriate depth. Personal or confidential research belongs in an appropriate private workspace, not automatically in this public repository.

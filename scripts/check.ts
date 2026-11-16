@@ -13,6 +13,7 @@ for (const skill of skills) {
   const ui = await readFile(join(skill.path, 'agents/openai.yaml'), 'utf8');
   const short = ui.match(/short_description: "(.+)"/)?.[1];
   if (!short || short.length < 25 || short.length > 64 || !ui.includes('$' + name)) throw new Error(`Invalid UI metadata: ${name}`);
+  if (!name.startsWith('skilldock-') || !ui.includes('display_name: "SkillDock · ') || !header[1].includes('collection: "SkillDock"')) throw new Error(`Invalid SkillDock namespace: ${name}`);
   if (/\bTODO\b|\[INSERT/.test(content)) throw new Error(`Unfinished scaffold: ${name}`);
   console.log(`${name}: metadata OK`);
 }
@@ -33,10 +34,10 @@ async function checkLinks(directory: string) {
   }
 }
 await checkLinks(repoRoot);
-const manifest = JSON.parse(await readFile(join(repoRoot, 'plugins/english-learning/plugin.json'), 'utf8'));
-if (manifest.name !== 'english-learning' || !/^\d+\.\d+\.\d+$/.test(manifest.version) || !manifest.$schema) throw new Error('Invalid plugin identity');
+const manifest = JSON.parse(await readFile(join(repoRoot, 'plugins/skilldock-english/plugin.json'), 'utf8'));
+if (manifest.name !== 'skilldock-english' || !/^\d+\.\d+\.\d+$/.test(manifest.version) || !manifest.$schema) throw new Error('Invalid plugin identity');
 const marketplace = JSON.parse(await readFile(join(repoRoot, '.agents/plugins/marketplace.json'), 'utf8'));
-if (marketplace.name !== 'codex-extensions-lab' || marketplace.plugins.length !== 1 || marketplace.plugins[0].name !== manifest.name || resolve(repoRoot, marketplace.plugins[0].source.path) !== join(repoRoot, 'plugins/english-learning')) throw new Error('Invalid marketplace path/identity');
+if (marketplace.name !== 'codex-extensions-lab' || marketplace.plugins.length !== 1 || marketplace.plugins[0].name !== manifest.name || resolve(repoRoot, marketplace.plugins[0].source.path) !== join(repoRoot, 'plugins/skilldock-english')) throw new Error('Invalid marketplace path/identity');
 console.log('Local links, plugin and marketplace identity: OK (not a full upstream schema validation)');
 const cases = JSON.parse(await readFile(join(repoRoot, 'evals/cases.json'), 'utf8'));
 const ids = new Set<string>();

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Job Search"
+  short_description: "Find roles using defaults and this run's updated criteria"
+  default_prompt: "Use $skilldock-job-search to find opportunities using my defaults, with any changes I specify for this run."

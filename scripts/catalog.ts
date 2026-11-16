@@ -2,7 +2,12 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 export const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 export const skills = [
-  'polish', 'job-opportunity-search', 'property-opportunity-search',
-  'product-spike', 'product-design-brief', 'technical-design', 'prompt-rewriting',
-].map(name => ({ name, path: join(repoRoot, 'skills', name) }));
-skills.push({ name: 'english-learning', path: join(repoRoot, 'plugins/english-learning/skills/english-learning') });
+  ['skilldock-polish', 'polish'],
+  ['skilldock-prompt-rewrite', 'prompt-rewriting'],
+  ['skilldock-job-search', 'job-opportunity-search'],
+  ['skilldock-property-search', 'property-opportunity-search'],
+  ['skilldock-product-discovery', 'product-spike'],
+  ['skilldock-ux-brief', 'product-design-brief'],
+  ['skilldock-tech-design', 'technical-design'],
+].map(([name, legacyName]) => ({ name, legacyName, path: join(repoRoot, 'skills', name) }));
+skills.push({ name: 'skilldock-english', legacyName: 'english-learning', path: join(repoRoot, 'plugins/skilldock-english/skills/skilldock-english') });

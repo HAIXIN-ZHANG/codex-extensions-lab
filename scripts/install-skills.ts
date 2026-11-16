@@ -18,10 +18,10 @@ async function files(path: string, prefix = ''): Promise<Record<string, string>>
   }
   return Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b)));
 }
-async function installUnlocked(destination: string, names: string[], update: boolean, dryRun: boolean) {
+async function installUnlocked(destination: string, names: string[], update: boolean, dryRun: boolean, migrateLegacy: boolean) {
   const selected = names.length ? skills.filter(s => names.includes(s.name)) : skills;
   if (names.some(n => !skills.some(s => s.name === n))) throw new Error('Unknown skill name');
-  const tasks: { name: string; source: string; target: string; action: string }[] = [];
+  const tasks: { name: string; source: string; target: string; action: string; legacyTarget?: string }[] = [];
   // Preflight every target before mutating any skill.
   if (await exists(destination) && (await lstat(destination)).isSymbolicLink()) throw new Error('Destination must not be a symlink');
   for (const skill of selected) {
@@ -30,7 +30,10 @@ async function installUnlocked(destination: string, names: string[], update: boo
     if (has && (await lstat(target)).isSymbolicLink()) throw new Error(`Refusing symlinked skill ${skill.name}`);
     const equal = has && JSON.stringify(await files(target)) === JSON.stringify(await files(skill.path));
     if (has && !equal && !update) throw new Error(`${skill.name} already differs; inspect it and use --update to back it up before replacing`);
-    tasks.push({ name: skill.name, source: skill.path, target, action: equal ? 'unchanged' : has ? 'update-with-backup' : 'install' });
+    const legacyTarget = join(destination, skill.legacyName);
+    const migrate = migrateLegacy && await exists(legacyTarget);
+    if (migrate && (await lstat(legacyTarget)).isSymbolicLink()) throw new Error(`Refusing symlinked legacy skill ${skill.legacyName}`);
+    tasks.push({ name: skill.name, source: skill.path, target, action: equal ? 'unchanged' : has ? 'update-with-backup' : 'install', ...(migrate ? { legacyTarget } : {}) });
   }
   if (dryRun) return tasks;
   await mkdir(destination, { recursive: true, mode: 0o700 });
@@ -53,18 +56,26 @@ async function installUnlocked(destination: string, names: string[], update: boo
       await rm(staged, { recursive: true, force: true });
     }
   }
+  // Retire old discovery entries only after every selected new skill is installed.
+  // Originals are recoverable; private profile/data keys are deliberately stable.
+  for (const task of tasks) if (task.legacyTarget) {
+    const backups = destination + '.backups';
+    await mkdir(backups, { recursive: true, mode: 0o700 });
+    const legacyName = skills.find(s => s.name === task.name)!.legacyName;
+    await rename(task.legacyTarget, join(backups, `${legacyName}-renamed-${Date.now()}-${randomUUID()}`));
+  }
   return tasks;
 }
-export async function install(destination: string, names: string[], update = false, dryRun = false) {
+export async function install(destination: string, names: string[], update = false, dryRun = false, migrateLegacy = false) {
   destination = resolve(destination);
-  if (dryRun) return installUnlocked(destination, names, update, true);
+  if (dryRun) return installUnlocked(destination, names, update, true, migrateLegacy);
   await mkdir(dirname(destination), { recursive: true, mode: 0o700 });
   const lock = destination + '.install-lock';
   try { await mkdir(lock); } catch (e) {
     if ((e as NodeJS.ErrnoException).code === 'EEXIST') throw new Error('Skill installer is busy; wait for the other update to finish');
     throw e;
   }
-  try { return await installUnlocked(destination, names, update, false); }
+  try { return await installUnlocked(destination, names, update, false, migrateLegacy); }
   finally { await rmdir(lock); }
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
@@ -73,8 +84,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const destIndex = args.indexOf('--dest');
     if (destIndex >= 0 && (!args[destIndex + 1] || args[destIndex + 1].startsWith('--'))) throw new Error('--dest needs a path');
     const destination = resolve(destIndex >= 0 ? args.splice(destIndex, 2)[1] : join(process.env.CODEX_HOME || join(homedir(), '.codex'), 'skills'));
-    if (args.some(a => a.startsWith('--') && !['--update', '--dry-run'].includes(a))) throw new Error('Unknown option');
-    const result = await install(destination, args.filter(a => !a.startsWith('--')), args.includes('--update'), args.includes('--dry-run'));
+    if (args.some(a => a.startsWith('--') && !['--update', '--dry-run', '--migrate-legacy'].includes(a))) throw new Error('Unknown option');
+    const result = await install(destination, args.filter(a => !a.startsWith('--')), args.includes('--update'), args.includes('--dry-run'), args.includes('--migrate-legacy'));
     console.log(JSON.stringify(result, null, 2));
   } catch (e) { console.error((e as Error).message); process.exitCode = 1; }
 }

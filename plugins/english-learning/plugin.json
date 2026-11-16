@@ -1,6 +1,0 @@
-{
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "english-learning",
-  "version": "0.1.1",
-  "description": "Australian everyday English and bilingual grammar lessons with local history, audio and portable learning archives."
-}

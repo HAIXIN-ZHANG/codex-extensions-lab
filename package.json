@@ -1,9 +1,11 @@
 {
-  "name": "codex-extensions-lab",
-  "version": "0.1.1",
+  "name": "skilldock",
+  "version": "0.1.2",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "check": "node scripts/check.ts",
     "check:yaml": "ruby scripts/check-yaml.rb",

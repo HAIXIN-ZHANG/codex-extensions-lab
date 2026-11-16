@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Polish"
+  short_description: "Polish prose in its language, with natural Australian English"
+  default_prompt: "Use $skilldock-polish to improve this text while preserving its meaning, language and tone."
