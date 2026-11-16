@@ -1,6 +1,6 @@
 # SkillDock · Australian English · v0.1.2
 
-This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand Australian life scenarios, source-backed materials, saved chapter revisions and local synthesized listening audio. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
+This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand Australian life scenarios, source-backed materials, saved chapter revisions and local synthesized listening audio. Full lessons target approximately 20–30 minutes of reading for an experienced adult, adapting to the topic and learner's feedback, with separate practice and explained answers. Learners can ask about examples, submit partial answers, request hints or practise a conversation; quick questions receive proportionate answers. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
 
 ## Use now as an independent skill
 

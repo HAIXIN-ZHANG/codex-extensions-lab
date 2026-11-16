@@ -143,6 +143,36 @@
     ]
   },
   {
+    "id": "english-full-lesson-length",
+    "skill": "skilldock-english",
+    "context": "No existing learning plan or saved chapter is available in this test.",
+    "input": "开始一节基础语法课，给我今天的完整学习材料。",
+    "expect": [
+      "Provides a coherent, substantive lesson aimed at roughly 20–30 minutes of reading for an experienced adult in a compact layout, with explanations, contrasts and bilingual examples",
+      "Calibrates content volume to actual pace, familiarity and topic difficulty without a fixed page or word count; explains concepts in depth, uses varied exercises and supplies a separate answer key with explanations and reasonable alternatives"
+    ]
+  },
+  {
+    "id": "english-answer-feedback",
+    "skill": "skilldock-english",
+    "context": "The current lesson asks for a polite way to ask when a shop closes. The learner attempts only this question.",
+    "input": "我只做这一题：Could you tell me when does the shop close? 我不确定语序。",
+    "expect": [
+      "Explains the embedded-question word order and gives a natural correction without asking the learner to finish other questions",
+      "Keeps the reply proportionate, does not regenerate the chapter or infer general proficiency or mastery"
+    ]
+  },
+  {
+    "id": "english-hint-and-roleplay",
+    "skill": "skilldock-english",
+    "context": "The learner is practising a realistic café conversation and asks for a hint rather than an answer.",
+    "input": "我不知道怎么礼貌地问今天几点关门，先给我一个提示，不要直接给答案。",
+    "expect": [
+      "Offers a useful hint without revealing the complete answer or requiring a full exercise set",
+      "Stays in the café context and leaves room for the learner to respond"
+    ]
+  },
+  {
     "id": "english-listening",
     "skill": "skilldock-english",
     "context": "No speech or microphone tools in this test.",
