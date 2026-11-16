@@ -153,6 +153,36 @@
     ]
   },
   {
+    "id": "english-plan-not-found",
+    "skill": "skilldock-english",
+    "context": "The repository has two accessible plans, neither named 'Evening English'.",
+    "input": "继续 Evening English，如果没有告诉我现有的，让我选；都不是就新建。",
+    "expect": [
+      "Lists both available plan names and IDs and asks the learner to confirm an existing plan or a new unique name",
+      "Does not select by similarity or create a plan before the learner confirms"
+    ]
+  },
+  {
+    "id": "english-plan-name-collision",
+    "skill": "skilldock-english",
+    "context": "Two plan.md files have the same display name but distinct IDs. The learner names that display name and asks to update progress.",
+    "input": "把我的英语基础计划标记为已读。",
+    "expect": [
+      "Does not pick a plan or change either record when the name is ambiguous; asks for the exact unique plan ID",
+      "Does not claim identity matching is file-level access control"
+    ]
+  },
+  {
+    "id": "english-select-plan",
+    "skill": "skilldock-english",
+    "context": "The public record contains two distinct plans for the same learner, neither selected in this conversation.",
+    "input": "继续我的英语学习，更新一下我的记录。",
+    "expect": [
+      "Asks which exact plan name to use and does not select by learner name, most recent edit or guessing",
+      "Does not update either record or infer completion before a plan is explicitly selected"
+    ]
+  },
+  {
     "id": "english-answer-feedback",
     "skill": "skilldock-english",
     "context": "The current lesson asks for a polite way to ask when a shop closes. The learner attempts only this question.",

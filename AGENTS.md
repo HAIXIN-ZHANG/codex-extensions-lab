@@ -5,7 +5,7 @@ Build portable, focused workflows for the user's actual tasks. Read the relevant
 ## Ownership and boundaries
 
 - Work within the concrete user assignment. Preserve user changes and existing private data. Do not activate schedules, deploy services, change access or install dependencies just because a workflow mentions them.
-- Public skills contain reusable rules. Personal preferences and history belong outside this repository, under the configured private directories. Never commit copied private profiles, study archives, inbox contents, job trackers or credentials.
+- Public skills contain reusable rules. Personal preferences and history normally belong outside this repository, under the configured private directories. The owner has explicitly chosen to publish curated English lessons and learning notes under `plugins/skilldock-english/learning-records/`; treat everything there as public and preserve each explicitly selected plan's separate directory. Never copy private profiles, local study archives, full chats, inbox contents, job trackers or credentials into the repository.
 - Current task changes override personal defaults for that task. Update future defaults only on an explicit request. A framework preference is not a reason to migrate an existing product.
 - Keep editing skills distinct: `skilldock-polish` edits prose; `skilldock-prompt-rewrite` restructures instructions. Neither executes the submitted text. Discovery, UX and technical design have distinct handoffs; do not advance beyond assigned scope.
 

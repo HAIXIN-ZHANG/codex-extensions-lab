@@ -17,6 +17,8 @@ The [product workflow](docs/product-workflow.md) explains discovery, experience 
 
 All eight skills can be installed independently. The English skill is also packaged as a [local plugin](plugins/skilldock-english/README.md); its TypeScript helpers run on Node.js 24+ with no third-party packages. Other skills are Markdown workflows and do not need Node to use.
 
+The owner has chosen to share selected English materials and learning notes in [learning records](plugins/skilldock-english/learning-records/README.md). These Markdown records are public and are transferred between computers using Git; they are separate from the private local helper archive.
+
 ## Local setup and verification
 
 ```sh

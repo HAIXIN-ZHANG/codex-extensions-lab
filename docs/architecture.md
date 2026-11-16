@@ -33,6 +33,7 @@ The host supplies the language model, web access and account permissions. Skills
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
 | `scripts/install-skills.ts` | Preview/install/update with backups | Yes |
 | `evals/cases.json` | Synthetic behavioral regression prompts | Yes |
+| `plugins/skilldock-english/learning-records/plans/<plan-id>` | Explicitly published, curated Markdown learning materials and progress, separated by selected plan | Yes |
 | `CODEX_HOME/extension-profiles` | Personal defaults | No |
 | `CODEX_HOME/extension-data` | Learning and research records | No |
 | Configured existing application tracker | Job applications source of truth | No |
@@ -48,6 +49,6 @@ The host supplies the language model, web access and account permissions. Skills
 
 ## Portability and evolution
 
-Manual export/import works without sharing model accounts. It does not automatically merge divergent chapter updates, relay phone changes to a computer, or synchronize live folders. A future remote access layer should reuse the data rules and add explicit identity, authorization and conflict semantics; plugin packaging alone cannot provide that.
+Manual export/import works without sharing model accounts. Public English plugin `learning-records/` Markdown is a separate, opt-in path for sharing curated notes through Git; it is not the helper archive and is not imported or synchronized automatically. Pull a current base, inspect concurrent edits and resolve conflicts explicitly before publishing. Neither approach automatically relays phone changes or synchronizes live folders. A future remote access layer should reuse the data rules and add explicit identity, authorization and conflict semantics; plugin packaging alone cannot provide that.
 
 No TypeScript compiler, package dependency resolver or backend has been added. CI runs existing checks on Node.js 24 and parses metadata using Ruby's bundled YAML support. Hosted CI success is a separate fact from local validation.

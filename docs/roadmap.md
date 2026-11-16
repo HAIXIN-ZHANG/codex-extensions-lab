@@ -4,7 +4,7 @@ This is a proposed direction, not permission to implement, deploy, spend money o
 
 ## Current foundation
 
-Eight independent skills; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
+Eight independent skills; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
 
 ## Next: confidence and daily usability
 
