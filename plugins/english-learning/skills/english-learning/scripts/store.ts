@@ -134,7 +134,7 @@ export async function save(root: string, input: Record<string, unknown>) {
   return mutate(root, input.expectedRevision, state => {
     const old = state.documents[key];
     const values = snapshot({ ...input, revision: old ? old.revision + 1 : 1, updatedAt: new Date().toISOString(),
-      status: input.status ?? old?.status ?? 'generated', speechText: input.speechText ?? '',
+      status: input.status ?? (old?.markdown === input.markdown ? old.status : 'generated'), speechText: input.speechText ?? '',
       vocabulary: input.vocabulary ?? [], sources: input.sources ?? [], grammarUnit: input.grammarUnit ?? '' });
     state.documents[key] = old ? evolve(old, values) : { ...values, history: [], audio: [] };
   });
@@ -165,8 +165,12 @@ export async function audioBytes(root: string, filename: string) {
   const bytes = await readFile(join(root, 'audio', filename));
   requireValue(hash(bytes) + '.wav' === filename, 'Audio checksum mismatch'); validateWav(bytes); return bytes;
 }
-export async function bundle(root: string): Promise<Bundle> {
+export async function bundle(root: string, ids?: unknown): Promise<Bundle> {
   const state = await load(root); const audio: Record<string, string> = {};
+  if (ids !== undefined) {
+    requireValue(Array.isArray(ids) && ids.length > 0 && ids.every(id => typeof id === 'string' && Object.hasOwn(state.documents, id)), 'Invalid export ids');
+    state.documents = Object.fromEntries(Object.entries(state.documents).filter(([id]) => ids.includes(id)));
+  }
   for (const d of Object.values(state.documents)) for (const a of d.audio) audio[a.filename] = (await audioBytes(root, a.filename)).toString('base64');
   return { format: 'english-learning-v1', state, audio };
 }

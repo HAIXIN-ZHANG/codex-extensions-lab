@@ -17,7 +17,8 @@ test('save, resume, revise and status preserve history; generated is not read', 
   await progress(home, { expectedRevision: 1, id: 'test-lesson', status: 'read' });
   await save(home, { ...lesson(2), markdown: 'Updated' });
   s = await load(home);
-  assert.equal(s.documents['test-lesson'].status, 'read');
+  assert.equal(s.documents['test-lesson'].status, 'generated');
+  assert.equal(s.documents['test-lesson'].history[1].status, 'read');
   assert.equal(s.documents['test-lesson'].history.length, 2);
   assert.equal(s.documents['test-lesson'].history[0].markdown, lesson().markdown);
   await assert.rejects(progress(home, { expectedRevision: 3, id: 'test-lesson', status: 'mastered' }));
@@ -105,4 +106,17 @@ test('selected exports carry only chosen lessons and reject missing IDs', async 
 test('WAV wrappers without real samples must not be reported as speech', () => {
   const empty = Buffer.alloc(80); empty.write('RIFF'); empty.write('WAVE', 8);
   assert.throws(() => validateWav(empty), /empty|silent/);
+});
+
+test('exporting one lesson does not read another lesson\'s missing audio', async () => {
+  const home = await root(); const output = await root();
+  await save(home, lesson());
+  await save(home, { ...lesson(1), id: 'another' });
+  const state = await load(home);
+  state.documents['another'].audio.push({ filename: 'a'.repeat(64) + '.wav', voice: 'Karen', rate: 175, textHash: hash(state.documents['another'].speechText) });
+  await writeFile(join(home, 'state.json'), JSON.stringify(state));
+  await run('export', { output: join(output, 'selected'), ids: ['test-lesson'] }, home);
+  const exported = JSON.parse(await readFile(join(output, 'selected.json'), 'utf8'));
+  assert.deepEqual(Object.keys(exported.state.documents), ['test-lesson']);
+  assert.deepEqual(exported.audio, {});
 });

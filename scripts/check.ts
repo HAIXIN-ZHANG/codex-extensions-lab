@@ -34,7 +34,16 @@ async function checkLinks(directory: string) {
 }
 await checkLinks(repoRoot);
 const manifest = JSON.parse(await readFile(join(repoRoot, 'plugins/english-learning/plugin.json'), 'utf8'));
-if (manifest.name !== 'english-learning' || manifest.version !== '0.1.0' || !manifest.$schema) throw new Error('Invalid plugin identity');
+if (manifest.name !== 'english-learning' || !/^\d+\.\d+\.\d+$/.test(manifest.version) || !manifest.$schema) throw new Error('Invalid plugin identity');
 const marketplace = JSON.parse(await readFile(join(repoRoot, '.agents/plugins/marketplace.json'), 'utf8'));
 if (marketplace.name !== 'codex-extensions-lab' || marketplace.plugins.length !== 1 || marketplace.plugins[0].name !== manifest.name || resolve(repoRoot, marketplace.plugins[0].source.path) !== join(repoRoot, 'plugins/english-learning')) throw new Error('Invalid marketplace path/identity');
 console.log('Local links, plugin and marketplace identity: OK (not a full upstream schema validation)');
+const cases = JSON.parse(await readFile(join(repoRoot, 'evals/cases.json'), 'utf8'));
+const ids = new Set<string>();
+if (!Array.isArray(cases)) throw new Error('Invalid behavioral corpus');
+for (const c of cases) {
+  if (typeof c.id !== 'string' || ids.has(c.id) || !skills.some(s => s.name === c.skill) || typeof c.input !== 'string' || !Array.isArray(c.expect) || !c.expect.length || c.expect.some((x: unknown) => typeof x !== 'string')) throw new Error('Invalid behavioral case');
+  ids.add(c.id);
+}
+for (const skill of skills) if (!cases.some(c => c.skill === skill.name)) throw new Error(`No behavioral scenario: ${skill.name}`);
+console.log(`${ids.size} behavioral scenarios validated as data only; no model runs performed`);

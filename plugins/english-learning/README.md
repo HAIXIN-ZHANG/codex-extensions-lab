@@ -1,4 +1,4 @@
-# Australian English learning · v0.1
+# Australian English learning · v0.1.1
 
 This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand Australian life scenarios, source-backed materials, saved chapter revisions and local synthesized listening audio. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
 

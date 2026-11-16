@@ -1,5 +1,5 @@
-import { mkdir, readdir, readFile, cp, rename, lstat } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { mkdir, readdir, readFile, cp, rename, lstat, rmdir, rm } from 'node:fs/promises';
+import { join, resolve, dirname } from 'node:path';
 import { homedir } from 'node:os';
 import { randomUUID } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
@@ -18,7 +18,7 @@ async function files(path: string, prefix = ''): Promise<Record<string, string>>
   }
   return Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b)));
 }
-export async function install(destination: string, names: string[], update = false, dryRun = false) {
+async function installUnlocked(destination: string, names: string[], update: boolean, dryRun: boolean) {
   const selected = names.length ? skills.filter(s => names.includes(s.name)) : skills;
   if (names.some(n => !skills.some(s => s.name === n))) throw new Error('Unknown skill name');
   const tasks: { name: string; source: string; target: string; action: string }[] = [];
@@ -36,19 +36,36 @@ export async function install(destination: string, names: string[], update = fal
   await mkdir(destination, { recursive: true, mode: 0o700 });
   for (const task of tasks) {
     if (task.action === 'unchanged') continue;
-    const staged = join(destination, `.stage-${task.name}-${randomUUID()}`);
-    await cp(task.source, staged, { recursive: true, errorOnExist: true, force: false });
+    const staged = `${destination}.stage-${task.name}-${randomUUID()}`;
     let backup: string | undefined;
-    if (task.action === 'update-with-backup') {
-      const backups = destination + '.backups';
-      await mkdir(backups, { recursive: true, mode: 0o700 });
-      backup = join(backups, `${task.name}-${Date.now()}-${randomUUID()}`);
-      await rename(task.target, backup);
+    try {
+      await cp(task.source, staged, { recursive: true, errorOnExist: true, force: false });
+      if (task.action === 'update-with-backup') {
+        const backups = destination + '.backups';
+        await mkdir(backups, { recursive: true, mode: 0o700 });
+        backup = join(backups, `${task.name}-${Date.now()}-${randomUUID()}`);
+        await rename(task.target, backup);
+      }
+      try { await rename(staged, task.target); }
+      catch (e) { if (backup) await rename(backup, task.target); throw e; }
+    } finally {
+      // This UUID path was created by this invocation, never a user directory.
+      await rm(staged, { recursive: true, force: true });
     }
-    try { await rename(staged, task.target); }
-    catch (e) { if (backup) await rename(backup, task.target); throw e; }
   }
   return tasks;
+}
+export async function install(destination: string, names: string[], update = false, dryRun = false) {
+  destination = resolve(destination);
+  if (dryRun) return installUnlocked(destination, names, update, true);
+  await mkdir(dirname(destination), { recursive: true, mode: 0o700 });
+  const lock = destination + '.install-lock';
+  try { await mkdir(lock); } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === 'EEXIST') throw new Error('Skill installer is busy; wait for the other update to finish');
+    throw e;
+  }
+  try { return await installUnlocked(destination, names, update, false); }
+  finally { await rmdir(lock); }
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   try {

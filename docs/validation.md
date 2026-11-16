@@ -1,5 +1,7 @@
 # v0.1 validation · 2026-11-16
 
+This records the initial v0.1 run. The [v0.1.1 review](reviews/2026-11-16-v01-review.md) adds three reproduced corrections and eleven passing helper tests, full Ruby YAML parsing, and sixteen prepared behavioral cases. The behavioral cases have not been run/scored as a model benchmark. Hosted CI status is separate from local results.
+
 ## Exercised
 
 - All eight skill identities/descriptions/UI metadata, relative documentation links and the local plugin identity pass `node scripts/check.ts`.

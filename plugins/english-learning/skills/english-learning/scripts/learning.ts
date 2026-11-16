@@ -12,13 +12,7 @@ const escape = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '
 async function exportFiles(root: string, output: unknown, ids: unknown) {
   const prefix = resolve(text(output, 'output prefix', 4000));
   requireValue(prefix !== root && !prefix.startsWith(root + '/'), 'Export outside the live data directory');
-  const archive = await bundle(root);
-  if (ids !== undefined) {
-    requireValue(Array.isArray(ids) && ids.length > 0 && ids.every(id => typeof id === 'string' && Object.hasOwn(archive.state.documents, id)), 'Invalid export ids');
-    archive.state.documents = Object.fromEntries(Object.entries(archive.state.documents).filter(([id]) => ids.includes(id)));
-    const needed = new Set(Object.values(archive.state.documents).flatMap(d => d.audio.map(a => a.filename)));
-    archive.audio = Object.fromEntries(Object.entries(archive.audio).filter(([name]) => needed.has(name)));
-  }
+  const archive = await bundle(root, ids);
   const docs = Object.values(archive.state.documents);
   const markdown = docs.map(d => `# ${d.title}\n\n${d.markdown}`).join('\n\n---\n\n');
   const html = `<!doctype html><html lang="en-AU"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; media-src data:; style-src 'unsafe-inline'"><title>English learning materials</title><style>body{max-width:850px;margin:40px auto;padding:0 20px;font:18px/1.65 system-ui;color:#202124;background:#fafafa}pre{white-space:pre-wrap;font:inherit}article{margin-bottom:60px}audio{width:100%}</style><body><h1>English learning materials</h1><p>Private export · synthesized audio · manually transferred snapshot</p>${docs.map(d => `<article><h2>${escape(d.title)}</h2><pre>${escape(d.markdown)}</pre>${d.audio.map(a => `<p>${escape(a.voice)} · ${a.rate} words/minute</p><audio controls preload="none" src="data:audio/wav;base64,${archive.audio[a.filename]}"></audio>`).join('')}</article>`).join('')}</body></html>`;

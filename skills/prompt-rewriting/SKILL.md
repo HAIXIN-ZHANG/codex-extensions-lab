@@ -70,8 +70,6 @@ user's recognizable wording and cadence unless clarity requires a change.
 
 By default, return one copyable rewritten prompt without commentary:
 
-**Rewritten prompt**
-
 ```text
 <rewritten prompt>
 ```

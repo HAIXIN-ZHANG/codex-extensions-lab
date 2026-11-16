@@ -34,6 +34,8 @@ Honor current scope over historical preferences. Treat changes as task-specific 
 
 Prioritize the few uncertainties that could change the decision. For each important hypothesis, specify evidence available, evidence missing, a small validation method, a proposed success/failure criterion, and the decision it informs. Label untested thresholds as proposed rather than agreed targets.
 
+When designing discovery research or experiments, use [the compact validation guide](references/validation-methods.md) for risk dimensions, evidence mapping and past-behavior interviewing. It is optional guidance, not a mandatory framework or a new permission gate.
+
 Distinguish research completed from proposed interviews, landing pages, paid tests or prototypes. Drafting a test does not authorize contacting people, publishing, paying for data, collecting personal data or building the product. Execute only the work actually assigned and permitted.
 
 Propose a coherent MVP around an end-to-end user outcome: essential, later and excluded capabilities, with reasons, dependencies and acceptance examples. Include manual or service-based alternatives when they could test demand more cheaply. Do not prematurely decide UI layouts, frameworks or infrastructure.

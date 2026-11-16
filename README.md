@@ -23,6 +23,7 @@ All eight skills can be installed independently. The English skill is also packa
 node scripts/install-skills.ts --dry-run
 node scripts/install-skills.ts --update
 node scripts/check.ts
+ruby scripts/check-yaml.rb
 node --test tests/*.test.ts
 ```
 
@@ -41,6 +42,17 @@ Examples:
 Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
 
 Plugin packaging follows the [official portable manifest guidance](https://developers.openai.com/plugins/build/plugins). Local host installation and cross-account sign-in behavior still depend on the client and need verification. See [validation notes](docs/validation.md).
+
+## Maintenance and direction
+
+- [Architecture and private data boundaries](docs/architecture.md)
+- [Roadmap: proposed next capabilities](docs/roadmap.md)
+- [Code review and corrections](docs/reviews/2026-11-16-v01-review.md)
+- [Third-party comparison and DraftWise lessons](docs/research/2026-11-16-ecosystem-review.md)
+- [Behavioral evaluation scenarios](evals/README.md) — prepared cases, not yet measured model results
+- [Agent entry instructions](AGENTS.md)
+
+GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.1. The sixteen behavioral cases are maintained separately from executable helper tests; neither the source review nor those prepared cases prove teaching or writing quality.
 
 ## Contributing and license
 
