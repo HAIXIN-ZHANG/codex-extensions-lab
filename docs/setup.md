@@ -9,6 +9,8 @@ git clone https://github.com/HAIXIN-ZHANG/codex-extensions-lab.git
 cd codex-extensions-lab
 ```
 
+The repository's VS Code workspace settings allow the Chinese full-width colon in Markdown, where it is intentional punctuation. Unicode highlighting for other ambiguous or invisible characters remains enabled according to the editor's existing settings. This does not change global editor preferences or source-code punctuation.
+
 With Node.js 24+, preview installation with `node scripts/install-skills.ts --dry-run`, then install all eight with `node scripts/install-skills.ts`. Add one or more names for a subset. It defaults to `CODEX_HOME/skills` (default `~/.codex/skills`); use `--dest /absolute/path/to/skills` if your client uses a different discovery path. It refuses differing existing folders unless you pass `--update`; updates back up old folders under `<destination>.backups` outside the discovery directory before replacement. Inspect backups before removing them. Updates never touch private profiles or history. Run the same command after pulling source changes to update installed copies.
 
 Alternatively, ask the host's skill installer to install a skill from this repository and its path. The English path is `plugins/skilldock-english/skills/skilldock-english`; other paths are `skills/<name>`. Without Node, copy only the desired whole skill folder to a supported discovery path, preserving any existing version. Start a new chat or restart the client if necessary and invoke it by name. Installation does not make the current chat know the updated skill instructions until it reloads them.

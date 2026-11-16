@@ -27,7 +27,7 @@ This registers/installs local capabilities, not a cloud service. Use either the 
 
 ## Files and portability
 
-Learning records live outside this repository under `CODEX_HOME/extension-data/english-learning`, default `~/.codex/extension-data/english-learning`. An optional `ENGLISH_LEARNING_HOME` overrides that directory. Optional private teaching preferences live in `extension-profiles/english-learning.md` under `CODEX_HOME`.
+The private local helper archive lives outside this repository under `CODEX_HOME/extension-data/english-learning`, default `~/.codex/extension-data/english-learning`. An optional `ENGLISH_LEARNING_HOME` overrides that directory. Optional private teaching preferences live in `extension-profiles/english-learning.md` under `CODEX_HOME`. The separately published Markdown plans remain in `learning-records/` and are not automatically imported into this archive.
 
 The [tools reference](skills/skilldock-english/references/tools.md) documents commands, JSON requests, revision checks, archive validation and recovery. Exports contain `.md` for reading, `.html` for offline reading/listening, and `.json` for importing to another local environment. The HTML renders Markdown as readable plain text to avoid executing lesson content, not as a full Markdown layout engine.
 

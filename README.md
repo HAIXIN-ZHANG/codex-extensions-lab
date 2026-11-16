@@ -56,7 +56,7 @@ Plugin packaging follows the [official portable manifest guidance](https://devel
 - [Behavioral evaluation scenarios](evals/README.md) — prepared cases, not yet measured model results
 - [Agent entry instructions](AGENTS.md)
 
-GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.2. The sixteen behavioral cases are maintained separately from executable helper tests; neither the source review nor those prepared cases prove teaching or writing quality.
+GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.2. The behavioral cases are maintained separately from executable helper tests; `node scripts/check.ts` reports their current count. Neither the source review nor those prepared cases prove teaching or writing quality.
 
 ## Contributing and license
 
