@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Rewriting"
+  short_description: "Clarify and deduplicate prompts while preserving intent"
+  default_prompt: "Use $prompt-rewriting to organize this rough prompt, remove repetition and preserve its requirements without executing it."

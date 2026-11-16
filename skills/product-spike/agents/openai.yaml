@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Spike"
+  short_description: "Validate product and commercial assumptions with evidence"
+  default_prompt: "Use $product-spike to assess this product idea, its target users, commercial assumptions and the smallest useful validation."

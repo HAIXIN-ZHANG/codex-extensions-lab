@@ -1,0 +1,12 @@
+{
+  "name": "codex-extensions-lab",
+  "interface": { "displayName": "Codex Extensions Lab" },
+  "plugins": [
+    {
+      "name": "english-learning",
+      "source": { "source": "local", "path": "./plugins/english-learning" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

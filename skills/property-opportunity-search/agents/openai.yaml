@@ -1,0 +1,4 @@
+interface:
+  display_name: "Property Opportunity Search"
+  short_description: "Compare homes using defaults and this run's updated scope"
+  default_prompt: "Use $property-opportunity-search to find properties using my defaults, with any changes I specify for this run."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Australian English Learning"
+  short_description: "Study grammar and Australian life English with saved lessons"
+  default_prompt: "Use $english-learning to continue my grammar studies or prepare practical Australian English for a scenario I choose."

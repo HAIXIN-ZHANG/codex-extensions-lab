@@ -1,0 +1,4 @@
+interface:
+  display_name: "Job Opportunity Search"
+  short_description: "Find roles using defaults and this run's updated criteria"
+  default_prompt: "Use $job-opportunity-search to find opportunities using my defaults, with any changes I specify for this run."

@@ -6,3 +6,7 @@
 node_modules/
 __pycache__/
 .venv/
+.private/
+extension-data/
+extension-profiles/
+*.backups/

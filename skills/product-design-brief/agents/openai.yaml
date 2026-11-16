@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Design Brief"
+  short_description: "Turn discovery into UX flows and an actionable design brief"
+  default_prompt: "Use $product-design-brief to turn this product direction into user flows, UI states, scope and acceptance scenarios."
