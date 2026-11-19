@@ -46,6 +46,28 @@
     ]
   },
   {
+    "id": "job-overseas-company-contract",
+    "skill": "skilldock-job-search",
+    "context": "Synthetic profile allows Perth-based remote work for overseas employers, including company-to-company contracts; company registration and role eligibility are unknown. No live web tools.",
+    "input": "按默认条件找美国和欧洲的远程 AI 产品工作，看看能不能用澳洲公司签合同。",
+    "expect": [
+      "Searches for overseas employers open to work from Australia and does not assume that a remote label or an ABN establishes eligibility",
+      "Distinguishes B2B company contracting from employee or EOR arrangements and flags company existence, working hours and payment terms as unknown when unsupported",
+      "Does not invent current listings or treat AI course material as proven production experience"
+    ]
+  },
+  {
+    "id": "job-two-directions-four-geographies",
+    "skill": "skilldock-job-search",
+    "context": "Synthetic defaults: full-stack product with AI and applied AI / customer deployment as separate directions; Perth, Brisbane, Australia remote, and worldwide remote from Perth; replacement and additional income remain distinct.",
+    "input": "按默认条件找岗位，两个职业方向都要分别列。",
+    "expect": [
+      "Searches and reports both directions separately across the requested geographies, based on actual work rather than titles",
+      "Distinguishes Brisbane relocation from remote work eligible in Perth and checks overseas employment or company contract eligibility",
+      "Keeps replacement and additional-income judgments distinct, counts one requisition once and cross-references overlapping roles"
+    ]
+  },
+  {
     "id": "job-unavailable",
     "skill": "skilldock-job-search",
     "context": "No profile, tracker, web or inbox tools in this test.",

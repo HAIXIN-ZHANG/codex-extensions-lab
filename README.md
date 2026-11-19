@@ -6,7 +6,7 @@ An independent, open-source collection of reusable Codex skills and a local Engl
 
 - [Polish](skills/skilldock-polish/SKILL.md) — edit prose in its original language; English defaults to natural Australian usage.
 - [Australian English learning](plugins/skilldock-english/skills/skilldock-english/SKILL.md) — bilingual grammar, real-life scenarios, source research, saved materials and listening examples.
-- [Job opportunity search](skills/skilldock-job-search/SKILL.md) — research suitable roles on demand.
+- [Job opportunity search](skills/skilldock-job-search/SKILL.md) — research suitable roles on demand, including multiple career directions and international remote or company-contract opportunities when requested.
 - [Property opportunity search](skills/skilldock-property-search/SKILL.md) — compare residential property opportunities on demand.
 - [Product spike](skills/skilldock-product-discovery/SKILL.md) — investigate a product opportunity and commercial assumptions.
 - [Product design brief](skills/skilldock-ux-brief/SKILL.md) — define user journeys, UI states and experience requirements.
