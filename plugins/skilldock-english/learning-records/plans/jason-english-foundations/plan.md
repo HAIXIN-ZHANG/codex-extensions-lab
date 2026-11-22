@@ -10,10 +10,8 @@
 
 ## Lessons
 
-| Lesson | Material | Status | Evidence |
-| --- | --- | --- | --- |
-| 01 | [Sentence structure, questions and negatives](grammar/01-sentence-structure.md) | Generated; reading/completion not confirmed | A full lesson was presented in conversation. No exercise answers or completion were reported. |
+Study has not started. This plan has no saved lessons or exercise attempts.
 
 ## Next step
 
-Resume lesson 01, answer questions, or move to present simple versus present continuous if the learner chooses. Do not treat generation or elapsed time as completion.
+At the first session, choose a real-life situation or begin with sentence structure. Add a lesson here when the learner chooses to save it to this public plan.
