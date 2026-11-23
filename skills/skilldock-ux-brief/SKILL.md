@@ -31,6 +31,7 @@ Separate this request's overrides from durable defaults. Identify any existing d
 - Specify information architecture, navigation and necessary screens or surfaces. Describe meaningful UI states: loading, empty, success, validation/error, permissions, unavailable dependencies and unsaved/conflicting changes where relevant. Do not add states irrelevant to the flow.
 - Define labels, content hierarchy, forms, feedback, keyboard/accessibility behavior and responsive priorities sufficiently for a designer or engineer to act. Keep implementation details out of user-facing copy unless they affect a user decision.
 - Use concrete acceptance scenarios, such as a new user completing the primary task, recovering from an invalid input, or resuming interrupted work. Do not claim usability without an actual test.
+- For an existing feature, anchor the brief to current behavior and the requested change; include affected roles and partial failure or interrupted-work recovery where relevant. For AI-assisted flows, make proposed versus committed actions clear and specify user-visible uncertainty, review, correction and recovery when they affect the task. Do not invent AI confidence scores or claim accuracy without evidence.
 - Propose lightweight usability checks tied to risky assumptions. Interviews, test recruitment and publication are proposed activities unless explicitly authorized.
 
 ## Visual design and deliverables

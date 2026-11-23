@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "repository": "HAIXIN-ZHANG/codex-extensions-lab",
+  "version": "0.1.3",
+  "updaterHash": "fb951eb8855d50cc38d3c8da6f7fb47e4bb4f444d2e328b32fd7845dd8c0ae3c",
+  "skills": [
+    {
+      "name": "skilldock-polish",
+      "path": "skills/skilldock-polish",
+      "hash": "4491b29a88815cd4fbfacafd44ac8cda443da9707fd3cde39a7593222a9d5724"
+    },
+    {
+      "name": "skilldock-prompt-rewrite",
+      "path": "skills/skilldock-prompt-rewrite",
+      "hash": "9e61c2be680e3e4c27968630b8d92d4918b469c27a3e70ee22ad74cf69f2ffc8"
+    },
+    {
+      "name": "skilldock-job-search",
+      "path": "skills/skilldock-job-search",
+      "hash": "b79065a072cb7b72103c0e713e5a43835178868a55a88aadb0be2331c7f8489f"
+    },
+    {
+      "name": "skilldock-property-search",
+      "path": "skills/skilldock-property-search",
+      "hash": "0c1ca49b5117ba73b87f76016ed53136cc563a4be8aefda78d728a9ab40874dc"
+    },
+    {
+      "name": "skilldock-product-discovery",
+      "path": "skills/skilldock-product-discovery",
+      "hash": "f2504599328779d85596d67d195f9ffed55fdc49d48b27f7d1748b684c8a18b9"
+    },
+    {
+      "name": "skilldock-ux-brief",
+      "path": "skills/skilldock-ux-brief",
+      "hash": "e4c6425e7d453552041005119dd02328311da359cc5a22d91ef34e974d51e486"
+    },
+    {
+      "name": "skilldock-tech-design",
+      "path": "skills/skilldock-tech-design",
+      "hash": "75598c0a365003ae3854581efb46c36d48945800b0043930a7f604a7feccd5ab"
+    },
+    {
+      "name": "skilldock-english",
+      "path": "plugins/skilldock-english/skills/skilldock-english",
+      "hash": "4585a3370046e1291debf4375e48a354649cef6ab3df81cc64610eb666137e76"
+    },
+    {
+      "name": "skilldock-update",
+      "path": "plugins/skilldock-updates/skills/skilldock-update",
+      "hash": "6f097af0c1257d5c8ab5e6181e75c14eb8db8d8cf92946376f46716d27bb686d"
+    }
+  ]
+}

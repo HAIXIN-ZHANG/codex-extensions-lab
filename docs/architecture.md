@@ -10,7 +10,7 @@ User request + task-specific overrides
      +-----------+--------------------------+
      |                                      |
  Markdown workflows                  English learning skill
- Polish / Prompt rewrite             grammar / scenarios / resources
+ Polish / Prompt rewrite             grammar / life and work scenarios / resources
  Jobs / Property                     private progress and lesson history
  Product / UX / Technical                    |
      |                               TypeScript local helpers
@@ -20,6 +20,8 @@ User request + task-specific overrides
                                             |
                                   Manual JSON / Markdown / HTML export
 ```
+
+Workplace guidance is implemented as Markdown instructions and conditional references, including English rehearsal and AI-system technical design. It adds no runtime service or storage format.
 
 The host supplies the language model, web access and account permissions. Skills do not implement those services. English is a plugin package around one independently installable skill and its local scripts; it currently has no MCP service, backend or mobile app.
 
@@ -31,7 +33,10 @@ The host supplies the language model, web access and account permissions. Skills
 | `plugins/skilldock-english/skills/skilldock-english` | Single canonical English skill and helpers | Yes |
 | `.agents/plugins/marketplace.json` | Local plugin discovery catalog | Yes |
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
-| `scripts/install-skills.ts` | Preview/install/update with backups | Yes |
+| `scripts/install-skills.ts` | Preview/install/update with backups and installation receipts | Yes |
+| `plugins/skilldock-updates` | Canonical Update skill and optional session-start checker plugin | Yes |
+| `updates/manifest.json` | Published per-skill content hashes and suite version | Yes |
+| `<destination>.skilldock-state` | Installation baselines and receipt history | No |
 | `evals/cases.json` | Synthetic behavioral regression prompts | Yes |
 | `plugins/skilldock-english/learning-records/plans/<plan-id>` | Explicitly published, curated Markdown learning materials and progress, separated by selected plan | Yes |
 | `CODEX_HOME/extension-profiles` | Personal defaults | No |
@@ -52,3 +57,7 @@ The host supplies the language model, web access and account permissions. Skills
 Manual export/import works without sharing model accounts. Public English plugin `learning-records/` Markdown is a separate, opt-in path for sharing curated notes through Git; it is not the helper archive and is not imported or synchronized automatically. Pull a current base, inspect concurrent edits and resolve conflicts explicitly before publishing. Neither approach automatically relays phone changes or synchronizes live folders. A future remote access layer should reuse the data rules and add explicit identity, authorization and conflict semantics; plugin packaging alone cannot provide that.
 
 No TypeScript compiler, package dependency resolver or backend has been added. CI runs existing checks on Node.js 24 and parses metadata using Ruby's bundled YAML support. Hosted CI success is a separate fact from local validation.
+
+## Published update checks
+
+The optional update plugin performs bounded, cached public GitHub checks; its hook never installs skills. The Update workflow offers review, then uses a pinned checkout and receipt-protected installation after consent. Receipt writes share the installer lock; the check cache has its own lock. Task skills remain independently usable. See [update design and release procedure](updates.md).

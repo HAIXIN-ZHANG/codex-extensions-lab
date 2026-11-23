@@ -11,3 +11,4 @@ export const skills = [
   ['skilldock-tech-design', 'technical-design'],
 ].map(([name, legacyName]) => ({ name, legacyName, path: join(repoRoot, 'skills', name) }));
 skills.push({ name: 'skilldock-english', legacyName: 'english-learning', path: join(repoRoot, 'plugins/skilldock-english/skills/skilldock-english') });
+skills.push({ name: 'skilldock-update', legacyName: 'skilldock-update', path: join(repoRoot, 'plugins/skilldock-updates/skills/skilldock-update') });

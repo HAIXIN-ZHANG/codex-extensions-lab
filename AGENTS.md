@@ -11,7 +11,7 @@ Build portable, focused workflows for the user's actual tasks. Read the relevant
 
 ## Repository conventions
 
-- Standalone skills live in `skills/<name>`. English's single canonical skill is `plugins/skilldock-english/skills/skilldock-english`; do not create a second source copy under root `skills/`.
+- Standalone skills live in `skills/<name>`. English's canonical skill is `plugins/skilldock-english/skills/skilldock-english`; Update's is `plugins/skilldock-updates/skills/skilldock-update`. Do not create duplicate source copies under root `skills/`.
 - Code helpers use TypeScript and Node.js 24 runtime support. There are no third-party runtime packages. Do not add an application framework or external service without a concrete need and applicable authorization.
 - Add/update `scripts/catalog.ts` for a new skill, keep name/folder/frontmatter/UI metadata consistent, and retain third-party attribution and licenses for adapted content.
 - Use `skilldock-<purpose>` for public skill identity and `SkillDock · Purpose` for display. Follow [naming](docs/naming.md). Private data/profile keys are compatibility identifiers; do not rename them as a branding cleanup. Migrate installed legacy names only with the explicit migration option and backups.

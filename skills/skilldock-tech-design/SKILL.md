@@ -33,6 +33,8 @@ Resolve functional scope, expected usage, relevant quality constraints and exist
 - Address relevant accessibility, performance, reliability, observability and maintainability requirements. Separate measured numbers, agreed targets and proposed targets. Verify volatile API, compatibility and pricing claims using current primary documentation when authorized; otherwise mark them unverified. Make cost assumptions explicit.
 - Link technical decisions to product acceptance scenarios and maintain traceability to source revisions. Return product ambiguities to the product/design stage rather than inventing user-facing behavior in the implementation plan.
 
+When AI behavior is material to the design, use [the AI systems guide](references/ai-systems.md) for relevant evaluation, tool permissions, failure handling and human-review decisions. Ordinary software designs do not need AI infrastructure or an AI checklist.
+
 ## Technical spikes
 
 Bound each spike by a decision, uncertainty, method and stopping condition. Explain what evidence would confirm or reject the approach. Distinguish documentation checks, local experiments and untested assumptions.

@@ -38,3 +38,5 @@ These names reserve a consistent future namespace only. There are eight working 
 Profile keys such as `job-opportunity-search.md`, `property-opportunity-search.md`, `product-workflow.md` and `english-learning.md` stay unchanged. English's `extension-data/english-learning`, `ENGLISH_LEARNING_HOME` and `english-learning-v1` format also stay unchanged. A skill-name change should not reset history, preferences or previously exported files.
 
 Historical review/research records may refer to old names at their reviewed revisions. Current source links point to the new locations. Upstream attribution retains the original external project/skill names; the SkillDock label does not claim authorship of third-party content.
+
+The updater has one canonical skill at `plugins/skilldock-updates/skills/skilldock-update`, displayed as `SkillDock · Update`. It has no legacy name migration. Use either the standalone installed skill or the plugin-provided skill.

@@ -1,6 +1,8 @@
-# SkillDock · Australian English · v0.1.2
+# SkillDock · Australian English · v0.1.3
 
-This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand Australian life scenarios, source-backed materials, saved chapter revisions and local synthesized listening audio. Full lessons target approximately 20–30 minutes of reading for an experienced adult, adapting to the topic and learner's feedback, with separate practice and explained answers. Learners can ask about examples, submit partial answers, request hints or practise a conversation; quick questions receive proportionate answers. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
+This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand life and workplace scenarios with Australian usage, source-backed materials, saved chapter revisions and local synthesized listening audio. Full lessons target approximately 20–30 minutes of reading for an experienced adult, adapting to the topic and learner's feedback, with separate practice and explained answers. Learners can ask about examples, submit partial answers, request hints or practise a conversation; quick questions receive proportionate answers. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
+
+Short workplace rehearsals cover meetings, clarification, reviews and stakeholder communication without requiring a full lesson or saved plan. Direct editing stays concise; teaching requests explain language and register. Confidential work content stays out of public learning records; reusable examples should be generic or anonymized.
 
 The separate [public learning records](learning-records/README.md) support named Markdown plans shared through Git. They are not part of the installed skill folder or the local helper archive.
 

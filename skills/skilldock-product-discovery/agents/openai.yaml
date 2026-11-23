@@ -1,4 +1,4 @@
 interface:
   display_name: "SkillDock · Product Discovery"
-  short_description: "Validate product and commercial assumptions with evidence"
-  default_prompt: "Use $skilldock-product-discovery to assess this product idea, its target users, commercial assumptions and the smallest useful validation."
+  short_description: "Assess product ideas and workflow improvements with evidence"
+  default_prompt: "Use $skilldock-product-discovery to assess this product idea or workflow improvement, the user problem and the smallest useful validation."

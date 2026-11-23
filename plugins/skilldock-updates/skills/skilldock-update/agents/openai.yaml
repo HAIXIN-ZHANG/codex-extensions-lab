@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Update"
+  short_description: "Check published skill updates and install with consent"
+  default_prompt: "Use $skilldock-update to check for SkillDock updates, explain what changed and update the approved skills safely."

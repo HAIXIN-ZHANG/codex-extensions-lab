@@ -1,6 +1,6 @@
 ---
 name: skilldock-product-discovery
-description: Investigate an early product idea, customer problem, market, competitors, and commercial viability before UI or technical design. Use for product discovery, market validation, user desk research, or a commercial product spike.
+description: Investigate a product opportunity, existing-product improvement or internal tool by examining user problems, alternatives, evidence and relevant business outcomes before UX or technical design. Use for product discovery, user desk research or market validation when relevant.
 metadata:
   collection: "SkillDock"
   repository: "https://github.com/HAIXIN-ZHANG/codex-extensions-lab"
@@ -8,7 +8,7 @@ metadata:
 
 # Product spike
 
-Help decide whether a product opportunity deserves investment, which users and problems to target, and what to validate next. This is commercial and product discovery; implementation feasibility spikes belong to technical design.
+Help decide whether a product opportunity or improvement deserves investment, which users and problems to target, and what to validate next. This covers new products, existing-product improvements and internal tools; implementation feasibility spikes belong to technical design.
 
 ## Personal defaults and task overrides
 
@@ -26,11 +26,13 @@ Honor current scope over historical preferences. Treat changes as task-specific 
 
 ## Investigate the opportunity
 
+Choose evidence and outcomes for the actual decision. For an existing product or internal tool, start with the current workflow, affected roles, adoption, task friction, support burden and relevant operational outcomes. Use supplied customer research, usage data and project constraints when available, checking their scope and limitations. Compare improving the current process with new capabilities. Include pricing, market sizing and acquisition only when they matter; do not force a commercial launch analysis onto a bounded workflow improvement. Label unavailable internal evidence as missing rather than replacing it with invented metrics or public competitor claims.
+
 - Describe the user's job, trigger, current workaround, frequency and cost of the problem. Keep evidence of the problem separate from enthusiasm for a proposed solution.
-- Identify user segments, buyers, existing alternatives (including manual work and doing nothing), competitors, differentiation and realistic acquisition paths. Competitor feature counts do not establish demand.
+- Identify affected users, decision-makers and existing alternatives (including manual work and doing nothing). For market-facing decisions, examine buyers, competitors, differentiation and realistic acquisition paths. Competitor feature counts do not establish demand.
 - Search current, decision-relevant sources when authorized. Prefer original product/pricing documentation, official statistics, first-hand user accounts and credible research. Treat vendor claims and complaints as evidence with incentives and sampling limits, not representative market facts. If browsing is unavailable, label the analysis as a hypothesis review, not current market validation.
 - For material claims record the source link, publication or observation date, population/geography and limitation. Inspect source contents before citing; do not cite a search snippet as verified evidence. Avoid unnecessary private details in search queries or reports.
-- Explore willingness to pay, buyer budgets, pricing alternatives, distribution costs and delivery/support burden proportionally to the question. Separate observed prices from assumed revenue. Make calculation inputs and ranges inspectable; do not invent TAM, conversion, demand, margins or causal effects.
+- Explore relevant resource costs and delivery/support burden; include willingness to pay, buyer budgets, pricing and distribution costs when the decision needs them. Separate observed prices from assumed revenue. Make calculation inputs and ranges inspectable; do not invent TAM, conversion, demand, margins or causal effects.
 - Look for disconfirming evidence and explain unresolved conflicts. Public desk research cannot establish actual willingness to pay, retention or product-market fit without suitable behavioral evidence.
 
 ## Decompose and validate
@@ -47,7 +49,7 @@ Propose a coherent MVP around an end-to-end user outcome: essential, later and e
 
 Respond in the user's language. Default to a concise in-chat report; save a Markdown report when requested or when a durable deliverable is part of the assignment, using an agreed/appropriate workspace path. Do not place private business research in a public repository by default.
 
-A substantial report should cover the decision and recommendation; user/problem evidence; market/alternatives and commercial assumptions; proposed MVP boundary; validation results versus next experiments; source links and remaining uncertainty. Scale this to the task rather than filling mandatory headings.
+A substantial report should cover the decision and recommendation; user/problem evidence; relevant alternatives and business or operational assumptions; proposed scope boundary; validation results versus next experiments; source links and remaining uncertainty. Scale this to the task rather than filling mandatory headings.
 
 Include a short applicable-preferences/overrides note and carry it into the handoff, especially constraints affecting UX or feasibility. Do not copy the whole private profile into reports.
 

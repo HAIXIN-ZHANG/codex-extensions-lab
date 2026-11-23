@@ -20,7 +20,7 @@ The default handoff is a lightweight report, experience brief and technical spec
 
 ## Scope and handoff
 
-Discovery focuses on users, problems, alternatives, market and commercial assumptions. Online research is not proof of customer demand. Distinguish proposed tests from tests actually run.
+Discovery focuses on users, problems, alternatives and relevant business or operational assumptions. Existing-product improvements and internal tools can be assessed through workflow friction, adoption and support burden; market, pricing and acquisition analysis apply when the decision needs them. Online research is not proof of customer demand. Distinguish proposed tests from tests actually run.
 
 Experience design turns the chosen or proposed opportunity into an interaction model. Existing visual design tools complement this workflow; a written brief alone is not a tested UI.
 

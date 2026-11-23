@@ -1,5 +1,6 @@
 import { readFile, readdir, lstat } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { skills, repoRoot } from './catalog.ts';
 
 for (const skill of skills) {
@@ -37,8 +38,17 @@ await checkLinks(repoRoot);
 const manifest = JSON.parse(await readFile(join(repoRoot, 'plugins/skilldock-english/plugin.json'), 'utf8'));
 if (manifest.name !== 'skilldock-english' || !/^\d+\.\d+\.\d+$/.test(manifest.version) || !manifest.$schema) throw new Error('Invalid plugin identity');
 const marketplace = JSON.parse(await readFile(join(repoRoot, '.agents/plugins/marketplace.json'), 'utf8'));
-if (marketplace.name !== 'codex-extensions-lab' || marketplace.plugins.length !== 1 || marketplace.plugins[0].name !== manifest.name || resolve(repoRoot, marketplace.plugins[0].source.path) !== join(repoRoot, 'plugins/skilldock-english')) throw new Error('Invalid marketplace path/identity');
+if (marketplace.name !== 'codex-extensions-lab' || marketplace.plugins.length !== 2) throw new Error('Invalid marketplace identity');
+for (const name of ['skilldock-english', 'skilldock-updates']) {
+  const entry = marketplace.plugins.find((p: any) => p.name === name);
+  if (!entry || resolve(repoRoot, entry.source.path) !== join(repoRoot, 'plugins', name)) throw new Error('Invalid marketplace path');
+  const plugin = JSON.parse(await readFile(join(repoRoot, 'plugins', name, 'plugin.json'), 'utf8'));
+  if (plugin.name !== name || !/^\d+\.\d+\.\d+$/.test(plugin.version)) throw new Error('Invalid plugin identity');
+}
+const hook = JSON.parse(await readFile(join(repoRoot, 'plugins/skilldock-updates/hooks/hooks.json'), 'utf8'));
+if (!hook.hooks.SessionStart[0].hooks[0].command.includes('/scripts/updates.ts')) throw new Error('Invalid updater hook');
 console.log('Local links, plugin and marketplace identity: OK (not a full upstream schema validation)');
+execFileSync(process.execPath, [join(repoRoot, 'scripts/release-manifest.ts'), '--check'], { stdio: 'inherit' });
 const cases = JSON.parse(await readFile(join(repoRoot, 'evals/cases.json'), 'utf8'));
 const ids = new Set<string>();
 if (!Array.isArray(cases)) throw new Error('Invalid behavioral corpus');

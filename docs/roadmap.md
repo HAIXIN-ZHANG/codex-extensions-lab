@@ -4,7 +4,7 @@ This is a proposed direction, not permission to implement, deploy, spend money o
 
 ## Current foundation
 
-Eight independent skills; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
+Eight independent task skills plus an Update workflow and optional cached session-start update plugin; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
 
 ## Next: confidence and daily usability
 
@@ -14,6 +14,8 @@ Eight independent skills; private defaults and one-run overrides; on-demand rese
 4. If TypeScript helpers grow, add an approved dev-only compiler/type-checking setup and pinned dependency metadata. Runtime tests do not replace static types.
 
 ## Learning: useful extensions
+
+- Evaluate the implemented workplace English scenarios, short rehearsals and teaching-versus-editing routing with actual learners. See the [work-context review](reviews/2026-11-23-work-context-review.md); instruction changes alone do not prove teaching quality.
 
 - Structured vocabulary entries with meanings, collocations, example/source/audio references and optional review feedback. Current vocabulary is only a list of strings, so it is not yet a complete flashcard system.
 - Export to Anki's documented text/media interface before considering a custom flashcard app. See [comparison](research/2026-11-16-ecosystem-review.md). Prototype and test actual Anki import before claiming support.
@@ -28,7 +30,13 @@ Hosted components and API audio are opt-in integrations with applicable costs an
 
 ## Research and product workflows
 
+- Run the prepared work-context evaluation cases for internal-tool Discovery, writing, AI-assisted UX and technical design. The instruction changes and synthetic cases are implemented; empirical validation remains open. See the [review of all eight skills](reviews/2026-11-23-work-context-review.md).
+
 - Optional imported job data adapters only when they improve verified coverage; keep employer verification, eligibility and deduplication as the final filter.
 - Evaluate official property-data access only after checking actual access, coverage, costs and the user's need. Avoid building a site-specific scraper merely to expand the codebase.
 - Add small, evidence-linked discovery/interview/experiment templates when useful; reuse mature PM sources and existing visual-design plugins instead of importing entire agent frameworks.
 - Offer project-specific profile overlays only if repeated use shows the need. Existing project requirements and current instructions continue to outrank personal defaults.
+
+## Update confidence
+
+Exercise a published-release-to-trusted-hook flow on each actual client. Local fixture tests cover update planning and installation protections, but do not prove hook trust, desktop delivery or cross-device rollout. Snooze settings and signed release manifests remain optional future work, not implemented promises.
