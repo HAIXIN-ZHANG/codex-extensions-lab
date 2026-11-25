@@ -591,5 +591,37 @@
       "Includes the real PR and the relevant diff permalink or an equally precise reference",
       "Describes local test evidence accurately if included and invents no CI link or approved decision"
     ]
+  },
+  {
+    "id": "pr-comms-visible-title-link",
+    "skill": "skilldock-pr-comms",
+    "context": "Open PR title: APP-126 Fix CSV import dialog spacing. URL: https://github.com/example/web-app/pull/44. Verified diff reduces dialog padding and replaces repeated information icons with error bullets. No screenshots or test results are supplied. The message will be copied to a client without hyperlink formatting or link previews. No remote write is authorized.",
+    "input": "Write a short Slack review request. Keep the wording simple and show the PR title plus the full link.",
+    "expect": [
+      "Includes the supplied descriptive PR title and complete visible URL so both survive copying as plain text",
+      "Uses a direct review ask and concrete wording about padding and error bullets without adding promotional claims",
+      "Does not substitute a generic PR-number hyperlink, invent evidence or send the message"
+    ]
+  },
+  {
+    "id": "work-message-plain-visible-link",
+    "skill": "skilldock-work-messages",
+    "context": "Verified facts: upload validation stops locally when a project code uses an unsupported format. No fix has been made. The supplied task title is APP-127 Explain invalid project codes and its URL is https://issues.example.com/browse/APP-127. The user prefers plain wording and title plus visible URL because the recipient may not see hyperlinks. All facts and identifiers are fictional fixtures.",
+    "input": "Write a short English update explaining the problem and that I will improve the error message.",
+    "expect": [
+      "Explains the invalid project-code format in plain words and preserves that changing the error message is a future action",
+      "Includes the descriptive task title plus the complete visible URL without relying on a clickable title",
+      "Does not claim a fix is complete, copy private source data or post a message"
+    ]
+  },
+  {
+    "id": "pr-comms-explicit-link-format",
+    "skill": "skilldock-pr-comms",
+    "context": "Verified open PR title: APP-128 Fix upload spacing. URL: https://github.com/example/web-app/pull/45. The user explicitly wants the supplied Markdown link format for this one message. No screenshots or test evidence are supplied.",
+    "input": "Write a one-sentence English review request using this link exactly: [APP-128 Fix upload spacing](https://github.com/example/web-app/pull/45).",
+    "expect": [
+      "Honours the explicitly requested title-only Markdown link for this task instead of enforcing the fallback visible-URL format",
+      "Keeps the ask short and does not invent evidence or send the message"
+    ]
   }
 ]

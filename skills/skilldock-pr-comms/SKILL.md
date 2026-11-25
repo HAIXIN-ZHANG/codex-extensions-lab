@@ -17,6 +17,12 @@ Write concise, paste-ready PR descriptions and Slack review requests that help a
 - If style examples are needed, inspect a few relevant recent examples through existing authorized sources. Do not search unrelated conversations or copy private originals into reusable/public artifacts. If unavailable, use the lightweight fallback below without claiming it is the user's established style. Ask only for facts needed to avoid a material error.
 - Keep the language of the supplied draft or requested team context. A Chinese instruction does not require translating an English PR or Slack draft into Chinese. Preserve ticket IDs, links and technical terms exactly.
 
+## Plain wording and visible links
+
+Use simple, direct workplace language. Preserve the user's wording when it already explains the change clearly; do not rewrite it just to sound more polished. Prefer concrete verbs such as "reduce spacing" or "show errors" over vague claims about improving the experience. Keep the requested facts, uncertainty and tone.
+
+For Slack or Teams review requests, default to a descriptive PR title followed by its complete, visible URL, on the same line or the next. Use the verified PR title when available; a generic label such as "PR #42", a bare URL, or a title-only hyperlink does not supply both. This keeps the destination understandable when previews or hyperlink formatting are unavailable. Follow an explicit user-selected format instead when provided. Do not invent a title; if unavailable, use an accurate description supported by the supplied change.
+
 ## PR summary
 
 Lead with the concrete problem and resulting behavior. Describe the final scope for a reviewer who has not read the chat. A small fix often needs one short paragraph and a few change bullets; use the repository's headings when required. Do not turn every PR into a long engineering report.
@@ -36,7 +42,7 @@ Use one clearly labelled **Before** and one **After** image for each state that 
 
 ## Slack review request
 
-Use a natural greeting, a direct review ask, a short explanation of the change and the PR link when available. One or two sentences usually suffice for a small patch; a broader change can use two or three behavior-level bullets. Mention details/screenshots in the PR only when they are present. Use a friendly close such as "Thanks!" when it fits the examples.
+Use a natural greeting, a direct review ask, a short explanation of the change and the PR title plus visible URL when available. One or two sentences usually suffice for a small patch; a broader change can use two or three behavior-level bullets. Mention details/screenshots in the PR only when they are present. Use a friendly close such as "Thanks!" when it fits the examples.
 
 - Mention reviewers or groups only when supplied or verified as appropriate for this PR. Do not invent Slack IDs, CCs, urgency, deadlines or reviewer availability. Render mentions/link syntax for the actual delivery surface.
 - Add a review focus when it matters, such as error handling or a compatibility change. An available link to the relevant diff, spec or failing check can help reviewers get straight to that point. Keep the message short.

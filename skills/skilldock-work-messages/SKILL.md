@@ -33,7 +33,11 @@ For questions and PR or code discussions, include the most useful supporting lin
 
 Use the requested output language and any selected examples. Otherwise preserve the language of the supplied message or established recipient context; a Chinese instruction can ask for an English work message. Keep technical identifiers and links exact. For English without a contrary convention, use natural Australian spelling and plain workplace language.
 
-Prefer direct, friendly wording over formal openings, inflated enthusiasm and repetitive thanks. Do not add apologies, urgency or excessive hedging unless the situation warrants them. Use verified/supplied recipient mentions only; do not invent Slack IDs, CCs or group membership. Keep confidential detail appropriate to the intended audience, using only necessary context rather than copying whole private threads or logs.
+Use simple, direct wording and preserve the user's own phrasing when it already works. Do not make a small update sound like a formal announcement or rewrite plain words just to sound more polished. Prefer direct, friendly wording over formal openings, inflated enthusiasm and repetitive thanks. Do not add apologies, urgency or excessive hedging unless the situation warrants them. Use verified/supplied recipient mentions only; do not invent Slack IDs, CCs or group membership. Keep confidential detail appropriate to the intended audience, using only necessary context rather than copying whole private threads or logs.
+
+## Link display
+
+When including a resource link, default to its verified title or a clear description followed by the complete, visible URL, on the same line or the next. Do not rely on previews, unfurling or a title-only hyperlink; the message should remain understandable when copied as plain text. A generic ticket/PR number alone does not describe the resource. Keep links exact, follow an explicit user-selected format instead when provided, and do not invent missing titles or URLs. This link format does not require adding a heading to every message or repeating evidence already visible in a thread.
 
 ## Deliver the message
 

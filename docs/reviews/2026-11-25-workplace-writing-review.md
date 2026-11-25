@@ -20,3 +20,9 @@ No blocking source-review findings remain. Two advisory issues were corrected be
 ## Validation limits
 
 Repository metadata, links, YAML, generated manifest and helper tests are checked separately. The prepared behavioral corpus has no empirical model scores. A source review cannot establish message quality or actual client discovery. The optional Skill Creator Python validator requires unavailable PyYAML. The repository's own metadata and full Ruby YAML checks cover the authored metadata. No dependencies or user skill installations are changed by this review.
+
+## Follow-up: plain wording and visible message links
+
+Reviewed the complete follow-up diff for PR Comms and Work Messages, their synthetic examples, message guide, behavioral cases and generated skill hashes. No blocking findings remain. The default now keeps a descriptive title and complete visible URL together, while explicit task formats still take precedence. Clear user phrasing, factual uncertainty and the existing drafting-versus-publishing boundary are preserved. Generalised the new work-message case to a fictional project-code validation scenario before publication.
+
+Metadata/link/manifest checks, Ruby YAML parsing and whitespace checks pass. The unchanged helper suite passed all 25 tests during implementation; the three new behavioral cases remain unscored. The installed skills match the reviewed source byte-for-byte. Python Skill Creator validation remains unavailable because PyYAML is not installed. The manual writing example is not an independent model evaluation, and client reload/discovery was not verified.

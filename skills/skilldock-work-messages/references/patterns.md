@@ -32,7 +32,10 @@ Use the real link if supplied; the example does not authorize inventing one. For
 
 State the ambiguous scenario, the current understanding and a concrete question. Include a proposed option only when it helps the recipient decide, clearly labelled as a proposal. Keep confirmed product decisions when an older design differs.
 
-> The validation mockup shows one destination error. For a file containing several destinations, should we list one bullet per destination under the summary? [Validation mockup](https://design.example.com/upload#validation)
+> The validation mockup shows one destination error. For a file containing several destinations, should we list one bullet per destination under the summary?
+>
+> CSV upload validation mockup
+> https://design.example.com/upload#validation
 
 ## 6. Feedback, disagreement or review-comment reply
 

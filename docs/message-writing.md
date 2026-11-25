@@ -19,6 +19,8 @@ Use the task boundary rather than creating a separate skill for every message ty
 
 For questions and PR or code discussions, include relevant supporting links or evidence when available. Point to the exact source a recipient needs, such as a document section, design node, code line, PR comment or test result. A short verified error or observation can supply the context directly. Omit unavailable references and evidence.
 
+Use plain workplace wording and keep the user's phrasing when it is already clear. For message links, the default is a verified resource title or description plus the complete visible URL, so the destination is readable without previews or hyperlink formatting. An explicit user-selected format takes precedence. This does not require a heading on every message.
+
 ## Invocation examples
 
 - `用 $skilldock-work-messages 根据这些要点写英文 Slack 进度同步，说明 API 仍然 blocked，不要承诺上线日期。`

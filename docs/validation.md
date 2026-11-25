@@ -1,5 +1,11 @@
 # v0.1 validation · 2026-11-16
 
+## Plain writing and visible message links · 2026-11-25
+
+Updated PR Comms and Work Messages to use a descriptive title plus a complete visible URL by default, with explicit per-task formats taking precedence. Both skills favour simple wording and preserve clear user phrasing. Synthetic references and the message guide follow the same rule; three new prepared cases cover readable links, plain status wording and an explicit alternative link format. The corpus now contains 61 prepared scenarios; it has not been independently model-run or human-scored.
+
+On macOS / Node.js v24.14.1, repository metadata/link/manifest checks, full Ruby YAML parsing, all 25 helper tests and diff whitespace checks passed. Both local installed copies matched their source before this change. The managed installer updated only these two skills with backups, and the final installed files match source byte-for-byte. Skill Creator's Python validator could not run because PyYAML is unavailable; no dependencies were installed. A current, authorised PR was read to prepare an in-chat writing example from the installed skill; no private source content or draft was copied into public fixtures. This is a manual usage example, not an independent behavioural evaluation. At that initial local-validation stage, no commit, push or external message/PR update had been performed.
+
 ## Workplace publication review · 2026-11-25
 
 Reviewed the eight work-oriented workflows and corrected the optional-link wording plus incomplete evaluation fixtures. The [source review](reviews/2026-11-25-workplace-writing-review.md) records the scope and findings. On macOS / Node.js v24.14.1, metadata/link/manifest checks, full Ruby YAML parsing, all 25 helper tests and diff whitespace checks passed. Both new writing skills also installed byte-for-byte into an isolated temporary directory, produced receipts and remained unchanged under the migration preview. User discovery folders were not modified. A focused scan of the 18 pending files found no matches for the selected credential, internal-link, mention-ID or local-home-path patterns. This scan covers the pending source only. The 58 behavioral scenarios remain unscored. The optional Python validator still requires unavailable PyYAML.
