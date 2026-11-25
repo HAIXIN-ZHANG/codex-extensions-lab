@@ -19,7 +19,9 @@ Use the task boundary rather than creating a separate skill for every message ty
 
 For questions and PR or code discussions, include relevant supporting links or evidence when available. Point to the exact source a recipient needs, such as a document section, design node, code line, PR comment or test result. A short verified error or observation can supply the context directly. Omit unavailable references and evidence.
 
-Use plain workplace wording and keep the user's phrasing when it is already clear. For message links, the default is a verified resource title or description plus the complete visible URL, so the destination is readable without previews or hyperlink formatting. An explicit user-selected format takes precedence. This does not require a heading on every message.
+Use plain workplace wording and keep the user's phrasing and layout when they are already clear. A review request can use a greeting and ask, a short summary, then "PR:" plus the complete visible URL. Do not force a separate full title when the message already explains the destination. Include verified descriptive titles when requested or useful to distinguish links. An explicit user-selected format takes precedence, including a requested hyperlink format.
+
+For PR summaries, preserve the selected summary example's headings, order and brevity separately from the Slack format. The concise fallback is Ticket, Background and What changed, a short validation paragraph, and Screenshots only when images are present. Repository-required sections still apply.
 
 ## Invocation examples
 

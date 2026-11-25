@@ -37,7 +37,7 @@ Use simple, direct wording and preserve the user's own phrasing when it already 
 
 ## Link display
 
-When including a resource link, default to its verified title or a clear description followed by the complete, visible URL, on the same line or the next. Do not rely on previews, unfurling or a title-only hyperlink; the message should remain understandable when copied as plain text. A generic ticket/PR number alone does not describe the resource. Keep links exact, follow an explicit user-selected format instead when provided, and do not invent missing titles or URLs. This link format does not require adding a heading to every message or repeating evidence already visible in a thread.
+Preserve a user-selected example's layout and link labels. Keep the complete URL visible when previews or hyperlink formatting would otherwise hide it; a simple label such as "PR:" or "Task:" is enough when the surrounding message explains the destination. Do not require a separate resource title or extra heading in that case. Use a verified descriptive title when requested or needed to distinguish links, and honour an explicitly requested hyperlink format. Keep links exact, do not invent missing titles or URLs, and avoid repeating evidence already visible in a thread.
 
 ## Deliver the message
 

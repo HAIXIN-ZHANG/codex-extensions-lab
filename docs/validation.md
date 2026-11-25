@@ -1,5 +1,13 @@
 # v0.1 validation · 2026-11-16
 
+## Concise PR-summary format · 2026-11-25
+
+PR Comms now explicitly preserves the selected summary example's headings, order and brevity independently of the Slack review format. The concise fallback uses Ticket, Background and What changed, a short validation paragraph and Screenshots only with actual images. Repository-required sections remain mandatory. Added one fictional prepared scenario covering the summary structure, evidence limits and separation from Slack formatting; the corpus now contains 64 unscored scenarios. Metadata/link/manifest checks, full Ruby YAML parsing, all 25 helper tests and whitespace checks passed. The managed installer backed up and updated local PR Comms; its files match source byte-for-byte. At the initial local-validation stage, no independent model scoring or cloud write had been performed.
+
+## Preserve selected message layouts · 2026-11-25
+
+Refined PR Comms and Work Messages so a selected example controls paragraph structure, mention placement and link labels. A short review ask, change summary and final "PR:" with the complete visible URL can stand on their own; a separate full title is optional when the surrounding text identifies the destination. Explicit title-plus-link and hyperlink requests remain supported. Public examples are fictional, and two new prepared cases cover a selected review layout and a contextual task label. The corpus contains 63 unscored scenarios. Metadata/link/manifest checks, Ruby YAML parsing, all 25 helper tests and whitespace checks passed for this revision. Both installed skills were updated with backups and match source byte-for-byte. These checks do not establish independent model quality or client discovery. The earlier Python-validator limitation remains unchanged. At that initial local-validation stage, this follow-up had not been committed or pushed.
+
 ## Plain writing and visible message links · 2026-11-25
 
 Updated PR Comms and Work Messages to use a descriptive title plus a complete visible URL by default, with explicit per-task formats taking precedence. Both skills favour simple wording and preserve clear user phrasing. Synthetic references and the message guide follow the same rule; three new prepared cases cover readable links, plain status wording and an explicit alternative link format. The corpus now contains 61 prepared scenarios; it has not been independently model-run or human-scored.

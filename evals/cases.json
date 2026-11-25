@@ -623,5 +623,39 @@
       "Honours the explicitly requested title-only Markdown link for this task instead of enforcing the fallback visible-URL format",
       "Keeps the ask short and does not invent evidence or send the message"
     ]
+  },
+  {
+    "id": "pr-comms-preserve-selected-layout",
+    "skill": "skilldock-pr-comms",
+    "context": "The user selected this fictional example as their usual style: \"Hi @web-devs, could someone please review this small PR? thanks.\nIt reduces the upload dialog spacing and shows errors as bullet points. Before/after screenshots are in the PR\n\nPR: https://github.com/example/web-app/pull/46\". The mention, small scope and screenshots are supplied facts; the PR has the verified title APP-129 Fix upload validation layout. No remote write is authorized.",
+    "input": "Improve this lightly and use this format for the review message.",
+    "expect": [
+      "Preserves the greeting and supplied mention, review ask, short summary and final PR: line with the complete visible URL",
+      "Corrects capitalisation, punctuation and paragraph spacing without unnecessarily rewriting clear wording",
+      "Does not add a separate full PR title, headings, extra variants, new evidence or send the message"
+    ]
+  },
+  {
+    "id": "work-message-contextual-link-label",
+    "skill": "skilldock-work-messages",
+    "context": "User-selected fictional layout: a short progress update, then \"Task: https://issues.example.com/browse/APP-130\". Verified facts: the upload spacing change is available in QA and the user is asking for a retest. The task title is APP-130 Fix upload spacing. No test outcome, deadline or recipient mention is supplied.",
+    "input": "Write a brief English retest message using that layout.",
+    "expect": [
+      "Explains the available change and asks for a retest with the requested Task: full-URL line",
+      "Does not force the full task title, extra headings or a more formal announcement",
+      "Does not invent successful testing, a deadline, mentions or post the message"
+    ]
+  },
+  {
+    "id": "pr-comms-preserve-summary-shape",
+    "skill": "skilldock-pr-comms",
+    "context": "The user selects a concise PR-summary format with Ticket, Background and What changed headings, a short unheaded validation paragraph after the bullets, and Screenshots only when actual images are supplied. A separate selected Slack example uses a greeting, review ask and final PR: URL. Verified fictional facts: APP-131 at https://issues.example.com/browse/APP-131; upload spacing is too large; the diff reduces body padding and aligns the close button; focused tests passed, full type checking was not run. No screenshots or repository-required extra headings are supplied. Drafting only is authorized.",
+    "input": "Write the PR summary using the selected concise summary format, keeping my format preferences.",
+    "expect": [
+      "Preserves Ticket, Background and What changed in that order, with short background text and concrete change bullets",
+      "Keeps focused-test evidence and the missing type check in a concise paragraph without claiming new checks ran",
+      "Omits an empty Screenshots section, Slack greeting and review ask, PR-link footer, and invented report sections",
+      "Returns a draft without editing GitHub or pushing code"
+    ]
   }
 ]

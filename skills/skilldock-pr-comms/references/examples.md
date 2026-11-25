@@ -4,7 +4,7 @@ These examples use fictional facts and links. They illustrate brevity and struct
 
 ## Small UI fix: PR description
 
-Assume the work items, implementation and checks below are verified. Images would be added only if actual image URLs were available.
+Assume the work items, implementation and checks below are verified. This concise shape uses Ticket, Background and What changed, with validation kept in one short paragraph. Preserve a selected example's own headings instead when supplied. Add Screenshots only when actual images are included; do not add a Slack greeting, review ask or PR link footer to the PR body.
 
 ```markdown
 ## Ticket
@@ -27,19 +27,19 @@ If screenshots are attached, add labelled Before/After images beneath this text.
 
 ## Same fix: Slack review request
 
-Assume the PR is open for review, its verified title is "APP-123 Fix CSV upload dialog spacing and validation errors", and the description contains the stated screenshots. Resolve actual recipients from the task; the example intentionally has no mention IDs. Keep the descriptive title and visible URL together rather than replacing them with a generic linked PR number.
+Assume the PR is open for review and its description contains the stated screenshots. Resolve actual recipients from the task; the example intentionally has no mention IDs. The summary explains the destination, so the final PR label and full URL are enough without repeating its title.
 
 ```text
-Hi team, could someone help review this CSV upload dialog fix? Thanks!
+Hi team, could someone please review this small PR? Thanks.
+
 It reduces the dialog spacing and shows validation errors as bullet points. Before/after screenshots are in the PR.
 
-APP-123 Fix CSV upload dialog spacing and validation errors
-https://github.com/example/web-app/pull/42
+PR: https://github.com/example/web-app/pull/42
 ```
 
 ## Broader change: Slack review request
 
-Assume the following behavior and the PR title "APP-125 Connect CSV review to import" are verified, and the user has requested review of the import flow.
+Assume the following behavior is verified and the user has requested review of the import flow.
 
 ```text
 Hi team, could I get a review on this import flow? Thanks!
@@ -47,8 +47,7 @@ Hi team, could I get a review on this import flow? Thanks!
 • Prevent duplicate submissions and refresh the list after success.
 • Show correctable errors and unknown outcomes without automatic retries.
 
-APP-125 Connect CSV review to import
-https://github.com/example/web-app/pull/43
+PR: https://github.com/example/web-app/pull/43
 ```
 
 Avoid expanding these requests into a release announcement, an exhaustive test log or a second copy of the PR body. For an early-feedback draft, say so in the ask.

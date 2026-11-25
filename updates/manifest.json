@@ -12,12 +12,12 @@
     {
       "name": "skilldock-pr-comms",
       "path": "skills/skilldock-pr-comms",
-      "hash": "0d60d298dc8f53d7e521b1b33a97c8bbff52bfc90c4fa17c0c1a593bb15bd63c"
+      "hash": "a1e3cff134ab1f4f1e38d36f64878d05d0eeaa3a94ddab97f24f94f5edf7e844"
     },
     {
       "name": "skilldock-work-messages",
       "path": "skills/skilldock-work-messages",
-      "hash": "3b52b7f272478ff4ca897353f1cf2c5357248075430e40f7f5485087bf8eafad"
+      "hash": "6cd3d2d6df01acd2da893f99a469d08b8fc159b3b5d08a3b69ea71a0e65f0503"
     },
     {
       "name": "skilldock-prompt-rewrite",
