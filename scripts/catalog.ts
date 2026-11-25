@@ -3,6 +3,8 @@ import { join } from 'node:path';
 export const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 export const skills = [
   ['skilldock-polish', 'polish'],
+  ['skilldock-pr-comms', 'skilldock-pr-comms'],
+  ['skilldock-work-messages', 'skilldock-work-messages'],
   ['skilldock-prompt-rewrite', 'prompt-rewriting'],
   ['skilldock-job-search', 'job-opportunity-search'],
   ['skilldock-property-search', 'property-opportunity-search'],

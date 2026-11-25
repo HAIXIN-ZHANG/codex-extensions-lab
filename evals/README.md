@@ -1,6 +1,6 @@
 # Behavioral regression scenarios
 
-`cases.json` contains synthetic prompts and observable expectations for all eight skills. This is a reusable evaluation corpus, not proof that the skills work and not an automatic model benchmark.
+`cases.json` contains synthetic prompts and observable expectations for all catalogued skills. This is a reusable evaluation corpus, not proof that the skills work and not an automatic model benchmark.
 
 For an actual run:
 

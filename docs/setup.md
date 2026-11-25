@@ -11,7 +11,7 @@ cd codex-extensions-lab
 
 The repository's VS Code workspace settings allow the Chinese full-width colon in Markdown, where it is intentional punctuation. Unicode highlighting for other ambiguous or invisible characters remains enabled according to the editor's existing settings. This does not change global editor preferences or source-code punctuation.
 
-With Node.js 24+, preview installation with `node scripts/install-skills.ts --dry-run`, then install the eight task skills plus the standalone Update skill with `node scripts/install-skills.ts`. Add one or more names for a subset. It defaults to `CODEX_HOME/skills` (default `~/.codex/skills`); use `--dest /absolute/path/to/skills` if your client uses a different discovery path. It refuses differing existing folders unless you pass `--update`; updates back up old folders under `<destination>.backups` outside the discovery directory before replacement. Inspect backups before removing them. Updates never touch private profiles or history. Run the same command after pulling source changes to update installed copies.
+With Node.js 24+, preview installation with `node scripts/install-skills.ts --dry-run`, then install the ten task skills plus the standalone Update skill with `node scripts/install-skills.ts`. Add one or more names for a subset. It defaults to `CODEX_HOME/skills` (default `~/.codex/skills`); use `--dest /absolute/path/to/skills` if your client uses a different discovery path. It refuses differing existing folders unless you pass `--update`; updates back up old folders under `<destination>.backups` outside the discovery directory before replacement. Inspect backups before removing them. Updates never touch private profiles or history. Run the same command after pulling source changes to update installed copies.
 
 Alternatively, ask the host's skill installer to install a skill from this repository and its path. English is at `plugins/skilldock-english/skills/skilldock-english`, Update at `plugins/skilldock-updates/skills/skilldock-update`, and the other task skills at `skills/<name>`. Without Node, copy only the desired whole skill folder to a supported discovery path, preserving any existing version; the Update checker and English helpers still require Node.js 24+. Start a new chat or restart the client if necessary and invoke it by name. Installation does not make the current chat know the updated skill instructions until it reloads them.
 
@@ -30,6 +30,10 @@ See [the English plugin guide](../plugins/skilldock-english/README.md) for its p
 ## Update notifications
 
 For automatic session-start notices, use the optional updater plugin and review its hook in the actual host. Use either the plugin-provided Update skill or its standalone copy. See [update setup and publishing](updates.md) for baseline registration, custom destinations, consent, backups and release checks. The updater does not publish this repository or activate a schedule.
+
+PR communication is a standalone writing workflow at `skills/skilldock-pr-comms`. To install only this skill after reviewing source, run `node scripts/install-skills.ts skilldock-pr-comms --dry-run`, then omit `--dry-run`. It uses supplied or authorized project evidence and relevant writing examples; it does not provide GitHub/Slack access or send messages merely by drafting.
+
+Work Messages drafts from notes or task context; Polish edits existing prose; PR Comms handles PR descriptions and review requests. See [message-writing scenarios](message-writing.md). Work Messages can be previewed separately with `node scripts/install-skills.ts skilldock-work-messages --dry-run`; omit `--dry-run` only when installation is requested.
 
 ## Life and workplace use
 

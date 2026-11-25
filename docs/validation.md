@@ -1,5 +1,25 @@
 # v0.1 validation · 2026-11-16
 
+## Workplace publication review · 2026-11-25
+
+Reviewed the eight work-oriented workflows and corrected the optional-link wording plus incomplete evaluation fixtures. The [source review](reviews/2026-11-25-workplace-writing-review.md) records the scope and findings. On macOS / Node.js v24.14.1, metadata/link/manifest checks, full Ruby YAML parsing, all 25 helper tests and diff whitespace checks passed. Both new writing skills also installed byte-for-byte into an isolated temporary directory, produced receipts and remained unchanged under the migration preview. User discovery folders were not modified. A focused scan of the 18 pending files found no matches for the selected credential, internal-link, mention-ID or local-home-path patterns. This scan covers the pending source only. The 58 behavioral scenarios remain unscored. The optional Python validator still requires unavailable PyYAML.
+
+## Supporting evidence in messages · 2026-11-25
+
+Work Messages and PR Comms now use relevant available references or verified observations for questions and code discussions. Three prepared scenarios cover specific sources, unavailable references and precise PR review evidence. Repository checks and 25 helper tests passed. The corpus contains 58 prepared scenarios, with model evaluation still pending.
+
+## Workplace message source check · 2026-11-25
+
+Added Work Messages with nine conditional patterns and a message-writing scenario index. The scope covers drafting from notes or task facts, while existing prose editing stays with Polish and PR descriptions/review requests stay with PR Comms. Examples are fictional. Eight new prepared cases exercise status/environment distinctions, uncertain causes, neutral follow-ups, QA availability, planned versus completed review replies, tentative decisions, editing-only scope and rollout stages.
+
+On macOS / Node.js v24.14.1, `node scripts/check.ts`, `ruby scripts/check-yaml.rb`, `node --test tests/*.test.ts` (25 passing) and `git diff --check` passed. The generated manifest includes both new writing skills; the corpus contains 55 prepared cases. These checks validate metadata, links, YAML, fixtures and existing helper behaviour, not message-writing quality. The eight new cases have not been model-run or human-scored. Skill Creator `quick_validate.py` could not start because Python lacks PyYAML; no dependency was installed. No skill was installed, no remote content was changed and no message was sent.
+
+## PR communication source check · 2026-11-25
+
+Added the standalone PR communication skill, UI metadata, synthetic examples and six behavioral scenarios. The workflow uses repository requirements and selected writing examples, distinguishes reported evidence from verified checks, preserves screenshot context/provenance, and separates drafting from authorized publishing. No private messages, company links or real mention IDs are included in the skill or new fixtures.
+
+On macOS / Node.js v24.14.1, `node scripts/check.ts`, `ruby scripts/check-yaml.rb`, `node --test tests/*.test.ts` (25 passing) and `git diff --check` passed. The generated release manifest includes the new skill. The corpus now contains 47 prepared scenarios; the six new cases have not been run or scored with a model. The Skill Creator `quick_validate.py` check could not start because both available Python interpreters lack PyYAML; no dependency was installed. Repository metadata/link and full Ruby YAML checks passed separately. Source changes were not installed, committed, pushed or published, and no Slack message was sent.
+
 ## Pre-publication review · 2026-11-23
 
 Reviewed the complete pending v0.1.3 source, tests, release metadata and public documentation. Added reproductions and fixed two issues: an untracked installer in a temporary checkout could escape the original content verification, and a failed daily check could discard session notification history. Verification now requires a fully clean checkout, including ignored files, and failed checks preserve prior notification state. Remote lookup now uses GitHub's lightweight branch-ref endpoint instead of downloading a full commit diff. The English plugin version was advanced to match its changed package. All 25 executable tests, metadata/link and release-manifest checks, Ruby YAML parsing and diff whitespace checks passed on macOS / Node.js v24.14.1. A focused scan of the 38 changed/new files found no credential, real-salary-assignment or local-home-path pattern matches; this is not an exhaustive historical privacy audit. The corpus contains 41 unscored behavioral cases. Hosted CI and actual trusted session-start delivery are separate from these local results.

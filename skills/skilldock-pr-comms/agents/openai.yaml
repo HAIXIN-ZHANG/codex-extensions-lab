@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · PR Comms"
+  short_description: "Write concise PR summaries and Slack review requests"
+  default_prompt: "Use $skilldock-pr-comms to write a PR summary and Slack review request from the change and my examples."

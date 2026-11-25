@@ -4,7 +4,7 @@ This is a proposed direction, not permission to implement, deploy, spend money o
 
 ## Current foundation
 
-Eight independent task skills plus an Update workflow and optional cached session-start update plugin; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
+Ten independent task skills, including PR communication and workplace message drafting, plus an Update workflow and optional cached session-start update plugin; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
 
 ## Next: confidence and daily usability
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillDock · Work Messages"
+  short_description: "Draft clear workplace updates, requests and replies"
+  default_prompt: "Use $skilldock-work-messages to turn these notes into a concise workplace message for the intended audience."

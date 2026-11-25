@@ -7,6 +7,8 @@ The project display name is **SkillDock**. Skill identifiers use `skilldock-<pur
 | Skill | UI name | Previous identifier |
 | --- | --- | --- |
 | `skilldock-polish` | SkillDock · Polish | `polish` |
+| `skilldock-pr-comms` | SkillDock · PR Comms | None |
+| `skilldock-work-messages` | SkillDock · Work Messages | None |
 | `skilldock-prompt-rewrite` | SkillDock · Prompt Rewrite | `prompt-rewriting` |
 | `skilldock-english` | SkillDock · Australian English | `english-learning` |
 | `skilldock-job-search` | SkillDock · Job Search | `job-opportunity-search` |
@@ -29,7 +31,7 @@ Six DevPad source prompts were privately extracted and analyzed on 2026-11-16. T
 | `skilldock-dev-verify` | Targeted verification without automatic fixes |
 | `skilldock-dev-refocus` | Refocus and resume an already authorized task |
 
-These names reserve a consistent future namespace only. There are eight working skills, not thirteen. The raw work prompts and private analysis have not been published in this repository. An implementation assignment and resolved workflow details are still required.
+These names reserve a consistent future namespace only. There are ten implemented task skills plus the Update workflow; these five reserved development skills remain proposals. The raw work prompts and private analysis have not been published in this repository. An implementation assignment and resolved workflow details are still required.
 
 ## Migration and compatibility
 

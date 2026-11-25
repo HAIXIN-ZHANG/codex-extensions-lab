@@ -10,6 +10,16 @@
       "hash": "4491b29a88815cd4fbfacafd44ac8cda443da9707fd3cde39a7593222a9d5724"
     },
     {
+      "name": "skilldock-pr-comms",
+      "path": "skills/skilldock-pr-comms",
+      "hash": "cf2038fea5169eea0a2e6c871721f1b3eddf7e600262e81a666b272c6641e73d"
+    },
+    {
+      "name": "skilldock-work-messages",
+      "path": "skills/skilldock-work-messages",
+      "hash": "853ba2debd99895bc002206f0ea34cede54feb8234e6ab4d68852983486be0cf"
+    },
+    {
       "name": "skilldock-prompt-rewrite",
       "path": "skills/skilldock-prompt-rewrite",
       "hash": "9e61c2be680e3e4c27968630b8d92d4918b469c27a3e70ee22ad74cf69f2ffc8"

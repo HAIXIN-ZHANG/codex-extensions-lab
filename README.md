@@ -4,6 +4,8 @@ An independent, open-source collection of reusable Codex skills and a local Engl
 
 ## Skills
 
+- [Work messages](skills/skilldock-work-messages/SKILL.md) — draft progress updates, blocker/help requests, follow-ups, QA invitations, clarifications, feedback replies and handoffs.
+- [PR communication](skills/skilldock-pr-comms/SKILL.md) — write concise PR summaries and Slack review requests using actual changes and relevant writing examples.
 - [Polish](skills/skilldock-polish/SKILL.md) — edit prose in its original language; English defaults to natural Australian usage.
 - [Australian English learning](plugins/skilldock-english/skills/skilldock-english/SKILL.md) — bilingual grammar, life and workplace scenarios, short meeting rehearsals, source research, saved materials and listening examples.
 - [Job opportunity search](skills/skilldock-job-search/SKILL.md) — research suitable roles on demand, distinguishing Full Stack, AI Engineering and AI-focused FDE responsibilities when requested, with international remote or company-contract eligibility checks.
@@ -13,9 +15,11 @@ An independent, open-source collection of reusable Codex skills and a local Engl
 - [Technical design](skills/skilldock-tech-design/SKILL.md) — propose architecture, contracts and technical validation.
 - [Prompt rewriting](skills/skilldock-prompt-rewrite/SKILL.md) — deduplicate and rewrite conversational prompts; [upstream attribution](skills/skilldock-prompt-rewrite/UPSTREAM.md).
 
+The [message-writing guide](docs/message-writing.md) maps everyday workplace requests to Work Messages, Polish and PR Comms.
+
 The [product workflow](docs/product-workflow.md) explains discovery, experience design and technical handoff. These are independent skills; no cross-stage agent engine is required.
 
-The eight task skills can be installed independently. An additional [Update workflow](plugins/skilldock-updates/skills/skilldock-update/SKILL.md) and optional [update-notice plugin](docs/updates.md) check published versions and offer approved, backed-up updates. The English skill is also packaged as a [local plugin](plugins/skilldock-english/README.md). English helpers and the update checker use Node.js 24+ with no third-party packages. The other task skills are Markdown workflows and do not need Node to use.
+The ten task skills can be installed independently. An additional [Update workflow](plugins/skilldock-updates/skills/skilldock-update/SKILL.md) and optional [update-notice plugin](docs/updates.md) check published versions and offer approved, backed-up updates. The English skill is also packaged as a [local plugin](plugins/skilldock-english/README.md). English helpers and the update checker use Node.js 24+ with no third-party packages. The other task skills are Markdown workflows and do not need Node to use.
 
 The owner has chosen to share selected English materials and learning notes in [learning records](plugins/skilldock-english/learning-records/README.md). These Markdown records are public and are transferred between computers using Git; they are separate from the private local helper archive.
 
@@ -38,6 +42,8 @@ To migrate the old unprefixed skill names, preview `node scripts/install-skills.
 Examples:
 
 - `用 $skilldock-polish 润色下面这段文字。`
+- `用 $skilldock-work-messages 根据这些要点写英文 Slack 消息，请 QA 帮忙回归。`
+- `用 $skilldock-pr-comms 根据当前 diff 写 PR summary 和 Slack review message，沿用我给的范例。`
 - `用 $skilldock-english 继续语法课。` / `五分钟后有技术 review，陪我练习解释方案取舍，一次问一个问题。`
 - `用 $skilldock-job-search 按默认条件找工作，这次只看额外收入。`
 - `用 $skilldock-property-search 找房，这次只看 Redcliffe 现房。`
@@ -54,6 +60,7 @@ Plugin packaging follows the [official portable manifest guidance](https://devel
 - [Architecture and private data boundaries](docs/architecture.md)
 - [Roadmap: proposed next capabilities](docs/roadmap.md)
 - [Code review and corrections](docs/reviews/2026-11-16-v01-review.md)
+- [Workplace writing review](docs/reviews/2026-11-25-workplace-writing-review.md) — PR and message writing plus the existing work-oriented workflows.
 - [Work-context skill review](docs/reviews/2026-11-23-work-context-review.md) — Job Search clarification, workplace improvements and review findings across all eight task skills.
 - [Third-party comparison and DraftWise lessons](docs/research/2026-11-16-ecosystem-review.md)
 - [Behavioral evaluation scenarios](evals/README.md) — prepared cases, not yet measured model results

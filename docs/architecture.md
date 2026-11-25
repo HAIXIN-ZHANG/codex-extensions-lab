@@ -11,7 +11,8 @@ User request + task-specific overrides
      |                                      |
  Markdown workflows                  English learning skill
  Polish / Prompt rewrite             grammar / life and work scenarios / resources
- Jobs / Property                     private progress and lesson history
+ PR comms / Work messages             private progress and lesson history
+ Jobs / Property                            |
  Product / UX / Technical                    |
      |                               TypeScript local helpers
  host-authorized browsing            store.ts / audio.ts / learning.ts
@@ -29,7 +30,7 @@ The host supplies the language model, web access and account permissions. Skills
 
 | Location | Purpose | Public? |
 | --- | --- | --- |
-| `skills/<name>` | Seven standalone workflows | Yes |
+| `skills/<name>` | Nine standalone task workflows | Yes |
 | `plugins/skilldock-english/skills/skilldock-english` | Single canonical English skill and helpers | Yes |
 | `.agents/plugins/marketplace.json` | Local plugin discovery catalog | Yes |
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
@@ -50,7 +51,7 @@ The host supplies the language model, web access and account permissions. Skills
 - `store.ts` validates state, locks local writes, checks expected revision, retains document history and performs atomic replacement. It rejects conflicting imports rather than resolving by timestamps. A substantive Markdown revision resets default reading status; an explicit status may reflect known user feedback.
 - `audio.ts` uses an installed macOS Australian voice, validates nonempty PCM WAV, checks content identity and caches voice/rate variants. It does not download engines or call a paid provider.
 - `learning.ts` exposes commands and readable/portable export. Selected exports load media only for selected lessons. JSON archives include those lessons' histories; Markdown/HTML expose current text. HTML escapes lesson content and embeds generated audio, without executing imported markup.
-- `install-skills.ts` uses a sibling install lock and backs up differing folders outside the discovery tree. Replacement is recoverable per skill, not a transaction across all eight skills. Staged files live outside the discovery directory to avoid transient duplicate skills.
+- `install-skills.ts` uses a sibling install lock and backs up differing folders outside the discovery tree. Replacement is recoverable per skill, not a transaction across the selected skills. Staged files live outside the discovery directory to avoid transient duplicate skills.
 
 ## Portability and evolution
 
