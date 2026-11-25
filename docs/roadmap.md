@@ -6,6 +6,8 @@ This is a proposed direction, not permission to implement, deploy, spend money o
 
 Ten independent task skills, including PR communication and workplace message drafting, plus an Update workflow and optional cached session-start update plugin; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
 
+Reference-line formatting and compact PR-summary validation now have a local deterministic helper. Host-wide automatic output interception remains unimplemented.
+
 ## Next: confidence and daily usability
 
 1. Run the [behavioral scenarios](../evals/README.md) with actual clients, preserving model/version, loaded skill revision, outputs and human assessment. Compare with no-skill baselines for representative tasks. Do not infer quality from longer prompts or passing metadata checks.

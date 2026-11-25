@@ -8,6 +8,8 @@ metadata:
 
 # PR communication
 
+Read the optional private `extension-profiles/writing.md` under `CODEX_HOME` (default `~/.codex`) for persistent output preferences. Apply the current request first, then repository requirements and the private profile. Preserve unknown facts as unknown.
+
 Write concise, paste-ready PR descriptions and Slack review requests that help a reviewer understand the problem, the resulting behavior and the ask. Produce only the requested deliverable; when both are requested, keep them separate.
 
 ## Establish the shape and facts
@@ -21,7 +23,9 @@ Write concise, paste-ready PR descriptions and Slack review requests that help a
 
 Use simple, direct workplace language. Preserve the user's wording when it already explains the change clearly; do not rewrite it just to sound more polished. Prefer concrete verbs such as "reduce spacing" or "show errors" over vague claims about improving the experience. Keep the requested facts, uncertainty and tone.
 
-Follow the structure of a user-selected message example, including paragraph breaks, mention placement and link labels. A short greeting and review ask, a brief change summary, and a final "PR: <full URL>" line is a useful fallback. Keep the URL visible when relying on hyperlink formatting or previews would lose it. The surrounding summary can describe the destination; do not force a separate full PR title when "PR:" and the context already make it clear. Include the verified title when requested or useful to distinguish several links, and honour an explicitly requested hyperlink format. Never invent a title or URL.
+Use a resource reference line with a category, descriptive title and copyable original URL, for example `PR: APP-123 Fix upload errors (https://github.com/example/app/pull/42)`. Prefer plain text. If the user requests a hyperlink, also show the same original URL in parentheses beside it. Use this for PRs, tasks, documentation, code, CI and other references. Preserve exact destinations and use only supplied or verified titles. A current explicit format request takes precedence over older examples. Keep actual code snippets and screenshot embeds intact.
+
+When this repository is available and command access is permitted, check a saved draft with `node scripts/message-links.ts check-links message.md`. The checker fails malformed reference lines and hidden hyperlink destinations. It checks supplied files, while the host controls chat output.
 
 ## PR summary
 
@@ -29,7 +33,7 @@ Lead with the concrete problem and resulting behavior. Describe the final scope 
 
 Preserve a selected PR-summary example's section names, order and level of detail, just as you would preserve a selected Slack example. Keep PR descriptions separate from review messages: do not carry the greeting, review ask or final "PR:" line into the PR body.
 
-For a concise summary with no different format specified, start with **Ticket**, **Background**, **What changed**, and **Screenshots** only when actual images are included. Keep Background to a short explanation of the problem and What changed to the few changes reviewers need. A short validation/review paragraph can follow the change bullets instead of adding a separate heading for every check, risk or next step. Retain a dedicated Validation section or other material when required by the repository or selected example. Omit empty sections, repeated context and long process reports. These are fallback choices, not a claim that every user or PR uses the same template. See [synthetic examples](references/examples.md).
+For a concise summary with no different format specified, start with **Ticket**, **Background**, **What changed**, and **Screenshots** only when actual images are included. Keep Background to a short explanation of the problem and What changed to the few changes reviewers need. A short validation/review paragraph can follow the change bullets instead of adding a separate heading for every check, risk or next step. Retain a dedicated Validation section or other material when required by the repository or selected example. Omit empty sections, repeated context and long process reports. These are fallback choices, not a claim that every user or PR uses the same template. See [synthetic examples](references/examples.md). When the private profile selects the compact format, use exactly `## Ticket`, `## Background`, `## What changed`, then optional `## Screenshots`. Put validation and review evidence in one short paragraph after the change bullets. Run `node scripts/message-links.ts check-pr summary.md` when the repository helper is available. A repository-required template takes precedence.
 
 - Explain behavior and purpose together. Include implementation details only when they help reviewers assess the change or a real tradeoff.
 - Link relevant work items and the most useful supporting evidence when available, such as a precise spec section, design node, code or diff location, CI run, or reproduction. Use a short verified test result or observation if it provides the context directly. Omit unavailable references and evidence. Preserve confirmed decisions when an older design reference disagrees.

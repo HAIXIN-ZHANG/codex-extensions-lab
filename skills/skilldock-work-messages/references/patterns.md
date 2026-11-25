@@ -34,8 +34,7 @@ State the ambiguous scenario, the current understanding and a concrete question.
 
 > The validation mockup shows one destination error. For a file containing several destinations, should we list one bullet per destination under the summary?
 >
-> CSV upload validation mockup
-> https://design.example.com/upload#validation
+> Design: CSV upload validation mockup (https://design.example.com/upload#validation)
 
 ## 6. Feedback, disagreement or review-comment reply
 

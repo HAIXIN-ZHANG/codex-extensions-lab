@@ -61,11 +61,17 @@ async function installUnlocked(destination: string, names: string[], update: boo
       }
       try { await rename(staged, task.target); }
       catch (e) { if (backup) await rename(backup, task.target); throw e; }
+      try { await record(task); }
+      catch (e) {
+        // Restore files to the baseline still described by the receipt.
+        await rename(task.target, staged);
+        if (backup) await rename(backup, task.target);
+        throw e;
+      }
     } finally {
       // This UUID path was created by this invocation, never a user directory.
       await rm(staged, { recursive: true, force: true });
     }
-    await record(task);
   }
   // Retire old discovery entries only after every selected new skill is installed.
   // Originals are recoverable; private profile/data keys are deliberately stable.

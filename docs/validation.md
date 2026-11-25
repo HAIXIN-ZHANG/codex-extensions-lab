@@ -1,5 +1,22 @@
 # v0.1 validation · 2026-11-16
 
+## Review fixes and v0.1.4 release · 2026-11-25
+
+Corrected the Work Messages design-reference example and added a test that checks its source directly. Compact PR validation now requires an unheaded review/validation paragraph and image syntax in a Screenshots section. Inline code is preserved and prose absolute file references are checked. The installer restores the previous managed files when saving the replacement's receipt fails. A mocked filesystem rename failure verifies unchanged baseline files and receipts followed by a successful managed-only retry. The release manifest advances to 0.1.4 so changed skills qualify as updates for 0.1.3 installations. Plugin packages retain their versions because their content did not change.
+
+Node.js v24.14.1 metadata/link/manifest checks, Ruby YAML parsing, all 35 runtime tests and whitespace checks passed. The 66 prepared behavioral scenarios remain unscored. The checker validates document structure, while factual evidence and screenshot authenticity still require review. Installation recovery covers reported write failures and does not guarantee recovery from abrupt process termination.
+
+
+## Copyable references and compact summaries · 2026-11-25
+
+Added a dependency-free formatter and validator for supplied message files. Resource references use a category, descriptive title and original URL in parentheses. Optional hyperlinks retain the visible original URL. The compact PR checker verifies Ticket, Background and What changed heading order, optional Screenshots, content and change bullets. Six executable tests cover formatting, hidden destinations, exact URL matching, code/image handling, PR structure and real CLI exit codes. PR Comms and Work Messages read an optional private writing profile. The global preference is maintained outside the public repository. Model evaluation and host-wide interception remain separate from deterministic file checks. Node.js 24 metadata/link/manifest checks, full Ruby YAML parsing, all 31 helper tests and whitespace checks passed. The corrected local PR-summary and Slack drafts passed the real CLI checks after HTML screenshot embeds were handled. Installed Polish, PR Comms and Work Messages were updated with managed backups and match source. These results describe the initial local-validation stage before the subsequent publication fixes.
+
+
+## PR title-link correction · 2026-11-25
+
+PR Comms now applies the latest format correction before older examples. Review requests use the verified PR title as a clickable label for rich-text chat, or the title and full visible URL for plain-text copying. One prepared case covers a newer title-link correction overriding an older title-free example. Model scoring remains pending.
+
+
 ## Concise PR-summary format · 2026-11-25
 
 PR Comms now explicitly preserves the selected summary example's headings, order and brevity independently of the Slack review format. The concise fallback uses Ticket, Background and What changed, a short validation paragraph and Screenshots only with actual images. Repository-required sections remain mandatory. Added one fictional prepared scenario covering the summary structure, evidence limits and separation from Slack formatting; the corpus now contains 64 unscored scenarios. Metadata/link/manifest checks, full Ruby YAML parsing, all 25 helper tests and whitespace checks passed. The managed installer backed up and updated local PR Comms; its files match source byte-for-byte. At the initial local-validation stage, no independent model scoring or cloud write had been performed.

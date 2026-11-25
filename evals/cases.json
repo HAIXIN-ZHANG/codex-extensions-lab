@@ -657,5 +657,27 @@
       "Omits an empty Screenshots section, Slack greeting and review ask, PR-link footer, and invented report sections",
       "Returns a draft without editing GitHub or pushing code"
     ]
+  },
+  {
+    "id": "pr-comms-latest-title-correction",
+    "skill": "skilldock-pr-comms",
+    "context": "An older selected example ended in PR: URL without a title. The user now corrects that format and requests the actual PR title as a clickable link. Verified title: APP-132 Separate combined CSV errors. URL: https://github.com/example/web-app/pull/47. PR is draft. This is rich-text chat output. No remote write is authorized.",
+    "input": "重写 Slack review message，要带 PR title 和正确链接。",
+    "expect": [
+      "Uses APP-132 Separate combined CSV errors as the clickable link label with the exact supplied URL",
+      "Applies the latest correction over the older example without falling back to a generic PR-number label",
+      "Preserves draft status and does not send a message"
+    ]
+  },
+  {
+    "id": "work-message-original-url-in-parentheses",
+    "skill": "skilldock-work-messages",
+    "context": "Private writing profile requests resource category, descriptive title and original URL in parentheses. Known reference is API contract at https://docs.example.com/import#errors. The current instruction preserves that preference. No remote write is authorized.",
+    "input": "Write a short question about multiple validation errors with the document reference.",
+    "expect": [
+      "Uses Doc: API contract (https://docs.example.com/import#errors) or an equivalent category with the verified title and exact visible URL",
+      "Any optional hyperlink is accompanied by the same original URL in parentheses",
+      "Does not send the message or invent evidence"
+    ]
   }
 ]

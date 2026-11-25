@@ -1,23 +1,23 @@
 {
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "updaterHash": "fb951eb8855d50cc38d3c8da6f7fb47e4bb4f444d2e328b32fd7845dd8c0ae3c",
   "skills": [
     {
       "name": "skilldock-polish",
       "path": "skills/skilldock-polish",
-      "hash": "4491b29a88815cd4fbfacafd44ac8cda443da9707fd3cde39a7593222a9d5724"
+      "hash": "648a7913d81477822e8e1bb990f28bf67889f91056b6a3040534ba73981c966b"
     },
     {
       "name": "skilldock-pr-comms",
       "path": "skills/skilldock-pr-comms",
-      "hash": "a1e3cff134ab1f4f1e38d36f64878d05d0eeaa3a94ddab97f24f94f5edf7e844"
+      "hash": "5f8b0ea7de981f5b71725e07588f54cbeb59ae9650cd2d4fba21739003b9946b"
     },
     {
       "name": "skilldock-work-messages",
       "path": "skills/skilldock-work-messages",
-      "hash": "6cd3d2d6df01acd2da893f99a469d08b8fc159b3b5d08a3b69ea71a0e65f0503"
+      "hash": "e3c0dd585ee284b7ed2d3c50bac36ecb572d1d3235f2be74baff0eccad9d8e4e"
     },
     {
       "name": "skilldock-prompt-rewrite",

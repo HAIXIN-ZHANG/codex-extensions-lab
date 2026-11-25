@@ -8,6 +8,8 @@ metadata:
 
 # Work messages
 
+Read the optional private `extension-profiles/writing.md` under `CODEX_HOME` (default `~/.codex`) for persistent output preferences. Apply the current request first, then repository requirements and the private profile. Preserve unknown facts as unknown.
+
 Turn the user's facts and intent into a natural, concise message ready to send. Infer the audience, channel and purpose from context; do not require the user to choose a mode or fill in a template. Use only the relevant pattern from [message patterns](references/patterns.md) when it helps the current task.
 
 ## Choose the right boundary
@@ -37,7 +39,9 @@ Use simple, direct wording and preserve the user's own phrasing when it already 
 
 ## Link display
 
-Preserve a user-selected example's layout and link labels. Keep the complete URL visible when previews or hyperlink formatting would otherwise hide it; a simple label such as "PR:" or "Task:" is enough when the surrounding message explains the destination. Do not require a separate resource title or extra heading in that case. Use a verified descriptive title when requested or needed to distinguish links, and honour an explicitly requested hyperlink format. Keep links exact, do not invent missing titles or URLs, and avoid repeating evidence already visible in a thread.
+Use a resource reference line with a category, descriptive title and copyable original URL, for example `PR: APP-123 Fix upload errors (https://github.com/example/app/pull/42)`. Prefer plain text. If the user requests a hyperlink, also show the same original URL in parentheses beside it. Use this for PRs, tasks, documentation, code, CI and other references. Preserve exact destinations and use only supplied or verified titles. A current explicit format request takes precedence over older examples. Keep actual code snippets and screenshot embeds intact.
+
+When this repository is available and command access is permitted, check a saved draft with `node scripts/message-links.ts check-links message.md`. The checker fails malformed reference lines and hidden hyperlink destinations. It checks supplied files, while the host controls chat output.
 
 ## Deliver the message
 

@@ -62,3 +62,7 @@ No TypeScript compiler, package dependency resolver or backend has been added. C
 ## Published update checks
 
 The optional update plugin performs bounded, cached public GitHub checks; its hook never installs skills. The Update workflow offers review, then uses a pinned checkout and receipt-protected installation after consent. Receipt writes share the installer lock; the check cache has its own lock. Task skills remain independently usable. See [update design and release procedure](updates.md).
+
+The local `scripts/message-links.ts` formatter and validator use only Node built-ins. They check reference lines and the selected compact PR format in supplied artifacts. Global chat-output interception is supplied by the host and is not configured here. Writing preferences live outside the public source under `extension-profiles/writing.md`.
+
+If a skill replacement succeeds but its receipt cannot be saved, the installer restores the previous managed directory before returning the failure. A protected retry can then validate the same baseline. This recovery handles reported write failures, while process termination still requires inspecting backups and receipts.

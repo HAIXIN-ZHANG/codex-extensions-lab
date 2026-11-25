@@ -1,6 +1,6 @@
 {
   "name": "skilldock",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "type": "module",
   "engines": {
@@ -11,6 +11,8 @@
     "check:yaml": "ruby scripts/check-yaml.rb",
     "test": "node --test tests/*.test.ts",
     "install:skills": "node scripts/install-skills.ts",
-    "release:manifest": "node scripts/release-manifest.ts"
+    "release:manifest": "node scripts/release-manifest.ts",
+    "check:message-links": "node scripts/message-links.ts check-links",
+    "check:pr-summary": "node scripts/message-links.ts check-pr"
   }
 }
