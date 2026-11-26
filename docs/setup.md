@@ -2,6 +2,8 @@
 
 The collection is named SkillDock. Use the [current names and migration table](naming.md); old unprefixed invocation names are retired only when you explicitly migrate their installed folders.
 
+The optional [property research CLI](../perth-property-intelligence/README.md) runs from this checkout with Node.js 24. Supply explicit private database and input paths. Its source and tests are versioned here; keep research records and financial inputs in private storage such as `CODEX_HOME/extension-data/property-opportunity-search`.
+
 Clone this repository to work on the extensions:
 
 ```sh

@@ -35,6 +35,7 @@ The host supplies the language model, web access and account permissions. Skills
 | `.agents/plugins/marketplace.json` | Local plugin discovery catalog | Yes |
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
 | `scripts/install-skills.ts` | Preview/install/update with backups and installation receipts | Yes |
+| `perth-property-intelligence/` | Optional local research CLI, fictional examples and tests | Yes |
 | `plugins/skilldock-updates` | Canonical Update skill and optional session-start checker plugin | Yes |
 | `updates/manifest.json` | Published per-skill content hashes and suite version | Yes |
 | `<destination>.skilldock-state` | Installation baselines and receipt history | No |
@@ -54,6 +55,8 @@ The host supplies the language model, web access and account permissions. Skills
 - `install-skills.ts` uses a sibling install lock and backs up differing folders outside the discovery tree. Replacement is recoverable per skill, not a transaction across the selected skills. Staged files live outside the discovery directory to avoid transient duplicate skills.
 
 ## Portability and evolution
+
+The optional property CLI stores manually imported observations in an append-only SQLite database. It rejects stale observations within a transaction and retains raw imported JSON. Its cost model sums only supplied inputs. It accepts explicit database and input paths; keep live data under private storage such as `CODEX_HOME/extension-data/property-opportunity-search`. Runtime data, database and report directories under the public helper are ignored by Git. This helper is separate from installed skills and runs on demand.
 
 Manual export/import works without sharing model accounts. Public English plugin `learning-records/` Markdown is a separate, opt-in path for sharing curated notes through Git; it is not the helper archive and is not imported or synchronized automatically. Pull a current base, inspect concurrent edits and resolve conflicts explicitly before publishing. Neither approach automatically relays phone changes or synchronizes live folders. A future remote access layer should reuse the data rules and add explicit identity, authorization and conflict semantics; plugin packaging alone cannot provide that.
 

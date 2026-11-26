@@ -1,5 +1,11 @@
 # v0.1 validation · 2026-11-16
 
+## Property helper source publication · 2026-11-26
+
+Reviewed the previously untracked property research CLI, instructions, examples and tests. Its reusable source is retained, with fictional fixtures. Existing database, raw snapshot and research report were relocated to private storage after SHA-256 copy verification. A read-only SQLite integrity check passed and confirmed the stored raw snapshot matched its source JSON. The historical research claims were not reverified during this file-management task.
+
+Added a subprocess test that exercises import, latest, history and model commands from another working directory, and included the helper tests in the package test command and GitHub Actions. On macOS / Node.js v24.14.1, all 45 executable tests, metadata/link/manifest checks, full Ruby YAML parsing and whitespace checks passed. Node's SQLite module emits its experimental-feature warning. Targeted ignore rules cover the helper's runtime data, database and report directories. Installed skill content and release hashes are unaffected by this standalone source addition.
+
 ## Export and writing regression fixes · 2026-11-26 · v0.1.6
 
 English export now checks the shared 40,000,000-byte archive limit and 32,000,000-character per-audio base64 limit before creating output files. Synthetic PCM regressions verify rejection leaves source state and output unchanged, and individually selected lessons still restore with their original content and audio metadata. Speech tests use mocks.

@@ -10,3 +10,6 @@ __pycache__/
 extension-data/
 extension-profiles/
 *.backups/
+/perth-property-intelligence/data/
+/perth-property-intelligence/database/
+/perth-property-intelligence/reports/

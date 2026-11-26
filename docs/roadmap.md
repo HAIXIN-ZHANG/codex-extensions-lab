@@ -32,6 +32,8 @@ Hosted components and API audio are opt-in integrations with applicable costs an
 
 ## Research and product workflows
 
+- A [local property observation helper](../perth-property-intelligence/README.md) supports manual snapshot imports, history and explicit cost scenarios. Tests run in CI. Data collection, source verification and private storage remain user-directed.
+
 - Run the prepared work-context evaluation cases for internal-tool Discovery, writing, AI-assisted UX and technical design. The instruction changes and synthetic cases are implemented; empirical validation remains open. See the [review of all eight skills](reviews/2026-11-23-work-context-review.md).
 
 - Optional imported job data adapters only when they improve verified coverage; keep employer verification, eligibility and deduplication as the final filter.

@@ -57,6 +57,8 @@ Plugin packaging follows the [official portable manifest guidance](https://devel
 
 ## Maintenance and direction
 
+The optional [property research helper](perth-property-intelligence/README.md) stores dated, manually gathered observations in local SQLite and compares user-supplied cost scenarios. It runs on Node.js 24 with no third-party packages. Keep live databases, research snapshots and reports in private storage. The repository contains its reusable code, fictional examples and tests.
+
 - [Architecture and private data boundaries](docs/architecture.md)
 - [Roadmap: proposed next capabilities](docs/roadmap.md)
 - [Code review and corrections](docs/reviews/2026-11-16-v01-review.md)
