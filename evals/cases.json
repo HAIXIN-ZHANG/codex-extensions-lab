@@ -679,5 +679,27 @@
       "Any optional hyperlink is accompanied by the same original URL in parentheses",
       "Does not send the message or invent evidence"
     ]
+  },
+  {
+    "id": "pr-review-selected-opening-thanks",
+    "skill": "skilldock-pr-comms",
+    "input": "Write a Slack review request using this exact structure. Keep Thanks in the opening paragraph and use URL-as-label links. Hi Alex, could you please review the upload tracking when you have a chance? Thanks!\n\nThe PR tracks opening upload. Please check the event names.\n\nPR: [https://github.com/example/app/pull/42](https://github.com/example/app/pull/42)\n\nTicket: [https://issues.example.com/APP-123](https://issues.example.com/APP-123)",
+    "expect": [
+      "Preserves greeting and request followed by Thanks! in the opening paragraph",
+      "Keeps a concise scope/review-focus paragraph and separate PR and Ticket URL-as-label reference lines",
+      "Does not append a closing thanks, add descriptive link titles or repeat the URLs",
+      "Returns a Slack draft without sending it or changing a GitHub PR body"
+    ]
+  },
+  {
+    "id": "pr-multistage-expanded-examples",
+    "skill": "skilldock-pr-comms",
+    "input": "Write a PR summary using Ticket, Background and What changed. The diff implements an import-opened event and tests. The spec proposes result tracking for POST /imports/validate and POST /imports. Fixtures show validation request {\"items\":[{\"item_id\":101}]}, validation response {\"valid\":true,\"expected_additions\":1,\"errors\":[]}, import request {\"items\":[{\"item_id\":101}]} and response {\"status\":\"completed\",\"imported_count\":1}. Include body examples for both endpoints, expanded. The result events have no agreed telemetry schema. Focused tests and lint passed. Browser tests were not run.",
+    "expect": [
+      "Describes implemented entry tracking and tests in the change bullets, with review and validation evidence in one unheaded paragraph",
+      "Names both HTTP endpoints and shows labelled request and response JSON for each without collapsible sections",
+      "Clearly identifies proposed result tracking and unresolved mappings without inventing emitted telemetry payloads",
+      "Keeps prose concrete and concise, avoiding repeated caveats or arbitrary reviewer names"
+    ]
   }
 ]

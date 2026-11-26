@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "updaterHash": "fb951eb8855d50cc38d3c8da6f7fb47e4bb4f444d2e328b32fd7845dd8c0ae3c",
   "skills": [
     {
@@ -12,7 +12,7 @@
     {
       "name": "skilldock-pr-comms",
       "path": "skills/skilldock-pr-comms",
-      "hash": "5f8b0ea7de981f5b71725e07588f54cbeb59ae9650cd2d4fba21739003b9946b"
+      "hash": "498c701a43d3c8bbcec82a3de48d8913c834ecedd72be811990cc324d08c4aa4"
     },
     {
       "name": "skilldock-work-messages",

@@ -47,6 +47,17 @@ export function validateMessageLinks(text: string): string[] {
     // Preserve actual code blocks and image embeds. Check prose references only.
     const content = proseOnly(line);
     if (!/https?:\/\/|\]\(|\]\[|(?:^|[\s(])\/[A-Za-z0-9_.~-]+(?:\/|\.[A-Za-z])/.test(content)) continue;
+    const visibleUrlLink = content.match(/^([^:\[\]<>]+): \[(https?:\/\/[^\s\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
+    if (visibleUrlLink) {
+      try {
+        const [, label, visible, target] = visibleUrlLink;
+        if (visible !== target) throw new Error('Visible URL must match the hyperlink destination');
+        formatMessageLink({ label, title: 'Reference', url: target });
+      } catch (error) {
+        issues.push(`Line ${index + 1}: ${(error as Error).message}`);
+      }
+      continue;
+    }
     const match = content.match(/^([^:\[\]<>]+): (.+) \((https?:\/\/.+|\/.+)\)$/);
     if (!match) {
       issues.push(`Line ${index + 1}: use Label: Descriptive title (original URL)`);
@@ -81,11 +92,16 @@ export function validatePrSummary(text: string): string[] {
   const changes = text.split('## What changed\n')[1]?.split(/^## /m)[0] || '';
   if (!/^- .+/m.test(changes)) issues.push('What changed needs concrete change bullets');
   const paragraphs = changes.trim().split(/\n[ \t]*\n/);
-  const last = paragraphs.at(-1) || '';
-  const bullets = paragraphs.slice(0, -1).join('\n\n');
-  const onlyBullets = bullets.split('\n').every(line => !line.trim() || /^- .+|^ {2,}\S/.test(line));
-  if (!/^- .+/m.test(bullets) || !onlyBullets || !last.trim() || /^(?:[-*+] |\d+\. |#{1,6} |```|~~~|>)/m.test(last)) {
-    issues.push('Follow the change bullets with one unheaded review and validation paragraph');
+  const reviewIndex = paragraphs.findIndex(paragraph =>
+    !paragraph.split('\n').every(line => !line.trim() || /^- .+|^ {2,}\S/.test(line)));
+  const bullets = paragraphs.slice(0, reviewIndex).join('\n\n');
+  const review = paragraphs[reviewIndex] || '';
+  const supporting = paragraphs[reviewIndex + 1] || '';
+  const supportLabel = /^\*\*[^\n]+\*\*(?:\n|$)|^[^:\n]+: .+ \(https?:\/\//;
+  if (reviewIndex < 1 || !/^- .+/m.test(bullets) || !review.trim() ||
+      /^(?:[-*+] |\d+\. |#{1,6} |```|~~~|>|\*\*)/m.test(review) ||
+      supportLabel.test(review) || (supporting && !supportLabel.test(supporting))) {
+    issues.push('Follow the change bullets with one unheaded review and validation paragraph; labelled examples or spec links may follow');
   }
   const screenshots = text.split('## Screenshots\n')[1] || '';
   if (headings.includes('## Screenshots') && !/!\[[^\]\n]*\]\(\S+[^\n]*\)|<img\b[^>]*\bsrc\s*=\s*["'][^"']+["'][^>]*>/i.test(screenshots)) {

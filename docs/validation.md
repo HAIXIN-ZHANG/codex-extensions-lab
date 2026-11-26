@@ -1,5 +1,11 @@
 # v0.1 validation · 2026-11-16
 
+## PR communication review and v0.1.5 release · 2026-11-26
+
+Reviewed the PR communication guidance, synthetic examples, link/summary validator and regression tests. URL-as-label links preserve matching destinations, requested endpoint bodies remain expanded, and labelled examples can follow the review paragraph. The public source uses fictional examples. Personal templates remain in the private profile. Advanced the release to 0.1.5 because the updater requires a newer version for changed skill hashes.
+
+Node.js v24.14.1 metadata/link/manifest checks, Ruby YAML parsing, all 37 executable tests and diff whitespace checks passed. The expanded product PR summary also passed the updated checker. The corpus contains 68 prepared behavioral cases. The two added scenarios have not been run or scored with a model. No TypeScript compiler check was configured or run.
+
 ## Review fixes and v0.1.4 release · 2026-11-25
 
 Corrected the Work Messages design-reference example and added a test that checks its source directly. Compact PR validation now requires an unheaded review/validation paragraph and image syntax in a Screenshots section. Inline code is preserved and prose absolute file references are checked. The installer restores the previous managed files when saving the replacement's receipt fails. A mocked filesystem rename failure verifies unchanged baseline files and receipts followed by a successful managed-only retry. The release manifest advances to 0.1.4 so changed skills qualify as updates for 0.1.3 installations. Plugin packages retain their versions because their content did not change.

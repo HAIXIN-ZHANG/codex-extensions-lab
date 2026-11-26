@@ -80,3 +80,20 @@ test('the workplace clarification example follows the same link rules as saved d
   const patterns = await readFile(new URL('../skills/skilldock-work-messages/references/patterns.md', import.meta.url), 'utf8');
   assert.deepEqual(validateMessageLinks(patterns), []);
 });
+
+
+test('accepts selected URL-as-label references and rejects mismatched destinations', () => {
+  assert.deepEqual(validateMessageLinks(`PR: [${url}](${url})`), []);
+  assert.deepEqual(validateMessageLinks('Ticket: [https://issues.example.com/APP-123](https://issues.example.com/APP-123)'), []);
+  assert.ok(validateMessageLinks(`PR: [${url}](https://example.org/other)`).length);
+  assert.ok(validateMessageLinks('PR: [https://user:secret@example.com](https://user:secret@example.com)').length);
+});
+
+
+test('accepts labelled payload examples after the review paragraph', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const examples = await readFile(new URL('../skills/skilldock-pr-comms/references/examples.md', import.meta.url), 'utf8');
+  const sample = examples.split('````markdown\n')[1].split('````')[0];
+  assert.deepEqual(validatePrSummary(sample), []);
+  assert.ok(validatePrSummary(sample.replace('Local review found no blockers. Focused tests and changed-file lint passed. Browser execution and telemetry ingestion remain unverified.\n\n', '')).length);
+});
