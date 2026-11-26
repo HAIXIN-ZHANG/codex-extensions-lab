@@ -6,7 +6,7 @@ This is a proposed direction, not permission to implement, deploy, spend money o
 
 Ten independent task skills, including PR communication and workplace message drafting, plus an Update workflow and optional cached session-start update plugin; private defaults and one-run overrides; on-demand research; local English chapters/history/audio/manual exports; separately published English Markdown learning records shared via Git; install/update backups; source attribution and runtime regression tests. See [validation](validation.md) for what was actually exercised and [architecture](architecture.md) for current boundaries.
 
-Reference-line formatting and compact PR-summary validation now have a local deterministic helper. Host-wide automatic output interception remains unimplemented.
+Reference-line formatting and compact PR-summary validation have a local deterministic helper with shared fenced-code exclusion and HTTP endpoint handling. English exports check total archive and per-audio import limits before writing. Explicit update checks explain migration for installations without receipts. Host-wide automatic output interception remains unimplemented.
 
 ## Next: confidence and daily usability
 

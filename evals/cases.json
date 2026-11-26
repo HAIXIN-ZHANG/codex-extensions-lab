@@ -692,6 +692,17 @@
     ]
   },
   {
+    "id": "update-unmanaged-migration-guidance",
+    "skill": "skilldock-update",
+    "context": "An explicit update check returns status ok for version 0.1.6. The only entry is skilldock-polish with status unmanaged and installedVersion null. Its guidance says no receipt exists and asks for local-diff review before explicit source migration. The installed folder contains unknown local edits. No installation is authorized.",
+    "input": "这个旧安装为什么不能自动提示升级？先帮我解释，再说怎么迁移。",
+    "expect": [
+      "Explains the missing receipt and unknown installed version or local-edit history without claiming the skill is current",
+      "Describes reviewed, selected-name source installation with a dry run, baseline registration for identical files and backups for differing files",
+      "Preserves the unknown local edits and does not install, adopt a baseline or bypass a protected-update refusal"
+    ]
+  },
+  {
     "id": "pr-multistage-expanded-examples",
     "skill": "skilldock-pr-comms",
     "input": "Write a PR summary using Ticket, Background and What changed. The diff implements an import-opened event and tests. The spec proposes result tracking for POST /imports/validate and POST /imports. Fixtures show validation request {\"items\":[{\"item_id\":101}]}, validation response {\"valid\":true,\"expected_additions\":1,\"errors\":[]}, import request {\"items\":[{\"item_id\":101}]} and response {\"status\":\"completed\",\"imported_count\":1}. Include body examples for both endpoints, expanded. The result events have no agreed telemetry schema. Focused tests and lint passed. Browser tests were not run.",

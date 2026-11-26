@@ -51,7 +51,7 @@ Examples:
 
 ## v0.1 boundaries
 
-Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
+Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Exports check archive and audio size limits before creating files and explain how to reduce an oversized selection. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
 
 Plugin packaging follows the [official portable manifest guidance](https://developers.openai.com/plugins/build/plugins). Local host installation and cross-account sign-in behavior still depend on the client and need verification. See [validation notes](docs/validation.md).
 
@@ -66,7 +66,7 @@ Plugin packaging follows the [official portable manifest guidance](https://devel
 - [Behavioral evaluation scenarios](evals/README.md) — prepared cases, not yet measured model results
 - [Agent entry instructions](AGENTS.md)
 
-GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.3. The behavioral cases are maintained separately from executable helper tests; `node scripts/check.ts` reports their current count. Neither the source review nor those prepared cases prove teaching or writing quality.
+GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.6. The behavioral cases are maintained separately from executable helper tests; `node scripts/check.ts` reports their current count. Neither the source review nor those prepared cases prove teaching or writing quality.
 
 ## Contributing and license
 

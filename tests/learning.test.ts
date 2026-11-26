@@ -1,14 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { load, save, progress, bundle, importBundle, hash, validateWav } from '../plugins/skilldock-english/skills/skilldock-english/scripts/store.ts';
+import { load, save, progress, bundle, importBundle, hash, validateWav, attachAudio } from '../plugins/skilldock-english/skills/skilldock-english/scripts/store.ts';
 import { run } from '../plugins/skilldock-english/skills/skilldock-english/scripts/learning.ts';
 import { speak } from '../plugins/skilldock-english/skills/skilldock-english/scripts/audio.ts';
 
 const root = () => mkdtemp(join(tmpdir(), 'english-learning-test-'));
 const lesson = (expectedRevision = 0) => ({ expectedRevision, id: 'test-lesson', kind: 'scenario', title: 'Fishing / 钓鱼', markdown: 'reel：鱼轮\n<script>alert(1)</script>', speechText: 'Could you recommend a fishing rod?', vocabulary: ['reel'], sources: [] });
+
+function mockWav(dataBytes: number, sample = 1000) {
+  const wav = Buffer.alloc(44 + dataBytes);
+  wav.write('RIFF'); wav.writeUInt32LE(36 + dataBytes, 4); wav.write('WAVEfmt ', 8);
+  wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
+  wav.writeUInt32LE(22050, 24); wav.writeUInt32LE(44100, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
+  wav.write('data', 36); wav.writeUInt32LE(dataBytes, 40); wav.writeInt16LE(sample, 44);
+  return wav;
+}
 test('save, resume, revise and status preserve history; generated is not read', async () => {
   const home = await root();
   await save(home, lesson());
@@ -60,10 +69,7 @@ test('speech WAV is cached, invalidated on text changes and exported with checks
   const home = await root(); const other = await root();
   await save(home, lesson());
   let calls = 0;
-  const wav = Buffer.alloc(100); wav.write('RIFF'); wav.writeUInt32LE(92, 4); wav.write('WAVE', 8);
-  wav.write('fmt ', 12); wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
-  wav.writeUInt32LE(22050, 24); wav.writeUInt32LE(44100, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
-  wav.write('data', 36); wav.writeUInt32LE(56, 40); wav.writeInt16LE(1000, 44);
+  const wav = mockWav(56);
   const runner = async (command: string, args: string[]) => {
     calls++;
     if (args[1] === '?') return { stdout: 'Karen               en_AU    # Hello' };
@@ -119,4 +125,41 @@ test('exporting one lesson does not read another lesson\'s missing audio', async
   const exported = JSON.parse(await readFile(join(output, 'selected.json'), 'utf8'));
   assert.deepEqual(Object.keys(exported.state.documents), ['test-lesson']);
   assert.deepEqual(exported.audio, {});
+});
+
+test('oversized combined exports leave no files and selected lessons still round-trip', async (t) => {
+  const home = await root(); const output = await root(); const other = await root();
+  t.after(() => Promise.all([home, output, other].map(folder => rm(folder, { recursive: true, force: true }))));
+  await mkdir(join(home, 'audio'));
+  for (const i of [0, 1]) {
+    const id = 'lesson-' + i;
+    await save(home, { ...lesson(i * 2), id });
+    const wav = mockWav(15_100_000, 1000 + i);
+    const filename = hash(wav) + '.wav';
+    await writeFile(join(home, 'audio', filename), wav);
+    await attachAudio(home, { id, expectedRevision: i * 2 + 1 }, { filename, voice: 'fixture', rate: 175, textHash: hash(lesson().speechText) });
+  }
+  const before = await readFile(join(home, 'state.json'), 'utf8');
+  await assert.rejects(run('export', { output: join(output, 'combined') }, home), /exceeds 40 MB.*ids/);
+  assert.deepEqual(await readdir(output), []);
+  assert.equal(await readFile(join(home, 'state.json'), 'utf8'), before);
+  for (const i of [0, 1]) {
+    const prefix = join(output, 'selected-' + i);
+    await run('export', { output: prefix, ids: ['lesson-' + i] }, home);
+    await run('import', { file: prefix + '.json', expectedRevision: i }, other);
+  }
+  assert.deepEqual((await load(other)).documents, (await load(home)).documents);
+});
+
+test('exports reject single audio above the import limit before writing files', async (t) => {
+  const home = await root(); const output = await root();
+  t.after(() => Promise.all([home, output].map(folder => rm(folder, { recursive: true, force: true }))));
+  await save(home, lesson());
+  await mkdir(join(home, 'audio'));
+  const wav = mockWav(24_000_000);
+  const filename = hash(wav) + '.wav';
+  await writeFile(join(home, 'audio', filename), wav);
+  await attachAudio(home, { id: 'test-lesson', expectedRevision: 1 }, { filename, voice: 'fixture', rate: 175, textHash: hash(lesson().speechText) });
+  await assert.rejects(run('export', { output: join(output, 'oversized') }, home), /Audio exceeds.*shorten/);
+  assert.deepEqual(await readdir(output), []);
 });

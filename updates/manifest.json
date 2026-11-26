@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
-  "version": "0.1.5",
-  "updaterHash": "fb951eb8855d50cc38d3c8da6f7fb47e4bb4f444d2e328b32fd7845dd8c0ae3c",
+  "version": "0.1.6",
+  "updaterHash": "dc86d81fd9d59cbb980af1c5fdfa71bf3253131ae8f8b6ade8641702faaa9fec",
   "skills": [
     {
       "name": "skilldock-polish",
@@ -52,12 +52,12 @@
     {
       "name": "skilldock-english",
       "path": "plugins/skilldock-english/skills/skilldock-english",
-      "hash": "4585a3370046e1291debf4375e48a354649cef6ab3df81cc64610eb666137e76"
+      "hash": "c7968ba59842e2b15c33b6b852a405ed93f2e425a2ea1d1e1f20eb8c4dbfa1d7"
     },
     {
       "name": "skilldock-update",
       "path": "plugins/skilldock-updates/skills/skilldock-update",
-      "hash": "6f097af0c1257d5c8ab5e6181e75c14eb8db8d8cf92946376f46716d27bb686d"
+      "hash": "c227ab2f3ce908015f26805374c657c902c7e26f863f2b7bbd73aa0a64ad9183"
     }
   ]
 }

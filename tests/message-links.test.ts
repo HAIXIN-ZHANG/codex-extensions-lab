@@ -75,6 +75,25 @@ test('preserves inline commands while checking prose file references', () => {
   assert.deepEqual(validateMessageLinks('File: Test report (/tmp/My Report.md)'), []);
 });
 
+test('accepts HTTP endpoints while still checking links and file references on the same line', () => {
+  for (const method of ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH']) {
+    assert.deepEqual(validateMessageLinks(`Added ${method} /v1/orders/{id}?expand=items to fetch orders.`), []);
+  }
+  assert.ok(validateMessageLinks('Added GET /v1/orders. See /tmp/report.md').length);
+  assert.ok(validateMessageLinks(`Added GET /v1/orders. See [the PR](${url}).`).length);
+  assert.deepEqual(validateMessageLinks(formatMessageLink({ label: 'API', title: 'GET /v1/orders', url: 'https://example.com/orders' })), []);
+});
+
+test('ignores fenced examples during PR structure checks and checks content after the fence', () => {
+  for (const fence of ['```', '~~~', '````']) {
+    const example = `\n**Markdown example**\n\n${fence}markdown\n## Screenshots\nHi team\nPR: hidden example\n${fence}\n`;
+    assert.deepEqual(validatePrSummary(summary + example), []);
+    assert.ok(validatePrSummary(summary + example + '\n## Extra\n\nUnselected section.').length);
+    assert.ok(validatePrSummary(summary + example + '\n[Hidden link](https://example.com)').length);
+  }
+  assert.ok(validatePrSummary(summary + '\n## Screenshots\n\n```markdown\n![Example](https://example.com/image.jpg)\n```').length);
+});
+
 test('the workplace clarification example follows the same link rules as saved drafts', async () => {
   const { readFile } = await import('node:fs/promises');
   const patterns = await readFile(new URL('../skills/skilldock-work-messages/references/patterns.md', import.meta.url), 'utf8');

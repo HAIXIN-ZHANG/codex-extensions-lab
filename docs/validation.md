@@ -1,5 +1,13 @@
 # v0.1 validation · 2026-11-16
 
+## Export and writing regression fixes · 2026-11-26 · v0.1.6
+
+English export now checks the shared 40,000,000-byte archive limit and 32,000,000-character per-audio base64 limit before creating output files. Synthetic PCM regressions verify rejection leaves source state and output unchanged, and individually selected lessons still restore with their original content and audio metadata. Speech tests use mocks.
+
+Writing checks now share fenced-code exclusion, preserve HTTP endpoint descriptions and endpoint-titled reference lines, reject invalid references after a closing fence, and require screenshot evidence outside code examples. Explicit update planning explains missing receipts and the reviewed source-migration route. The existing protections and local-edit preservation remain covered by runtime tests.
+
+On macOS / Node.js v24.14.1, all 41 executable tests, repository metadata/link/manifest checks, full Ruby YAML parsing and `git diff --check` passed. The suite and changed plugin packages advance to 0.1.6. The behavioral corpus has 69 prepared cases, including one new unmanaged-migration case that has not been model-run or human-scored. Source self-review and deterministic regression tests were performed. The Skill Creator Python validator could not start because PyYAML is unavailable; Ruby parsed all skill frontmatter separately. TypeScript compiler checking and plugin-host delivery were not exercised in this patch.
+
 ## PR communication review and v0.1.5 release · 2026-11-26
 
 Reviewed the PR communication guidance, synthetic examples, link/summary validator and regression tests. URL-as-label links preserve matching destinations, requested endpoint bodies remain expanded, and labelled examples can follow the review paragraph. The public source uses fictional examples. Personal templates remain in the private profile. Advanced the release to 0.1.5 because the updater requires a newer version for changed skill hashes.

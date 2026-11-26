@@ -17,6 +17,8 @@ Alternatively, ask the host's skill installer to install a skill from this repos
 
 For an update preview, use `node scripts/install-skills.ts --update --dry-run`. Concurrent mutating installers are rejected with a sibling `<destination>.install-lock`; if a process dies leaving this directory, first verify that no installer is active before manual recovery. Staging and backups are outside the skill discovery directory. This protects cooperating local installs, not synchronized multi-device updates.
 
+Older copied skills may be reported as `unmanaged` because they lack installation receipts. Review local differences before registering a baseline through the source installer. See [existing-installation migration](updates.md#existing-installations-without-receipts) for selected-name previews, backups and later protected updates.
+
 For the v0.1.2 naming migration, add `--migrate-legacy`: preview with `node scripts/install-skills.ts --update --migrate-legacy --dry-run`, then run without `--dry-run`. Existing legacy folders move to backups after new skills install; their private configuration/data paths remain unchanged. This flag is opt-in so normal installations do not retire similarly named local skills unexpectedly.
 
 Job Search accepts an optional compensation preference (desired range/minimum, currency and pay basis) from the current request or private profile. Current/previous salary is not required. Public source and examples contain generic fields only; apply sensitive thresholds locally and avoid repeating them in ordinary results or external searches. One-run inputs do not become saved defaults automatically.
