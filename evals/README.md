@@ -12,3 +12,9 @@ For an actual run:
 Keep a result record with case ID, date, revision, model/client, output/tool evidence, expectation outcomes and limitations. Only count an empirical pass after the run. Do not label review by the author as independent validation, or generate external calls merely by reading this evaluation guide.
 
 When real failures occur, sanitize a minimal case, fix the narrow rule responsible and rerun affected cases. No fixed scoring metric, automatic model calls or paid benchmark service is installed.
+
+## Cross-agent preparation
+
+Run `node scripts/prepare-evals.ts --out /absolute/new/eval-run` to prepare contained skills and the same synthetic cases for both clients. The output records version, base commit, dirty-tree state, skill hashes and host-specific standalone invocation. Every result is `not-run`, with null model/client/scoring fields. It does not start an agent, call an API or infer a pass.
+
+Load one prepared host directory in an isolated test environment with fixture profiles, record actual client/model and loaded skill identity, then submit identical cases. Plugin tests must use the actual plugin namespace rather than the standalone invocation in the prepared file. Assess expected behavior and tool traces independently for each host. Keep raw results private unless explicitly approved and sanitized. Cases about shared data, update destinations and no implicit migration supplement the existing privacy, writing, learning and installation cases.

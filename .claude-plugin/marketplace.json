@@ -1,0 +1,22 @@
+{
+  "name": "codex-extensions-lab",
+  "owner": {
+    "name": "SkillDock maintainers"
+  },
+  "plugins": [
+    {
+      "name": "skilldock-english",
+      "source": "./plugins/skilldock-english",
+      "description": "English for everyday life and work, with Australian usage, bilingual grammar, conversation practice, local history, audio and portable learning archives."
+    },
+    {
+      "name": "skilldock-updates",
+      "source": "./plugins/skilldock-updates",
+      "description": "Check published SkillDock releases at session start and offer consent-based skill updates."
+    }
+  ],
+  "metadata": {
+    "description": "Shared local workflows for Codex and Claude Code",
+    "version": "0.2.0"
+  }
+}

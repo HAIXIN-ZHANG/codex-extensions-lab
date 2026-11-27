@@ -1,6 +1,6 @@
+import { isMain } from '../runtime/paths.ts';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 
 export interface MessageLink {
   label: string;
@@ -111,7 +111,7 @@ export function validatePrSummary(text: string): string[] {
   return issues;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (await isMain(import.meta.url)) {
   try {
     const [command, file, ...extra] = process.argv.slice(2);
     if (!file || extra.length || !['format', 'check-links', 'check-pr'].includes(command)) {

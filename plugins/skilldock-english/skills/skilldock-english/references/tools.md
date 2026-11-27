@@ -7,7 +7,7 @@ node /absolute/path/to/skilldock-english/scripts/learning.ts status
 node /absolute/path/to/skilldock-english/scripts/learning.ts save < /absolute/path/to/request.json
 ```
 
-The optional `ENGLISH_LEARNING_HOME` points at an absolute private data directory. Otherwise use `CODEX_HOME/extension-data/english-learning` (default `~/.codex/extension-data/english-learning`). Never set it to this public repository. Read-only status does not initialize or change data. Commands fail on invalid/corrupt state rather than overwriting it.
+The optional `ENGLISH_LEARNING_HOME` points at an absolute private data directory. Otherwise use `SKILLDOCK_HOME/extension-data/english-learning` when configured, then the legacy `CODEX_HOME/extension-data/english-learning` (default `~/.codex/extension-data/english-learning`). Explicit `ENGLISH_LEARNING_HOME` retains highest precedence. Switching roots does not move or merge existing files. Never set it to this public repository. Read-only status does not initialize or change data. Commands fail on invalid/corrupt state rather than overwriting it.
 
 ## Requests
 

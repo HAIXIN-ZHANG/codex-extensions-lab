@@ -88,7 +88,7 @@ the draft rather than silently settling them.
 Input:
 
 ```text
-$skilldock-prompt-rewrite "how can I use tmux to run jobs when I close the laptop"
+Use skilldock-prompt-rewrite to clarify: "how can I use tmux to run jobs when I close the laptop"
 ```
 
 Ask whether the job runs locally or remotely and whether closing the lid must

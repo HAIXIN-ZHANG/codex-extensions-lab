@@ -66,3 +66,9 @@ The optional update plugin performs bounded, cached public GitHub checks; its ho
 The local `scripts/message-links.ts` formatter and validator use only Node built-ins. They check reference lines and the selected compact PR format in supplied artifacts. Global chat-output interception is supplied by the host and is not configured here. Writing preferences live outside the public source under `extension-profiles/writing.md`.
 
 If a skill replacement succeeds but its receipt cannot be saved, the installer restores the previous managed directory before returning the failure. A protected retry can then validate the same baseline. This recovery handles reported write failures, while process termination still requires inspecting backups and receipts.
+
+## v0.2.0 cross-agent boundary
+
+The canonical catalog and existing skill roots are unchanged. `scripts/targets.ts` selects discovery destinations; `scripts/artifacts.ts` generates contained installations with canonical helpers; `scripts/build-plugins.ts` generates both native marketplaces/packages. `runtime/paths.ts` defines opt-in shared data resolution. Committed generated snapshots keep source plugins self-contained and are checked by `scripts/sync-runtime.ts`.
+
+The updater's `engine.ts` owns release/cache/planning, `cli.ts` selects host paths and arguments, and `adapters.ts` formats notices. `updates.ts` preserves the old entrypoint. Each host has an explicitly selected hook file, avoiding a default hook plus declared-hook duplicate. Source and artifact hashes are distinct; schema-1 source fields remain readable. See [cross-agent architecture and limits](cross-agent.md). No MCP layer, personal migration or new service is introduced.

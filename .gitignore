@@ -10,3 +10,8 @@ __pycache__/
 extension-data/
 extension-profiles/
 *.backups/
+
+dist/
+*.skilldock-state/
+*.install-lock/
+*.stage-*/

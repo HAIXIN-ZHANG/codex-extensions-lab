@@ -42,3 +42,7 @@ Hosted components and API audio are opt-in integrations with applicable costs an
 ## Update confidence
 
 Exercise a published-release-to-trusted-hook flow on each actual client. Local fixture tests cover update planning and installation protections, but do not prove hook trust, desktop delivery or cross-device rollout. Snooze settings and signed release manifests remain optional future work, not implemented promises.
+
+## v0.2.0 follow-up verification
+
+The cross-agent installer, package generator, opt-in shared data root and separate hook adapters are implemented. Next validate actual Codex and Claude native discovery, hook trust/delivery and model behavior with controlled data. The prepared cross-agent corpus is not a scored benchmark. Personal-data migration remains a separately approved procedure; MCP and cloud infrastructure remain outside this release. See [cross-agent verification](cross-agent.md).

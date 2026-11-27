@@ -1,4 +1,14 @@
-# v0.1 validation · 2026-11-16
+# Validation history
+
+## v0.2.0 cross-agent implementation · 2026-11-27
+
+Baseline: source v0.1.5 (c203067), eleven skills and 68 prepared behavior cases. Implemented explicit Codex/Claude/all installation, self-contained artifacts and native plugin metadata, shared update engine with separate host adapters, opt-in SKILLDOCK_HOME and unchanged legacy defaults. No real personal profiles or learning archives were read, migrated or imported by the implementation; no MCP, host installation, model API call, live search or publication was performed.
+
+Local environment: macOS, Node.js v26.5.0. All 51 executable tests pass, together with metadata/links, source/runtime metadata synchronization, release artifact consistency, full Ruby YAML parsing and diff whitespace checks. The configured Linux/macOS CI matrix uses Node 24; it has not run for this uncommitted change. Local results do not establish Node 24 execution. New tests cover target conflict preflight, aliases, independent receipts, partial failure/rollback, contained package execution outside the checkout, actual hook CLI payloads without network, shared-cache host isolation, legacy configuration, no implicit data migration, duplicate discovery and unrun evaluation preparation. The corpus now has 71 synthetic cases; none is scored as a cross-agent model benchmark.
+
+An independent read-only review reproduced two issues: stdin-import entry guards threw on the dash argv, and installer/updater discovery predicates disagreed on prefixed notes files. Shared entry/discovery helpers and regression tests fixed both; re-review found no remaining concrete blocker in the reviewed core. Generated English and Updates packages and the Claude marketplace all passed `claude plugin validate --strict` using Claude Code 2.1.193 with no warnings. These native manifest results do not prove actual skill loading, permissions, hook trust or notification delivery. Codex host installation, real SessionStart execution in either host, model behavior and published upgrade flows remain manual verification items. See [cross-agent setup](cross-agent.md) and [the initial audit](reviews/2026-11-27-cross-agent-plan.md).
+
+## Historical v0.1 results · starting 2026-11-16
 
 ## PR communication review and v0.1.5 release · 2026-11-26
 

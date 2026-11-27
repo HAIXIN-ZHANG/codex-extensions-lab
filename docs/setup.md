@@ -27,6 +27,10 @@ The product discovery, experience brief and technical design skills share an opt
 
 See [the English plugin guide](../plugins/skilldock-english/README.md) for its plugin packaging, helper prerequisites and actual cross-device limits. The independent skill installer is the locally exercised path; plugin-host loading must be verified in the target client.
 
+## Codex and Claude Code
+
+See [cross-agent setup](cross-agent.md) for explicit targets, custom destinations, package generation, separate hook adapters and verification limits. The existing no-target command still uses the legacy destination. Private data remains in its original location unless a shared `SKILLDOCK_HOME` is explicitly selected; nothing is moved or merged.
+
 ## Update notifications
 
 For automatic session-start notices, use the optional updater plugin and review its hook in the actual host. Use either the plugin-provided Update skill or its standalone copy. See [update setup and publishing](updates.md) for baseline registration, custom destinations, consent, backups and release checks. The updater does not publish this repository or activate a schedule.

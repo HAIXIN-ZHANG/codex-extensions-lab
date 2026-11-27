@@ -8,7 +8,7 @@ metadata:
 
 # Work messages
 
-Read the optional private `extension-profiles/writing.md` under `CODEX_HOME` (default `~/.codex`) for persistent output preferences. Apply the current request first, then repository requirements and the private profile. Preserve unknown facts as unknown.
+Read the optional private `extension-profiles/writing.md` under the selected data root (`SKILLDOCK_HOME` when set; otherwise legacy `CODEX_HOME` or `~/.codex`) for persistent output preferences. Apply the current request first, then repository requirements and the private profile. Preserve unknown facts as unknown.
 
 Turn the user's facts and intent into a natural, concise message ready to send. Infer the audience, channel and purpose from context; do not require the user to choose a mode or fill in a template. Use only the relevant pattern from [message patterns](references/patterns.md) when it helps the current task.
 
@@ -41,7 +41,7 @@ Use simple, direct wording and preserve the user's own phrasing when it already 
 
 Use a resource reference line with a category, descriptive title and copyable original URL, for example `PR: APP-123 Fix upload errors (https://github.com/example/app/pull/42)`. Prefer plain text. If the user requests a hyperlink, also show the same original URL in parentheses beside it. Use this for PRs, tasks, documentation, code, CI and other references. Preserve exact destinations and use only supplied or verified titles. A current explicit format request takes precedence over older examples. Keep actual code snippets and screenshot embeds intact.
 
-When this repository is available and command access is permitted, check a saved draft with `node scripts/message-links.ts check-links message.md`. The checker fails malformed reference lines and hidden hyperlink destinations. It checks supplied files, while the host controls chat output.
+When command access is permitted, use the installed `scripts/message-links.ts` relative to this skill folder to check a saved draft with `check-links message.md`. In a source checkout, use the canonical repository helper at `scripts/message-links.ts`; generated installations bundle it automatically. The checker fails malformed reference lines and hidden hyperlink destinations. It checks supplied files, while the host controls chat output.
 
 ## Deliver the message
 

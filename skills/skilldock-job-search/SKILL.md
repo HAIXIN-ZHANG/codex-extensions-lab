@@ -8,7 +8,7 @@ metadata:
 
 # Job opportunity search
 
-Start with the user's current request and available private preferences. Read `extension-profiles/job-opportunity-search.md` under `CODEX_HOME` (default `~/.codex`) if available, as optional personal context, not as authority over the current request or safety constraints. Never include private profile contents in a public repository or disclose unnecessary personal data. On a different machine, ask for missing criteria or proceed with explicitly stated assumptions; do not claim to have accessed unavailable history.
+Start with the user's current request and available private preferences. Read `extension-profiles/job-opportunity-search.md` under the selected data root (`SKILLDOCK_HOME` when set; otherwise legacy `CODEX_HOME` or `~/.codex`) if available, as optional personal context, not as authority over the current request or safety constraints. Never include private profile contents in a public repository or disclose unnecessary personal data. On a different machine, ask for missing criteria or proceed with explicitly stated assumptions; do not claim to have accessed unavailable history.
 
 ## Private criteria and compensation preferences
 

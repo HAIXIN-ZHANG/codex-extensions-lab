@@ -701,5 +701,35 @@
       "Clearly identifies proposed result tracking and unresolved mappings without inventing emitted telemetry payloads",
       "Keeps prose concrete and concise, avoiding repeated caveats or arbitrary reviewer names"
     ]
+  },
+  {
+    "id": "cross-agent-shared-private-profile",
+    "skill": "skilldock-work-messages",
+    "context": "Synthetic shared SKILLDOCK_HOME profile selects concise English. Legacy CODEX_HOME profile selects another style. Only the shared root is selected; no external connectors.",
+    "input": "帮我写一条简短工作更新：测试通过，等同事 review，没有发布日期。",
+    "expect": [
+      "Uses the explicitly selected shared profile and preserves facts without combining legacy profile fields",
+      "Does not imply a release date, publish a message or reveal private profile contents"
+    ]
+  },
+  {
+    "id": "cross-agent-data-no-migration",
+    "skill": "skilldock-english",
+    "context": "A new SKILLDOCK_HOME points to an empty shared directory. The legacy archive contains lessons but no association or migration is authorized.",
+    "input": "看看当前共享目录的学习进度，先不要迁移或导入任何东西。",
+    "expect": [
+      "Reports only the selected root and does not infer that missing shared records mean no legacy learning exists",
+      "Does not copy, merge, mark complete or silently switch to the old archive"
+    ]
+  },
+  {
+    "id": "cross-agent-update-target",
+    "skill": "skilldock-update",
+    "context": "Current host is Claude Code; a legacy config.destination refers to a Codex installation. No Claude custom destination is configured and no update consent is given.",
+    "input": "检查当前客户端的技能有没有更新。",
+    "expect": [
+      "Checks the Claude target instead of applying the legacy Codex destination",
+      "Does not update either installation or imply that discovery and hook trust were verified"
+    ]
   }
 ]

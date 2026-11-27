@@ -40,3 +40,7 @@ Draft from the facts supplied or scoped, authorized sources. Do not infer agreem
 
 
 For changes spanning multiple endpoints, requested examples should name each HTTP method/path and show the corresponding request/response JSON from the current code or fixtures. Label analytics payloads separately from API bodies, identify synthetic values and distinguish implemented events from proposals. Keep examples expanded by default. The PR Comms reference includes a fictional multi-stage example.
+
+## Cross-agent helper packaging
+
+Generated standalone installations of Polish, PR Comms and Work Messages include the canonical `scripts/message-links.ts` and its runtime dependencies. Resolve it relative to the installed skill folder; a source checkout still uses the repository helper. Both native clients use the same rules and formatter. Private writing preferences use the selected data root described in [cross-agent setup](cross-agent.md); no profile is copied during installation.

@@ -1,6 +1,6 @@
 {
   "name": "skilldock",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -13,6 +13,10 @@
     "install:skills": "node scripts/install-skills.ts",
     "release:manifest": "node scripts/release-manifest.ts",
     "check:message-links": "node scripts/message-links.ts check-links",
-    "check:pr-summary": "node scripts/message-links.ts check-pr"
+    "check:pr-summary": "node scripts/message-links.ts check-pr",
+    "build:plugins": "node scripts/build-plugins.ts",
+    "check:runtime": "node scripts/sync-runtime.ts --check",
+    "prepare:evals": "node scripts/prepare-evals.ts",
+    "doctor:skills": "node scripts/doctor.ts"
   }
 }

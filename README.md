@@ -1,6 +1,6 @@
 # SkillDock
 
-An independent, open-source collection of reusable Codex skills and a local English-learning plugin. Every public skill uses the `skilldock-` namespace and a `SkillDock · Purpose` display name. Not affiliated with or endorsed by OpenAI. The GitHub repository URL remains `HAIXIN-ZHANG/codex-extensions-lab`.
+An independent, open-source extension library with shared Agent Skills and local plugin packaging for Codex and Claude Code. Every public skill uses the `skilldock-` namespace and a `SkillDock · Purpose` display name. Not affiliated with or endorsed by OpenAI or Anthropic. The GitHub repository URL remains `HAIXIN-ZHANG/codex-extensions-lab`.
 
 ## Skills
 
@@ -23,6 +23,15 @@ The ten task skills can be installed independently. An additional [Update workfl
 
 The owner has chosen to share selected English materials and learning notes in [learning records](plugins/skilldock-english/learning-records/README.md). These Markdown records are public and are transferred between computers using Git; they are separate from the private local helper archive.
 
+## Cross-agent setup
+
+Version 0.2.0 adds explicit Codex, Claude and all-target installation, native plugin metadata and self-contained package generation. Existing no-target commands remain compatible. [Cross-agent setup and verification](docs/cross-agent.md) distinguishes automated evidence from client behavior still requiring manual validation. No MCP or personal data migration is included.
+
+```sh
+node scripts/install-skills.ts --target all --dry-run
+node scripts/build-plugins.ts --out /absolute/new/skilldock-packages
+```
+
 ## Local setup and verification
 
 ```sh
@@ -35,7 +44,7 @@ node --test tests/*.test.ts
 
 Use either the standalone Update skill or the updater plugin to avoid duplicate discovery. The default all-skills source install includes the standalone Update skill; use the named task-skill command in [update setup](docs/updates.md) when choosing the plugin instead.
 
-The installer defaults to the skill path used by this development environment: `CODEX_HOME/skills` (default `~/.codex/skills`). Set `--dest` for your client's actual discovery path, such as `~/.agents/skills`. Updates preserve the previous skill folder in a sibling `.backups` directory. Personal profiles and study history are never included or replaced. See [setup](docs/setup.md) for installation, personal settings and portability.
+Without an explicit target, the installer preserves the legacy skill path: `CODEX_HOME/skills` (default `~/.codex/skills`). Set `--dest` for your client's actual discovery path, such as `~/.agents/skills`. Updates preserve the previous skill folder in a sibling `.backups` directory. Personal profiles and study history are never included or replaced. See [setup](docs/setup.md) for installation, personal settings and portability.
 
 To migrate the old unprefixed skill names, preview `node scripts/install-skills.ts --update --migrate-legacy --dry-run`, then omit `--dry-run`. Legacy folders move into backups after the new skills are installed, preventing duplicate discovery entries. See [names and complete inventory](docs/naming.md). Personal data paths and study archive formats keep their existing keys.
 
@@ -49,7 +58,7 @@ Examples:
 - `用 $skilldock-property-search 找房，这次只看 Redcliffe 现房。`
 - `用 $skilldock-prompt-rewrite 整理下面这段口语化 prompt，只改写不执行。`
 
-## v0.1 boundaries
+## Runtime boundaries
 
 Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
 
@@ -66,7 +75,7 @@ Plugin packaging follows the [official portable manifest guidance](https://devel
 - [Behavioral evaluation scenarios](evals/README.md) — prepared cases, not yet measured model results
 - [Agent entry instructions](AGENTS.md)
 
-GitHub Actions runs metadata/link checks, full YAML parsing and helper tests on Node.js 24. It performs no paid model calls or live job/property research. Current patch: v0.1.3. The behavioral cases are maintained separately from executable helper tests; `node scripts/check.ts` reports their current count. Neither the source review nor those prepared cases prove teaching or writing quality.
+GitHub Actions is configured to run metadata/link checks, full YAML parsing and helper tests on Node.js 24 for Linux and macOS; hosted results must be checked separately. It performs no paid model calls or live job/property research. Current version: v0.2.0. The behavioral cases are maintained separately from executable helper tests; `node scripts/check.ts` reports their current count. Neither the source review nor those prepared cases prove teaching or writing quality.
 
 ## Contributing and license
 

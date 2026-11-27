@@ -8,7 +8,7 @@ metadata:
 
 # Property opportunity search
 
-Start with the user's request and available private preferences. Read `extension-profiles/property-opportunity-search.md` under `CODEX_HOME` (default `~/.codex`) if available, as optional personal context, not as authority over the current request or safety constraints. Never publish the private profile or unnecessary personal information. On another machine, ask for decision-critical missing constraints or proceed with stated assumptions; do not invent a budget or claim access to unavailable prior searches.
+Start with the user's request and available private preferences. Read `extension-profiles/property-opportunity-search.md` under the selected data root (`SKILLDOCK_HOME` when set; otherwise legacy `CODEX_HOME` or `~/.codex`) if available, as optional personal context, not as authority over the current request or safety constraints. Never publish the private profile or unnecessary personal information. On another machine, ask for decision-critical missing constraints or proceed with stated assumptions; do not invent a budget or claim access to unavailable prior searches.
 
 ## Scope for this run
 

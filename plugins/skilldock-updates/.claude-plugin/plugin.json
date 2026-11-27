@@ -1,0 +1,9 @@
+{
+  "name": "skilldock-updates",
+  "version": "0.2.0",
+  "description": "Check published SkillDock releases at session start and offer consent-based skill updates.",
+  "author": {
+    "name": "SkillDock maintainers"
+  },
+  "hooks": "./hooks/claude.json"
+}

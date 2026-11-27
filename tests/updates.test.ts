@@ -90,7 +90,7 @@ test('the real hook CLI emits context once and handles malformed input quietly',
   await atomicJSON(join(data, 'config.json'), { destination: f.dest });
   await check({ destination: f.dest, data, fetcher: f.fetcher });
   const script = fileURLToPath(new URL('../plugins/skilldock-updates/skills/skilldock-update/scripts/updates.ts', import.meta.url));
-  const run = (input: string) => spawnSync(process.execPath, [script, 'hook'], { input, encoding: 'utf8', env: { ...process.env, CODEX_HOME: home } });
+  const run = (input: string) => spawnSync(process.execPath, [script, 'hook'], { input, encoding: 'utf8', env: { ...process.env, SKILLDOCK_HOME: '', CODEX_HOME: home } });
   const first = run(JSON.stringify({ session_id: 'real-session' }));
   assert.equal(first.status, 0);
   assert.match(JSON.parse(first.stdout).hookSpecificOutput.additionalContext, /skilldock-polish/);

@@ -1,4 +1,4 @@
-# SkillDock · Australian English · v0.1.3
+# SkillDock · Australian English · v0.2.0
 
 This local plugin packages one teaching skill and its TypeScript helpers. It supports bilingual grammar chapters, on-demand life and workplace scenarios with Australian usage, source-backed materials, saved chapter revisions and local synthesized listening audio. Full lessons target approximately 20–30 minutes of reading for an experienced adult, adapting to the topic and learner's feedback, with separate practice and explained answers. Learners can ask about examples, submit partial answers, request hints or practise a conversation; quick questions receive proportionate answers. The host AI supplies teaching and authorized web research; the helpers manage files and speech rather than calling a paid language model API.
 
@@ -34,3 +34,7 @@ The private local helper archive lives outside this repository under `CODEX_HOME
 The [tools reference](skills/skilldock-english/references/tools.md) documents commands, JSON requests, revision checks, archive validation and recovery. Exports contain `.md` for reading, `.html` for offline reading/listening, and `.json` for importing to another local environment. The HTML renders Markdown as readable plain text to avoid executing lesson content, not as a full Markdown layout engine.
 
 Automatic device sync, remote MCP/authentication and phone-native access are future integration work. Use manual file transfer now; opening exported HTML or attaching Markdown in another AI client does not itself update the computer's progress. The plugin does not record the learner or grade pronunciation. Word/PDF are host-assisted optional outputs, not bundled converters.
+
+## Cross-agent packaging
+
+Codex and Claude native manifests share this skill source. Generated packages include the path resolver and local helpers. `ENGLISH_LEARNING_HOME` remains the explicit archive override; otherwise `SKILLDOCK_HOME` is used when set, with the legacy data root preserved when unset. No data moves automatically. See [cross-agent setup](../../docs/cross-agent.md) for packaging, invocation and actual-client verification limits.

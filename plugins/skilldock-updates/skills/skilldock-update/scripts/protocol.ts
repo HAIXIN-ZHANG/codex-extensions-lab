@@ -2,9 +2,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { lstat, readdir, readFile, mkdir, rename, writeFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 export const repository = 'HAIXIN-ZHANG/codex-extensions-lab';
-export type Entry = { name: string; path: string; hash: string };
-export type Manifest = { schema: 1; repository: string; version: string; updaterHash: string; skills: Entry[] };
-export type Receipt = { hash: string; version: string; history: { hash: string; version: string }[] };
+export type Entry = { name: string; path: string; hash: string; sourceHash?: string; artifacts?: { codex: string; claude: string } };
+export type Manifest = { schema: 1; repository: string; version: string; updaterHash: string; plugins?: Record<string, { version: string; hash: string; artifacts: { codex: string; claude: string } }>; skills: Entry[] };
+export type Receipt = { hash: string; version: string; sourceHash?: string; history: { hash: string; version: string }[] };
 export type Receipts = Record<string, Receipt>;
 export const validHash = (s: unknown): s is string => typeof s === 'string' && /^[a-f0-9]{64}$/.test(s);
 export const validVersion = (s: unknown): s is string => typeof s === 'string' && /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(s);
@@ -41,6 +41,7 @@ export async function readReceipts(destination: string): Promise<Receipts> {
   if (!value || Array.isArray(value) || typeof value !== 'object') throw new Error('Invalid installation receipts');
   for (const [name, r] of Object.entries(value) as [string, any][]) {
     if (!/^skilldock-[a-z0-9-]+$/.test(name) || !r || !validHash(r.hash) || !validVersion(r.version) || !Array.isArray(r.history) || r.history.some((h:any) => !h || !validHash(h.hash) || !validVersion(h.version))) throw new Error('Invalid installation receipt');
+    if (r.sourceHash !== undefined && !validHash(r.sourceHash)) throw new Error('Invalid source receipt');
   }
   return value;
 }
@@ -49,7 +50,13 @@ export function validateManifest(m: any): Manifest {
   const names = new Set();
   for (const e of m.skills) {
     if (!e || typeof e.name !== 'string' || !/^skilldock-[a-z0-9-]+$/.test(e.name) || names.has(e.name) || !validHash(e.hash) || ![ `skills/${e.name}`, `plugins/skilldock-english/skills/${e.name}`, `plugins/skilldock-updates/skills/${e.name}` ].includes(e.path)) throw new Error('Invalid manifest skill');
+    if (e.sourceHash !== undefined && !validHash(e.sourceHash)) throw new Error('Invalid source hash');
+    if (e.artifacts !== undefined && (!validHash(e.artifacts.codex) || !validHash(e.artifacts.claude))) throw new Error('Invalid artifact hashes');
     names.add(e.name);
+  }
+  if (m.plugins !== undefined) {
+    if (!m.plugins || Array.isArray(m.plugins) || typeof m.plugins !== 'object') throw new Error('Invalid plugin releases');
+    for (const [name,p] of Object.entries(m.plugins) as [string,any][]) if(!['skilldock-english','skilldock-updates'].includes(name)||!p||!validVersion(p.version)||!validHash(p.hash)||!validHash(p.artifacts?.codex)||!validHash(p.artifacts?.claude))throw new Error('Invalid plugin release');
   }
   return m;
 }

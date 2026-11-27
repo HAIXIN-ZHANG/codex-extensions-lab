@@ -1,63 +1,125 @@
 {
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
-  "version": "0.1.5",
-  "updaterHash": "fb951eb8855d50cc38d3c8da6f7fb47e4bb4f444d2e328b32fd7845dd8c0ae3c",
+  "version": "0.2.0",
+  "updaterHash": "d4dbebe02e0932bf6429fcc463286ce4b77411ae4dc2391e3dd30c11717dca32",
   "skills": [
     {
       "name": "skilldock-polish",
       "path": "skills/skilldock-polish",
-      "hash": "648a7913d81477822e8e1bb990f28bf67889f91056b6a3040534ba73981c966b"
+      "hash": "d5d50b8fabf7a754d00ccf6863fb935eb50b8b05e60552cbe660b4073473320b",
+      "artifacts": {
+        "codex": "81113756d103bd8e9cb3dec19386c28d8f5853142c19027aa12b7605314d96a6",
+        "claude": "81113756d103bd8e9cb3dec19386c28d8f5853142c19027aa12b7605314d96a6"
+      }
     },
     {
       "name": "skilldock-pr-comms",
       "path": "skills/skilldock-pr-comms",
-      "hash": "498c701a43d3c8bbcec82a3de48d8913c834ecedd72be811990cc324d08c4aa4"
+      "hash": "9bc948d5898d70de40c5e868d64d2de6db33346deb71590f9b00d078fca4bb0e",
+      "artifacts": {
+        "codex": "879e6694562557a8103d2993f2273a2a781ce8d4a5f77db9060e80dad257ce2e",
+        "claude": "879e6694562557a8103d2993f2273a2a781ce8d4a5f77db9060e80dad257ce2e"
+      }
     },
     {
       "name": "skilldock-work-messages",
       "path": "skills/skilldock-work-messages",
-      "hash": "e3c0dd585ee284b7ed2d3c50bac36ecb572d1d3235f2be74baff0eccad9d8e4e"
+      "hash": "5214a7d3a0a2b113197c4c1ea6e95eca3645dbe8d760fec70e83ccc8bb3afcc3",
+      "artifacts": {
+        "codex": "bdbb40fe9cf348068a849c55e4a6a8b5eebe4b34f37ea20fff203c6a930358d4",
+        "claude": "bdbb40fe9cf348068a849c55e4a6a8b5eebe4b34f37ea20fff203c6a930358d4"
+      }
     },
     {
       "name": "skilldock-prompt-rewrite",
       "path": "skills/skilldock-prompt-rewrite",
-      "hash": "9e61c2be680e3e4c27968630b8d92d4918b469c27a3e70ee22ad74cf69f2ffc8"
+      "hash": "d123826ae1af7bea1627683f52f3b83a39b73673d7c9c5e0b7b470fb7c1491ca",
+      "artifacts": {
+        "codex": "d123826ae1af7bea1627683f52f3b83a39b73673d7c9c5e0b7b470fb7c1491ca",
+        "claude": "d123826ae1af7bea1627683f52f3b83a39b73673d7c9c5e0b7b470fb7c1491ca"
+      }
     },
     {
       "name": "skilldock-job-search",
       "path": "skills/skilldock-job-search",
-      "hash": "b79065a072cb7b72103c0e713e5a43835178868a55a88aadb0be2331c7f8489f"
+      "hash": "b0fd973e0f7f2a58603e8420be463130beb4d5cc6efb7df081a47cc25c98f7f5",
+      "artifacts": {
+        "codex": "b0fd973e0f7f2a58603e8420be463130beb4d5cc6efb7df081a47cc25c98f7f5",
+        "claude": "b0fd973e0f7f2a58603e8420be463130beb4d5cc6efb7df081a47cc25c98f7f5"
+      }
     },
     {
       "name": "skilldock-property-search",
       "path": "skills/skilldock-property-search",
-      "hash": "0c1ca49b5117ba73b87f76016ed53136cc563a4be8aefda78d728a9ab40874dc"
+      "hash": "57b1ed1356b109b3007b5048eb14c7831fc3c37d6d9e69d4c37b9bbfb44543fe",
+      "artifacts": {
+        "codex": "57b1ed1356b109b3007b5048eb14c7831fc3c37d6d9e69d4c37b9bbfb44543fe",
+        "claude": "57b1ed1356b109b3007b5048eb14c7831fc3c37d6d9e69d4c37b9bbfb44543fe"
+      }
     },
     {
       "name": "skilldock-product-discovery",
       "path": "skills/skilldock-product-discovery",
-      "hash": "f2504599328779d85596d67d195f9ffed55fdc49d48b27f7d1748b684c8a18b9"
+      "hash": "14f416341059745abd514bd9a6ada0abbe73a3ab09eba9dda555092309dc8d07",
+      "artifacts": {
+        "codex": "14f416341059745abd514bd9a6ada0abbe73a3ab09eba9dda555092309dc8d07",
+        "claude": "14f416341059745abd514bd9a6ada0abbe73a3ab09eba9dda555092309dc8d07"
+      }
     },
     {
       "name": "skilldock-ux-brief",
       "path": "skills/skilldock-ux-brief",
-      "hash": "e4c6425e7d453552041005119dd02328311da359cc5a22d91ef34e974d51e486"
+      "hash": "389d63adee8df7b67ac1017d45a157b47802b853c12badf46d9aba0fc1ec4b90",
+      "artifacts": {
+        "codex": "389d63adee8df7b67ac1017d45a157b47802b853c12badf46d9aba0fc1ec4b90",
+        "claude": "389d63adee8df7b67ac1017d45a157b47802b853c12badf46d9aba0fc1ec4b90"
+      }
     },
     {
       "name": "skilldock-tech-design",
       "path": "skills/skilldock-tech-design",
-      "hash": "75598c0a365003ae3854581efb46c36d48945800b0043930a7f604a7feccd5ab"
+      "hash": "a69a734d5139305ddfd1b968410fb657889bd94d85ea1c5ab02e7dc0bf241073",
+      "artifacts": {
+        "codex": "a69a734d5139305ddfd1b968410fb657889bd94d85ea1c5ab02e7dc0bf241073",
+        "claude": "a69a734d5139305ddfd1b968410fb657889bd94d85ea1c5ab02e7dc0bf241073"
+      }
     },
     {
       "name": "skilldock-english",
       "path": "plugins/skilldock-english/skills/skilldock-english",
-      "hash": "4585a3370046e1291debf4375e48a354649cef6ab3df81cc64610eb666137e76"
+      "hash": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb",
+      "artifacts": {
+        "codex": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb",
+        "claude": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb"
+      }
     },
     {
       "name": "skilldock-update",
       "path": "plugins/skilldock-updates/skills/skilldock-update",
-      "hash": "6f097af0c1257d5c8ab5e6181e75c14eb8db8d8cf92946376f46716d27bb686d"
+      "hash": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09",
+      "artifacts": {
+        "codex": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09",
+        "claude": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09"
+      }
     }
-  ]
+  ],
+  "plugins": {
+    "skilldock-english": {
+      "version": "0.2.0",
+      "hash": "a41348634da4b7c9b4060bbe8da493287f219361656d4ec4ba347716ba52b279",
+      "artifacts": {
+        "codex": "9d58c0766c2818cc6067c7e22f43d4d0a2bb0351a9a036e2f6665088e43e7a75",
+        "claude": "9d58c0766c2818cc6067c7e22f43d4d0a2bb0351a9a036e2f6665088e43e7a75"
+      }
+    },
+    "skilldock-updates": {
+      "version": "0.2.0",
+      "hash": "d4dbebe02e0932bf6429fcc463286ce4b77411ae4dc2391e3dd30c11717dca32",
+      "artifacts": {
+        "codex": "d37283e44f505c1d994af9374c0df5254c21228020d2def74d80dcbc0ed1764b",
+        "claude": "d37283e44f505c1d994af9374c0df5254c21228020d2def74d80dcbc0ed1764b"
+      }
+    }
+  }
 }

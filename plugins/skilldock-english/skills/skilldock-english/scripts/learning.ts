@@ -1,12 +1,12 @@
+import { isMain } from './_shared/paths.ts';
 import { readFile, writeFile, unlink, mkdir, stat } from 'node:fs/promises';
-import { homedir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { load, save, progress, summary, bundle, importBundle, requireValue, text } from './store.ts';
 import { speak } from './audio.ts';
+import { learningHome } from './_shared/paths.ts';
 
 export function dataRoot() {
-  return resolve(process.env.ENGLISH_LEARNING_HOME || join(process.env.CODEX_HOME || join(homedir(), '.codex'), 'extension-data', 'english-learning'));
+  return learningHome();
 }
 const escape = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 async function exportFiles(root: string, output: unknown, ids: unknown) {
@@ -48,7 +48,7 @@ export async function run(command: string, input: Record<string, unknown> = {}, 
     default: throw new Error('Commands: status, read, save, progress, speak, export, import. Supply JSON on stdin except for status.');
   }
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (await isMain(import.meta.url)) {
   try {
     const command = process.argv[2] || 'status';
     let payload = '';

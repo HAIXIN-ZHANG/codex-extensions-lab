@@ -2,6 +2,7 @@ import { readFile, readdir, lstat } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { skills, repoRoot } from './catalog.ts';
+import { validatePlugin } from './validate-packages.ts';
 
 for (const skill of skills) {
   const file = join(skill.path, 'SKILL.md');
@@ -44,10 +45,14 @@ for (const name of ['skilldock-english', 'skilldock-updates']) {
   if (!entry || resolve(repoRoot, entry.source.path) !== join(repoRoot, 'plugins', name)) throw new Error('Invalid marketplace path');
   const plugin = JSON.parse(await readFile(join(repoRoot, 'plugins', name, 'plugin.json'), 'utf8'));
   if (plugin.name !== name || !/^\d+\.\d+\.\d+$/.test(plugin.version)) throw new Error('Invalid plugin identity');
+  const version = JSON.parse(await readFile(join(repoRoot, 'package.json'), 'utf8')).version;
+  if (plugin.version !== version) throw new Error('Plugin version differs from suite version');
+  await validatePlugin(join(repoRoot, 'plugins', name));
 }
-const hook = JSON.parse(await readFile(join(repoRoot, 'plugins/skilldock-updates/hooks/hooks.json'), 'utf8'));
+const hook = JSON.parse(await readFile(join(repoRoot, 'plugins/skilldock-updates/hooks/codex.json'), 'utf8'));
 if (!hook.hooks.SessionStart[0].hooks[0].command.includes('/scripts/updates.ts')) throw new Error('Invalid updater hook');
 console.log('Local links, plugin and marketplace identity: OK (not a full upstream schema validation)');
+execFileSync(process.execPath, [join(repoRoot, 'scripts/sync-runtime.ts'), '--check'], { stdio: 'inherit' });
 execFileSync(process.execPath, [join(repoRoot, 'scripts/release-manifest.ts'), '--check'], { stdio: 'inherit' });
 const cases = JSON.parse(await readFile(join(repoRoot, 'evals/cases.json'), 'utf8'));
 const ids = new Set<string>();
