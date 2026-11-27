@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
-  "version": "0.2.0",
-  "updaterHash": "3bff8cb9ced7f0cb1beb50007501d3e1ac0ecbf78bb6f684c9e30597038ccd6d",
+  "version": "0.2.1",
+  "updaterHash": "faf804f65b93059623e8cce9d627c7ba21adca1ad1784e3b49867334176f8bd0",
   "skills": [
     {
       "name": "skilldock-polish",
@@ -97,28 +97,28 @@
     {
       "name": "skilldock-update",
       "path": "plugins/skilldock-updates/skills/skilldock-update",
-      "hash": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef",
+      "hash": "808a733c772c5b394dfb9dc52a70b19051f1a2d2625b57370b94899d863b3c75",
       "artifacts": {
-        "codex": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef",
-        "claude": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef"
+        "codex": "808a733c772c5b394dfb9dc52a70b19051f1a2d2625b57370b94899d863b3c75",
+        "claude": "808a733c772c5b394dfb9dc52a70b19051f1a2d2625b57370b94899d863b3c75"
       }
     }
   ],
   "plugins": {
     "skilldock-english": {
-      "version": "0.2.0",
-      "hash": "6ee7af3155aafb0604ee857f9c923077864b816da61cc2ea7769d852f10137e4",
+      "version": "0.2.1",
+      "hash": "c0e599ed99a8bf3139b9195168265295adf0c4c33f8d3847d865116f38f049e7",
       "artifacts": {
-        "codex": "8be2110625bc3af29fd11276e08485026e545b07d419ee72842d196ea3adf569",
-        "claude": "8be2110625bc3af29fd11276e08485026e545b07d419ee72842d196ea3adf569"
+        "codex": "ff065515c4d5a9121e1ab35a1955ea456cfb1c345d7f2dd910793a26dec7d3f2",
+        "claude": "ff065515c4d5a9121e1ab35a1955ea456cfb1c345d7f2dd910793a26dec7d3f2"
       }
     },
     "skilldock-updates": {
-      "version": "0.2.0",
-      "hash": "3bff8cb9ced7f0cb1beb50007501d3e1ac0ecbf78bb6f684c9e30597038ccd6d",
+      "version": "0.2.1",
+      "hash": "faf804f65b93059623e8cce9d627c7ba21adca1ad1784e3b49867334176f8bd0",
       "artifacts": {
-        "codex": "9abd5b442cf033c185b9f0a1d36458d48bb646be9dd7c6fbb234e574b9b4e011",
-        "claude": "9abd5b442cf033c185b9f0a1d36458d48bb646be9dd7c6fbb234e574b9b4e011"
+        "codex": "c37a6b2ed076e9690466621ad376911897e3812d0d17ef9aef63e0fe521ac4f4",
+        "claude": "c37a6b2ed076e9690466621ad376911897e3812d0d17ef9aef63e0fe521ac4f4"
       }
     }
   }

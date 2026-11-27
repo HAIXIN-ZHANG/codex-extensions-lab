@@ -1,5 +1,9 @@
 # Validation history
 
+## Claude Code follow-up fixes · 2026-11-27 · v0.2.1
+
+Added `CLAUDE.md`, which imports `AGENTS.md`, so Claude Code sessions load the same repository conventions as Codex. The artifact bundler now rewrites each matched import specifier in place instead of replacing every occurrence of the specifier text. A specifier that is a suffix of another (`./a.ts` inside `../a.ts`) can no longer be corrupted. The repository containment check now uses a relative path, so a sibling directory sharing the repository's name prefix is rejected. Regenerated artifacts are byte-identical for all eleven skills; no dedicated regression test exercises the overlapping-specifier case. The YAML checker reads files as UTF-8 explicitly and passes with no locale variables set. Removed a duplicated verification sentence from the update skill. Because the update skill and plugin hashes changed, the suite advances to 0.2.1. The other ten skill artifacts are unchanged, so existing 0.2.0 installations of them report as current.
+
 ## Publication merge review · 2026-11-27
 
 Before publication, origin/main advanced to c3653c2 with export limits, writing-check corrections, unmanaged-install guidance and a separate local property research helper. Merged those commits without discarding either history. Retained the v0.2.0 versions and host adapters; ported unmanaged guidance into the shared engine; preserved export size checks, property-private ignore rules and the additional CI test suite. All 59 executable tests (including the property helper), metadata/links, generated-runtime/native metadata consistency, release-manifest consistency, Ruby YAML and diff whitespace checks pass locally on Node v26.5.0. The combined behavioral corpus contains 72 unscored cases. Actual host skill loading and trusted hook delivery remain separate verification tasks.
