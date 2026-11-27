@@ -2,15 +2,15 @@
   "schema": 1,
   "repository": "HAIXIN-ZHANG/codex-extensions-lab",
   "version": "0.2.0",
-  "updaterHash": "d4dbebe02e0932bf6429fcc463286ce4b77411ae4dc2391e3dd30c11717dca32",
+  "updaterHash": "3bff8cb9ced7f0cb1beb50007501d3e1ac0ecbf78bb6f684c9e30597038ccd6d",
   "skills": [
     {
       "name": "skilldock-polish",
       "path": "skills/skilldock-polish",
       "hash": "d5d50b8fabf7a754d00ccf6863fb935eb50b8b05e60552cbe660b4073473320b",
       "artifacts": {
-        "codex": "81113756d103bd8e9cb3dec19386c28d8f5853142c19027aa12b7605314d96a6",
-        "claude": "81113756d103bd8e9cb3dec19386c28d8f5853142c19027aa12b7605314d96a6"
+        "codex": "a81caf0811a24cddc80540dbbfe30ef500492f79db6d7bd80f0efafe033c6085",
+        "claude": "a81caf0811a24cddc80540dbbfe30ef500492f79db6d7bd80f0efafe033c6085"
       }
     },
     {
@@ -18,8 +18,8 @@
       "path": "skills/skilldock-pr-comms",
       "hash": "9bc948d5898d70de40c5e868d64d2de6db33346deb71590f9b00d078fca4bb0e",
       "artifacts": {
-        "codex": "879e6694562557a8103d2993f2273a2a781ce8d4a5f77db9060e80dad257ce2e",
-        "claude": "879e6694562557a8103d2993f2273a2a781ce8d4a5f77db9060e80dad257ce2e"
+        "codex": "0e88e9d7eecc7825c45984f7ad9971ec0418b6d0f08f55a095d1e73d2a70d530",
+        "claude": "0e88e9d7eecc7825c45984f7ad9971ec0418b6d0f08f55a095d1e73d2a70d530"
       }
     },
     {
@@ -27,8 +27,8 @@
       "path": "skills/skilldock-work-messages",
       "hash": "5214a7d3a0a2b113197c4c1ea6e95eca3645dbe8d760fec70e83ccc8bb3afcc3",
       "artifacts": {
-        "codex": "bdbb40fe9cf348068a849c55e4a6a8b5eebe4b34f37ea20fff203c6a930358d4",
-        "claude": "bdbb40fe9cf348068a849c55e4a6a8b5eebe4b34f37ea20fff203c6a930358d4"
+        "codex": "6b48b5ce3b7a1014531a174758d9ff6fb658aee3c56bd44f271658b170edc4b8",
+        "claude": "6b48b5ce3b7a1014531a174758d9ff6fb658aee3c56bd44f271658b170edc4b8"
       }
     },
     {
@@ -88,37 +88,37 @@
     {
       "name": "skilldock-english",
       "path": "plugins/skilldock-english/skills/skilldock-english",
-      "hash": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb",
+      "hash": "e8290f77d14c168312c1aff044f1fb03892b7ced0523d5b18776611b49846858",
       "artifacts": {
-        "codex": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb",
-        "claude": "bec422d4312c051376032fe19218f7af2e2a00c614bf2791e3e6d639fb776afb"
+        "codex": "e8290f77d14c168312c1aff044f1fb03892b7ced0523d5b18776611b49846858",
+        "claude": "e8290f77d14c168312c1aff044f1fb03892b7ced0523d5b18776611b49846858"
       }
     },
     {
       "name": "skilldock-update",
       "path": "plugins/skilldock-updates/skills/skilldock-update",
-      "hash": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09",
+      "hash": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef",
       "artifacts": {
-        "codex": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09",
-        "claude": "f3eba28799a8698ead8f3ff99f46d33ae174511d29d9372e1e774f211e862a09"
+        "codex": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef",
+        "claude": "e747a31d8a0715ce50b25b2c38f3afad8f9b2b6f9b1db002ba7bb0a28da78bef"
       }
     }
   ],
   "plugins": {
     "skilldock-english": {
       "version": "0.2.0",
-      "hash": "a41348634da4b7c9b4060bbe8da493287f219361656d4ec4ba347716ba52b279",
+      "hash": "6ee7af3155aafb0604ee857f9c923077864b816da61cc2ea7769d852f10137e4",
       "artifacts": {
-        "codex": "9d58c0766c2818cc6067c7e22f43d4d0a2bb0351a9a036e2f6665088e43e7a75",
-        "claude": "9d58c0766c2818cc6067c7e22f43d4d0a2bb0351a9a036e2f6665088e43e7a75"
+        "codex": "8be2110625bc3af29fd11276e08485026e545b07d419ee72842d196ea3adf569",
+        "claude": "8be2110625bc3af29fd11276e08485026e545b07d419ee72842d196ea3adf569"
       }
     },
     "skilldock-updates": {
       "version": "0.2.0",
-      "hash": "d4dbebe02e0932bf6429fcc463286ce4b77411ae4dc2391e3dd30c11717dca32",
+      "hash": "3bff8cb9ced7f0cb1beb50007501d3e1ac0ecbf78bb6f684c9e30597038ccd6d",
       "artifacts": {
-        "codex": "d37283e44f505c1d994af9374c0df5254c21228020d2def74d80dcbc0ed1764b",
-        "claude": "d37283e44f505c1d994af9374c0df5254c21228020d2def74d80dcbc0ed1764b"
+        "codex": "9abd5b442cf033c185b9f0a1d36458d48bb646be9dd7c6fbb234e574b9b4e011",
+        "claude": "9abd5b442cf033c185b9f0a1d36458d48bb646be9dd7c6fbb234e574b9b4e011"
       }
     }
   }

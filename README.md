@@ -60,11 +60,13 @@ Examples:
 
 ## Runtime boundaries
 
-Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
+Research skills use the host's available, authorized browsing/connectors; they do not supply a crawler, paid database or guaranteed access to listings. The English tool persists local chapters and status, synthesizes with an installed macOS Australian voice, and exports/imports Markdown/HTML/JSON plus generated audio. Exports check archive and audio size limits before creating files and explain how to reduce an oversized selection. Automatic cloud sync, remote authentication, phone integration and microphone assessment are not implemented. These limits are visible in the skills rather than simulated as working features.
 
 Plugin packaging follows the [official portable manifest guidance](https://developers.openai.com/plugins/build/plugins). Local host installation and cross-account sign-in behavior still depend on the client and need verification. See [validation notes](docs/validation.md).
 
 ## Maintenance and direction
+
+The optional [property research helper](perth-property-intelligence/README.md) stores dated, manually gathered observations in local SQLite and compares user-supplied cost scenarios. It runs on Node.js 24 with no third-party packages. Keep live databases, research snapshots and reports in private storage. The repository contains its reusable code, fictional examples and tests.
 
 - [Architecture and private data boundaries](docs/architecture.md)
 - [Roadmap: proposed next capabilities](docs/roadmap.md)

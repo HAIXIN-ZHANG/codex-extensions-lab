@@ -18,5 +18,5 @@ jobs:
           node-version: '24'
       - run: node scripts/check.ts
       - run: ruby scripts/check-yaml.rb
-      - run: node --test tests/*.test.ts
+      - run: node --test tests/*.test.ts perth-property-intelligence/tests/*.test.ts
       - run: git diff --check

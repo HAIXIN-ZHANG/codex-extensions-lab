@@ -1,7 +1,7 @@
 import { isMain } from './_shared/paths.ts';
 import { readFile, writeFile, unlink, mkdir, stat } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
-import { load, save, progress, summary, bundle, importBundle, requireValue, text } from './store.ts';
+import { load, save, progress, summary, bundle, importBundle, requireValue, text, MAX_ARCHIVE_BYTES, MAX_AUDIO_BASE64_LENGTH } from './store.ts';
 import { speak } from './audio.ts';
 import { learningHome } from './_shared/paths.ts';
 
@@ -13,10 +13,13 @@ async function exportFiles(root: string, output: unknown, ids: unknown) {
   const prefix = resolve(text(output, 'output prefix', 4000));
   requireValue(prefix !== root && !prefix.startsWith(root + '/'), 'Export outside the live data directory');
   const archive = await bundle(root, ids);
+  requireValue(Object.values(archive.audio).every(audio => audio.length <= MAX_AUDIO_BASE64_LENGTH), 'Audio exceeds the archive import limit; shorten the lesson speechText and regenerate its audio before exporting');
+  const json = JSON.stringify(archive, null, 2) + '\n';
+  requireValue(Buffer.byteLength(json, 'utf8') <= MAX_ARCHIVE_BYTES, 'Archive exceeds 40 MB; select fewer lessons with ids, or shorten a single lesson\'s audio before exporting');
   const docs = Object.values(archive.state.documents);
   const markdown = docs.map(d => `# ${d.title}\n\n${d.markdown}`).join('\n\n---\n\n');
   const html = `<!doctype html><html lang="en-AU"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; media-src data:; style-src 'unsafe-inline'"><title>English learning materials</title><style>body{max-width:850px;margin:40px auto;padding:0 20px;font:18px/1.65 system-ui;color:#202124;background:#fafafa}pre{white-space:pre-wrap;font:inherit}article{margin-bottom:60px}audio{width:100%}</style><body><h1>English learning materials</h1><p>Private export · synthesized audio · manually transferred snapshot</p>${docs.map(d => `<article><h2>${escape(d.title)}</h2><pre>${escape(d.markdown)}</pre>${d.audio.map(a => `<p>${escape(a.voice)} · ${a.rate} words/minute</p><audio controls preload="none" src="data:audio/wav;base64,${archive.audio[a.filename]}"></audio>`).join('')}</article>`).join('')}</body></html>`;
-  const files = [[prefix + '.json', JSON.stringify(archive, null, 2) + '\n'], [prefix + '.md', markdown + '\n'], [prefix + '.html', html]];
+  const files = [[prefix + '.json', json], [prefix + '.md', markdown + '\n'], [prefix + '.html', html]];
   for (const [path] of files) {
     try { await stat(path); throw new Error(`Export exists: ${path}; choose another prefix`); }
     catch (e) { if ((e as NodeJS.ErrnoException).code !== 'ENOENT') throw e; }
@@ -42,7 +45,7 @@ export async function run(command: string, input: Record<string, unknown> = {}, 
     case 'export': return exportFiles(root, input.output, input.ids);
     case 'import': {
       const filename = resolve(text(input.file, 'archive path', 4000));
-      requireValue((await stat(filename)).size <= 40_000_000, 'Archive exceeds 40 MB');
+      requireValue((await stat(filename)).size <= MAX_ARCHIVE_BYTES, 'Archive exceeds 40 MB');
       return summary(await importBundle(root, { expectedRevision: input.expectedRevision, bundle: JSON.parse(await readFile(filename, 'utf8')) }));
     }
     default: throw new Error('Commands: status, read, save, progress, speak, export, import. Supply JSON on stdin except for status.');

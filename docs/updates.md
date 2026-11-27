@@ -12,10 +12,10 @@ A session ID from the hook input deduplicates notices for a release; the cache r
 
 ## Local installation
 
-Install the eight task skills and register their exact current contents using the source installer. An unchanged skill gets a baseline receipt without changing its folder. Before adopting an existing installation, inspect differences; do not bless unexplained local edits as a managed baseline.
+Install the ten task skills and register their exact current contents using the source installer. An unchanged skill gets a baseline receipt without changing its folder. Before adopting an existing installation, inspect differences; do not bless unexplained local edits as a managed baseline.
 
 ```sh
-node scripts/install-skills.ts skilldock-polish skilldock-prompt-rewrite skilldock-job-search skilldock-property-search skilldock-product-discovery skilldock-ux-brief skilldock-tech-design skilldock-english --update --dry-run
+node scripts/install-skills.ts skilldock-polish skilldock-pr-comms skilldock-work-messages skilldock-prompt-rewrite skilldock-job-search skilldock-property-search skilldock-product-discovery skilldock-ux-brief skilldock-tech-design skilldock-english --update --dry-run
 # After reviewing the preview, repeat without --dry-run.
 codex plugin marketplace add /absolute/path/to/codex-extensions-lab
 codex plugin add skilldock-updates@codex-extensions-lab
@@ -28,6 +28,12 @@ For v0.2.0 host selection, separate destination configuration, artifact hashes a
 The plugin's hook must be reviewed and trusted in the host. In Codex desktop, inspect Settings → Hooks and verify that SkillDock runs only `node "${PLUGIN_ROOT}/skills/skilldock-update/scripts/updates.ts" hook --host codex` at `SessionStart`. Trust is a user action; this repository never edits trust records. Installation is not execution proof. Restart once if the new hook does not appear, then verify with the actual client. A plugin-cache refresh is separate from updating standalone skill folders.
 
 Default standalone discovery is `CODEX_HOME/skills` (`~/.codex/skills`). For a custom destination, explicitly configure `CODEX_HOME/extension-data/skilldock-updates/config.json` with `{"destination":"/absolute/skills/path"}`. This file is private and is not created by installing public source. Both command and hook modes use that configuration. The plugin cannot infer every client's discovery path.
+
+## Existing installations without receipts
+
+An explicit check reports `unmanaged` with migration guidance when a skill folder exists without an installation receipt. This status means its installed version and local-edit history are unknown. Checks leave those folders untouched.
+
+To migrate, first review and verify the chosen release checkout as described by the Update skill. Compare each selected installed folder against its source and retain any local customizations that you need. Preview only the selected names with `node scripts/install-skills.ts <names> --dest <actual-destination> --update --dry-run`, then apply that command after authorizing the migration. Identical folders gain baseline receipts; differing folders are backed up before replacement. Subsequent checks can identify managed updates and local changes. This initial source-install path establishes a baseline; a failed protected update still requires resolving its cause before retrying.
 
 ## Consent and installation safety
 

@@ -9,7 +9,7 @@
   "scripts": {
     "check": "node scripts/check.ts",
     "check:yaml": "ruby scripts/check-yaml.rb",
-    "test": "node --test tests/*.test.ts",
+    "test": "node --test tests/*.test.ts perth-property-intelligence/tests/*.test.ts",
     "install:skills": "node scripts/install-skills.ts",
     "release:manifest": "node scripts/release-manifest.ts",
     "check:message-links": "node scripts/message-links.ts check-links",

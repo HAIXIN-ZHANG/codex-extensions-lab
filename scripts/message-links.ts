@@ -32,21 +32,33 @@ function proseOnly(text: string): string {
     .replace(/<img\b[^>]*>/gi, '');
 }
 
-export function validateMessageLinks(text: string): string[] {
-  const issues: string[] = [];
+function withoutFencedCode(text: string): string {
   let fence: string | undefined;
-  for (const [index, original] of text.split(/\r?\n/).entries()) {
+  return text.split(/\r?\n/).map(original => {
     const line = original.trim().replace(/^(?:>\s*)*(?:[-*+]\s+|\d+\.\s+)?/, '');
     const marker = line.match(/^(`{3,}|~{3,})/);
-    if (marker) {
-      if (!fence) fence = marker[1];
-      else if (marker[1][0] === fence[0] && marker[1].length >= fence.length) fence = undefined;
-      continue;
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[1].length).trim()) {
+        fence = undefined;
+      }
+      return '';
     }
-    if (fence) continue;
+    if (marker) {
+      fence = marker[1];
+      return '';
+    }
+    return original;
+  }).join('\n');
+}
+
+export function validateMessageLinks(text: string): string[] {
+  const issues: string[] = [];
+  for (const [index, original] of withoutFencedCode(text).split('\n').entries()) {
+    const line = original.trim().replace(/^(?:>\s*)*(?:[-*+]\s+|\d+\.\s+)?/, '');
     // Preserve actual code blocks and image embeds. Check prose references only.
     const content = proseOnly(line);
-    if (!/https?:\/\/|\]\(|\]\[|(?:^|[\s(])\/[A-Za-z0-9_.~-]+(?:\/|\.[A-Za-z])/.test(content)) continue;
+    const references = content.replace(/\b(?:GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH)\s+\/[^\s<>"`()[\]]+/g, '');
+    if (!/https?:\/\/|\]\(|\]\[|(?:^|[\s(])\/[A-Za-z0-9_.~-]+(?:\/|\.[A-Za-z])/.test(references)) continue;
     const visibleUrlLink = content.match(/^([^:\[\]<>]+): \[(https?:\/\/[^\s\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
     if (visibleUrlLink) {
       try {
@@ -79,6 +91,7 @@ export function validateMessageLinks(text: string): string[] {
 export function validatePrSummary(text: string): string[] {
   text = text.replace(/\r\n/g, '\n');
   const issues = validateMessageLinks(text);
+  text = withoutFencedCode(text);
   const headings = [...text.matchAll(/^#{1,6} .+$/gm)].map(match => match[0]);
   const expected = ['## Ticket', '## Background', '## What changed'];
   if (headings.includes('## Screenshots')) expected.push('## Screenshots');

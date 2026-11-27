@@ -1,5 +1,9 @@
 # Validation history
 
+## Publication merge review · 2026-11-27
+
+Before publication, origin/main advanced to c3653c2 with export limits, writing-check corrections, unmanaged-install guidance and a separate local property research helper. Merged those commits without discarding either history. Retained the v0.2.0 versions and host adapters; ported unmanaged guidance into the shared engine; preserved export size checks, property-private ignore rules and the additional CI test suite. All 59 executable tests (including the property helper), metadata/links, generated-runtime/native metadata consistency, release-manifest consistency, Ruby YAML and diff whitespace checks pass locally on Node v26.5.0. The combined behavioral corpus contains 72 unscored cases. Actual host skill loading and trusted hook delivery remain separate verification tasks.
+
 ## v0.2.0 cross-agent implementation · 2026-11-27
 
 Baseline: source v0.1.5 (c203067), eleven skills and 68 prepared behavior cases. Implemented explicit Codex/Claude/all installation, self-contained artifacts and native plugin metadata, shared update engine with separate host adapters, opt-in SKILLDOCK_HOME and unchanged legacy defaults. No real personal profiles or learning archives were read, migrated or imported by the implementation; no MCP, host installation, model API call, live search or publication was performed.
@@ -9,6 +13,20 @@ Local environment: macOS, Node.js v26.5.0. All 51 executable tests pass, togethe
 An independent read-only review reproduced two issues: stdin-import entry guards threw on the dash argv, and installer/updater discovery predicates disagreed on prefixed notes files. Shared entry/discovery helpers and regression tests fixed both; re-review found no remaining concrete blocker in the reviewed core. Generated English and Updates packages and the Claude marketplace all passed `claude plugin validate --strict` using Claude Code 2.1.193 with no warnings. These native manifest results do not prove actual skill loading, permissions, hook trust or notification delivery. Codex host installation, real SessionStart execution in either host, model behavior and published upgrade flows remain manual verification items. See [cross-agent setup](cross-agent.md) and [the initial audit](reviews/2026-11-27-cross-agent-plan.md).
 
 ## Historical v0.1 results · starting 2026-11-16
+
+## Property helper source publication · 2026-11-26
+
+Reviewed the previously untracked property research CLI, instructions, examples and tests. Its reusable source is retained, with fictional fixtures. Existing database, raw snapshot and research report were relocated to private storage after SHA-256 copy verification. A read-only SQLite integrity check passed and confirmed the stored raw snapshot matched its source JSON. The historical research claims were not reverified during this file-management task.
+
+Added a subprocess test that exercises import, latest, history and model commands from another working directory, and included the helper tests in the package test command and GitHub Actions. On macOS / Node.js v24.14.1, all 45 executable tests, metadata/link/manifest checks, full Ruby YAML parsing and whitespace checks passed. Node's SQLite module emits its experimental-feature warning. Targeted ignore rules cover the helper's runtime data, database and report directories. Installed skill content and release hashes are unaffected by this standalone source addition.
+
+## Export and writing regression fixes · 2026-11-26 · v0.1.6
+
+English export now checks the shared 40,000,000-byte archive limit and 32,000,000-character per-audio base64 limit before creating output files. Synthetic PCM regressions verify rejection leaves source state and output unchanged, and individually selected lessons still restore with their original content and audio metadata. Speech tests use mocks.
+
+Writing checks now share fenced-code exclusion, preserve HTTP endpoint descriptions and endpoint-titled reference lines, reject invalid references after a closing fence, and require screenshot evidence outside code examples. Explicit update planning explains missing receipts and the reviewed source-migration route. The existing protections and local-edit preservation remain covered by runtime tests.
+
+On macOS / Node.js v24.14.1, all 41 executable tests, repository metadata/link/manifest checks, full Ruby YAML parsing and `git diff --check` passed. The suite and changed plugin packages advance to 0.1.6. The behavioral corpus has 69 prepared cases, including one new unmanaged-migration case that has not been model-run or human-scored. Source self-review and deterministic regression tests were performed. The Skill Creator Python validator could not start because PyYAML is unavailable; Ruby parsed all skill frontmatter separately. TypeScript compiler checking and plugin-host delivery were not exercised in this patch.
 
 ## PR communication review and v0.1.5 release · 2026-11-26
 

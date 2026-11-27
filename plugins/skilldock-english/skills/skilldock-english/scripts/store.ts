@@ -13,6 +13,8 @@ export type Snapshot = {
 export type Document = Snapshot & { history: Snapshot[]; audio: Audio[] };
 export type State = { schemaVersion: 1; revision: number; documents: Record<string, Document> };
 export type Bundle = { format: 'english-learning-v1'; state: State; audio: Record<string, string> };
+export const MAX_ARCHIVE_BYTES = 40_000_000;
+export const MAX_AUDIO_BASE64_LENGTH = 32_000_000;
 export const hash = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');
 export function validateWav(bytes: Buffer) {
   requireValue(bytes.length > 44 && bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WAVE', 'Invalid WAV header');
@@ -181,7 +183,7 @@ export async function importBundle(root: string, input: Record<string, unknown>)
   const files = new Map<string, Buffer>();
   for (const [filename, encoded] of Object.entries(b.audio)) {
     requireValue(/^[a-f0-9]{64}\.wav$/.test(filename), 'Invalid archive audio filename');
-    const bytes = Buffer.from(text(encoded, 'audio base64', 32_000_000), 'base64');
+    const bytes = Buffer.from(text(encoded, 'audio base64', MAX_AUDIO_BASE64_LENGTH), 'base64');
     requireValue(hash(bytes) + '.wav' === filename, 'Invalid archive audio/checksum');
     validateWav(bytes);
     files.set(filename, bytes);

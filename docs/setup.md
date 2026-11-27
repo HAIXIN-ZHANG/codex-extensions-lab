@@ -2,6 +2,8 @@
 
 The collection is named SkillDock. Use the [current names and migration table](naming.md); old unprefixed invocation names are retired only when you explicitly migrate their installed folders.
 
+The optional [property research CLI](../perth-property-intelligence/README.md) runs from this checkout with Node.js 24. Supply explicit private database and input paths. Its source and tests are versioned here; keep research records and financial inputs in private storage such as `CODEX_HOME/extension-data/property-opportunity-search`.
+
 Clone this repository to work on the extensions:
 
 ```sh
@@ -16,6 +18,8 @@ With Node.js 24+, preview installation with `node scripts/install-skills.ts --dr
 Alternatively, ask the host's skill installer to install a skill from this repository and its path. English is at `plugins/skilldock-english/skills/skilldock-english`, Update at `plugins/skilldock-updates/skills/skilldock-update`, and the other task skills at `skills/<name>`. Without Node, copy only the desired whole skill folder to a supported discovery path, preserving any existing version; the Update checker and English helpers still require Node.js 24+. Start a new chat or restart the client if necessary and invoke it by name. Installation does not make the current chat know the updated skill instructions until it reloads them.
 
 For an update preview, use `node scripts/install-skills.ts --update --dry-run`. Concurrent mutating installers are rejected with a sibling `<destination>.install-lock`; if a process dies leaving this directory, first verify that no installer is active before manual recovery. Staging and backups are outside the skill discovery directory. This protects cooperating local installs, not synchronized multi-device updates.
+
+Older copied skills may be reported as `unmanaged` because they lack installation receipts. Review local differences before registering a baseline through the source installer. See [existing-installation migration](updates.md#existing-installations-without-receipts) for selected-name previews, backups and later protected updates.
 
 For the v0.1.2 naming migration, add `--migrate-legacy`: preview with `node scripts/install-skills.ts --update --migrate-legacy --dry-run`, then run without `--dry-run`. Existing legacy folders move to backups after new skills install; their private configuration/data paths remain unchanged. This flag is opt-in so normal installations do not retire similarly named local skills unexpectedly.
 

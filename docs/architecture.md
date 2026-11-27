@@ -35,6 +35,7 @@ The host supplies the language model, web access and account permissions. Skills
 | `.agents/plugins/marketplace.json` | Local plugin discovery catalog | Yes |
 | `scripts/catalog.ts` | Canonical installation catalog | Yes |
 | `scripts/install-skills.ts` | Preview/install/update with backups and installation receipts | Yes |
+| `perth-property-intelligence/` | Optional local research CLI, fictional examples and tests | Yes |
 | `plugins/skilldock-updates` | Canonical Update skill and optional session-start checker plugin | Yes |
 | `updates/manifest.json` | Published per-skill content hashes and suite version | Yes |
 | `<destination>.skilldock-state` | Installation baselines and receipt history | No |
@@ -50,10 +51,12 @@ The host supplies the language model, web access and account permissions. Skills
 
 - `store.ts` validates state, locks local writes, checks expected revision, retains document history and performs atomic replacement. It rejects conflicting imports rather than resolving by timestamps. A substantive Markdown revision resets default reading status; an explicit status may reflect known user feedback.
 - `audio.ts` uses an installed macOS Australian voice, validates nonempty PCM WAV, checks content identity and caches voice/rate variants. It does not download engines or call a paid provider.
-- `learning.ts` exposes commands and readable/portable export. Selected exports load media only for selected lessons. JSON archives include those lessons' histories; Markdown/HTML expose current text. HTML escapes lesson content and embeds generated audio, without executing imported markup.
+- `learning.ts` exposes commands and readable/portable export. Selected exports load media only for selected lessons. Export validates total JSON byte size and each audio base64 length against shared import limits before creating files. JSON archives include those lessons' histories; Markdown/HTML expose current text. HTML escapes lesson content and embeds generated audio, without executing imported markup.
 - `install-skills.ts` uses a sibling install lock and backs up differing folders outside the discovery tree. Replacement is recoverable per skill, not a transaction across the selected skills. Staged files live outside the discovery directory to avoid transient duplicate skills.
 
 ## Portability and evolution
+
+The optional property CLI stores manually imported observations in an append-only SQLite database. It rejects stale observations within a transaction and retains raw imported JSON. Its cost model sums only supplied inputs. It accepts explicit database and input paths; keep live data under private storage such as `CODEX_HOME/extension-data/property-opportunity-search`. Runtime data, database and report directories under the public helper are ignored by Git. This helper is separate from installed skills and runs on demand.
 
 Manual export/import works without sharing model accounts. Public English plugin `learning-records/` Markdown is a separate, opt-in path for sharing curated notes through Git; it is not the helper archive and is not imported or synchronized automatically. Pull a current base, inspect concurrent edits and resolve conflicts explicitly before publishing. Neither approach automatically relays phone changes or synchronizes live folders. A future remote access layer should reuse the data rules and add explicit identity, authorization and conflict semantics; plugin packaging alone cannot provide that.
 
@@ -63,7 +66,7 @@ No TypeScript compiler, package dependency resolver or backend has been added. C
 
 The optional update plugin performs bounded, cached public GitHub checks; its hook never installs skills. The Update workflow offers review, then uses a pinned checkout and receipt-protected installation after consent. Receipt writes share the installer lock; the check cache has its own lock. Task skills remain independently usable. See [update design and release procedure](updates.md).
 
-The local `scripts/message-links.ts` formatter and validator use only Node built-ins. They check reference lines and the selected compact PR format in supplied artifacts. Global chat-output interception is supplied by the host and is not configured here. Writing preferences live outside the public source under `extension-profiles/writing.md`.
+The local `scripts/message-links.ts` formatter and validator use only Node built-ins. They check reference lines and the selected compact PR format in supplied artifacts, with shared fenced-code exclusion for link and structure checks. HTTP method/path expressions remain prose, while other resource references are checked. Global chat-output interception is supplied by the host and is not configured here. Writing preferences live outside the public source under `extension-profiles/writing.md`.
 
 If a skill replacement succeeds but its receipt cannot be saved, the installer restores the previous managed directory before returning the failure. A protected retry can then validate the same baseline. This recovery handles reported write failures, while process termination still requires inspecting backups and receipts.
 

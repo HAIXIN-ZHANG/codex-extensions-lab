@@ -42,7 +42,14 @@ export async function plan(destination: string, manifest: Manifest, host: 'codex
     try { await lstat(target); } catch (err) { if ((err as NodeJS.ErrnoException).code === 'ENOENT') continue; throw err; }
     const hash = await hashTree(target), receipt = receipts[e.name];
     const status = !receipt ? 'unmanaged' : hash !== receipt.hash ? 'local-changes' : hash === (e.artifacts?.[host] ?? e.hash) ? 'current' : newer(manifest.version, receipt.version) ? 'update' : 'not-newer';
-    entries.push({ name: e.name, status, installedVersion: receipt?.version ?? null, latestVersion: manifest.version });
+    entries.push({
+      name: e.name, status, installedVersion: receipt?.version ?? null, latestVersion: manifest.version,
+      ...(status === 'unmanaged' ? {
+        guidance: 'No installation receipt exists. Review local differences against the selected release, ' +
+          'then explicitly migrate through the source installer with --update. Identical files receive a baseline receipt; ' +
+          'differing files are backed up before replacement.',
+      } : {}),
+    });
   }
   return entries;
 }

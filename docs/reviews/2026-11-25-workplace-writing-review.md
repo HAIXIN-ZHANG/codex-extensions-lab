@@ -1,5 +1,11 @@
 # Workplace skill source review · 2026-11-25
 
+## Regression follow-up · 2026-11-26
+
+Source self-review reproduced two writing-helper false positives and checked their fixes. Plain HTTP method/path descriptions now pass, and a resource title containing an endpoint remains valid. Fenced Markdown headings and image samples are excluded from PR structure and screenshot-evidence checks. Actual references and headings after a closing fence remain checked. The selected compact format remains the scope of `check-pr`; other repository templates use their own checks.
+
+The same patch preflights English archive limits, adds unmanaged-installation migration guidance, and updates release metadata to 0.1.6. All 41 helper tests and repository checks passed. The additional migration scenario is prepared for model evaluation. See [validation details](../validation.md#export-and-writing-regression-fixes--2026-11-26--v016).
+
 Reviewed the pending writing-skill changes against the current remote main branch, including discovery metadata, reference examples, installation catalog, generated manifest, documentation and behavioral fixtures. Also reviewed the existing work-oriented entrypoints and the workplace English reference.
 
 ## Results

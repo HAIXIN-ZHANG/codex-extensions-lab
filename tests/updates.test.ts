@@ -48,7 +48,11 @@ test('local edits, missing receipts and older releases are never eligible', asyn
   await writeFile(join(f.dest, 'skilldock-polish/SKILL.md'), 'local edit');
   assert.equal((await plan(f.dest, f.manifest))[0].status, 'local-changes');
   await atomicJSON(f.dest + '.skilldock-state/receipts.json', {});
-  assert.equal((await plan(f.dest, f.manifest))[0].status, 'unmanaged');
+  const unmanaged = (await plan(f.dest, f.manifest))[0];
+  assert.equal(unmanaged.status, 'unmanaged');
+  assert.match(unmanaged.guidance!, /No installation receipt.*Review local differences.*explicitly migrate/);
+  assert.equal(await readFile(join(f.dest, 'skilldock-polish/SKILL.md'), 'utf8'), 'local edit');
+  assert.deepEqual(await readReceipts(f.dest), {});
 });
 test('installer rejects edits after preview and preserves baseline history', async () => {
   const f = await fixture();
